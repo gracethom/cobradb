@@ -182,7 +182,7 @@ SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `cobra`.`pen_pals_dim` (
   `id_pen_pals_dim` INT NOT NULL AUTO_INCREMENT,
   `column_title` VARCHAR(45) NULL,
-  `penpals_desc` VARCHAR(255) NULL, —-description
+  `penpals_desc` VARCHAR(255) NULL,
   PRIMARY KEY (`id_pen_pals_dim`))
 ENGINE = InnoDB;
 
@@ -197,7 +197,7 @@ SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `cobra`.`traces_dim` (
   `id_traces_dim` INT NOT NULL AUTO_INCREMENT,
   `traces_col_title` VARCHAR(45) NULL,
-  `traces_desc` VARCHAR(255) NULL, —-description
+  `traces_desc` VARCHAR(255) NULL, 
   PRIMARY KEY (`id_traces_dim`))
 ENGINE = InnoDB;
 
@@ -320,7 +320,7 @@ SHOW WARNINGS;
 
 -- -----------------------------------------------------
 -- Table `cobra`.`source_of_source_dim`
-—- Not sure how this should be connected
+-- Not sure how this should be connected
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `cobra`.`source_of_source_dim` ;
 
