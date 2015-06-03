@@ -236,6 +236,7 @@ CREATE TABLE IF NOT EXISTS `cobra`.`source_dim` (
   `pub_date` VARCHAR(45) NULL,
   `issue_number` VARCHAR(45) NULL,
   `series_name` VARCHAR(45) NULL,
+  `page_num` INT,
   `id_source_of_source` INT,
   PRIMARY KEY (`id_source_dim`),
   CONSTRAINT `fk_source_dim`
