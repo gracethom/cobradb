@@ -204,6 +204,26 @@ ENGINE = InnoDB;
 SHOW WARNINGS;
 
 -- -----------------------------------------------------
+-- Table `cobra`.`source_of_source_dim`
+-- Not sure how this should be connected
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `cobra`.`source_of_source` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `cobra`.`source_of_source` (
+  `id_source_of_source` INT NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id_source_of_source`))
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
 -- Table `cobra`.`source_dim`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `cobra`.`source_dim` ;
@@ -216,7 +236,13 @@ CREATE TABLE IF NOT EXISTS `cobra`.`source_dim` (
   `pub_date` VARCHAR(45) NULL,
   `issue_number` VARCHAR(45) NULL,
   `series_name` VARCHAR(45) NULL,
-  PRIMARY KEY (`id_source_dim`))
+  `id_source_of_source` INT,
+  PRIMARY KEY (`id_source_dim`),
+  CONSTRAINT `fk_source_dim`
+    FOREIGN KEY (`id_source_of_source`)
+    REFERENCES `cobra`.`source_of_source` (`id_source_of_source`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 SHOW WARNINGS;
@@ -317,24 +343,6 @@ CREATE TABLE IF NOT EXISTS `cobra`.`activity_fact` (
 ENGINE = InnoDB;
 
 SHOW WARNINGS;
-
--- -----------------------------------------------------
--- Table `cobra`.`source_of_source_dim`
--- Not sure how this should be connected
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `cobra`.`source_of_source_dim` ;
-
-SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `cobra`.`source_of_source_dim` (
-  `id_source_of_source_dim` INT NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`id_source_of_source_dim`))
-ENGINE = InnoDB;
-
-SHOW WARNINGS;
-
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 -- -----------------------------------------------------
 -- Insert statements
