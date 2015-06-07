@@ -6,17 +6,17 @@ config.php —- contains configuration settings for the CoBRA SQL database
 
 allprocess.php —- contains all input scripts to grab the value inputted in the interface form and insert that value into the database fields to create records. These are split based on activity type…
 
-process1.php, process2.php, etc —- currently, the letter and review processes are live in these documents
+processLetter.php, processReview.php, etc —- currently, the letter and review processes are live in these documents
 
 form_buttons.js —- contains the separate forms which pop up when the data-entry user needs to create a new person or source
 
-getautoname.php and getautosource.php —- documents for the autocomplete person and source fields - contain the code to look up and display possible matches as the user types in the fields. TODO: connect the selected values to their record in the CoBRA database
+getautoname.php, getautoseries.php, and getautoissue.php —- documents for the autocomplete person and source fields - contain the code to look up and display possible matches as the user types in the fields. TODO: connect the selected values to their record in the CoBRA database
 
 ind_forms folder contains separate interface forms for each activity type. These have been incorporated in the index.php file, so shouldn’t be necessary, but keeping for now.
 
 
 
-Last updated: 5/25/2015, Grace Thomas
+Last updated: 6/7/2015, Grace Thomas
 
 
 
