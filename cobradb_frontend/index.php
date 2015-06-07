@@ -34,7 +34,7 @@
         <script type="text/javascript">
             $(document).ready(function() {
              $("#dropdown").change(function() {
-            $(".div").hide();
+            $(".hidden").hide();
             $("#" + $(this).val()).show();
               });
             });
@@ -44,7 +44,7 @@
          <!-- link to form_buttons.js and hide divs until buttons clicked -->
         <script type="text/javascript" src="form_buttons.js"></script>
         <style type="text/css">
-            .div { display: none; }
+            .hidden { display: none; }
         </style>
         
    </head>
@@ -56,15 +56,15 @@
 
 <select id='dropdown'>
     <option> </option>
-    <option value="div1">Letter</option>
-    <option value="div2">Review</option>
-    <option value="div3">Contest</option>
-    <option value="div4">Fan Club</option>
-    <option value="div5">Meeting</option>
-    <option value="div6">Editorial</option>
-    <option value="div7">Classified</option>
-    <option value="div8">Pen Pals</option>
-    <option value="div9">Traces</option>
+    <option value="letterForm">Letter</option>
+    <option value="reviewForm">Review</option>
+    <option value="contestForm">Contest</option>
+    <option value="clubForm">Fan Club</option>
+    <option value="meetingForm">Meeting</option>
+    <option value="editorialForm">Editorial</option>
+    <option value="classifiedsForm">Classifieds</option>
+    <option value="penPalsForm">Pen Pals</option>
+    <option value="tracesForm">Traces</option>
 </select>
 
 <br /><br />
@@ -72,7 +72,7 @@
 
 <!-- The new person form, brough up if the user clicks "Create New Person" button instead of selecting an existing person -->
 <!-- Located here to make it "global" and "reusable" ?? TODO in form_buttons.js file -->
-<div class='div person_form'>
+<div class='hidden personForm'>
 <h3>Person information</h3>
 <p>Surname <input type="text" name="surname" /></p>
 <p>Forename <input type="text" name="forename" /></p>
@@ -102,9 +102,9 @@
 <!-- The new source form, brough up if the user clicks "Create New Source" button instead of selecting an existing source -->
 <!-- Located here to make it "global" and "reusable" ?? TODO -->
 
-<div class='div source_form'>
+<div class='hidden sourceForm'>
 <h3>Source</h3>
-<p>Source name <input type="text" name="source_name" /></p>
+<p>Source type <input type="text" name="source_type" /></p>
 <p>GCD Link (or however this will work) <input type="text" name="gcd_link" /></p>
 <p>Date <input type="text" name="date" /></p>
 <p>Issue Number <input type="text" name="issue_num" /></p>
@@ -122,10 +122,10 @@
 
 <!-- Letter form -->
 
-<div class='div' id="div1">
-<form action="process1.php" method="post" />
+<div class='hidden' id="letterForm">
+<form action="processLetter.php" method="post" />
 
-<div class="person_prompt">
+<div class="personPrompt">
 <h3>Select a person</h3>
 <form method="post" action="">
              Name : <input type="text" id="autoname" name="name" />
@@ -134,7 +134,7 @@
 Create New Person</button></p>
 </div>
 
-<div class="source_prompt">
+<div class="sourcePrompt">
 <h3>Select a source</h3>
 <form method="post" action="">
              Name : <input type="text" id="autosource" name="name" />
@@ -161,10 +161,10 @@ Create New Source</button></p>
 
 <!-- Review form -->
 
-<div class='div' id="div2">
-<form action="process2.php" method="post" />
+<div class='hidden' id="reviewForm">
+<form action="processReview.php" method="post" />
 
-<div id="person_prompt">
+<div id="personPrompt">
 <h3>Select a person</h3>
 <form method="post" action="">
              Name : <input type="text" id="autoname" name="name" />
@@ -173,7 +173,7 @@ Create New Source</button></p>
 Create New Person</button></p>
 </div>
 
-<div id="source_prompt">
+<div id="sourcePrompt">
 <h3>Select a source</h3>
 <!-- TODO write the autofill part here -->
 <p>or <button type="button" class='newSource2' onclick="newSource2()">
@@ -195,17 +195,17 @@ Create New Source</button></p>
 
 <!-- Contest form -->
 
-<div class='div' id="div3">
-<form action="process3.php" method="post" />
+<div class='hidden' id="contestForm">
+<form action="processContest.php" method="post" />
 
-<div class="person_prompt">
+<div class="personPrompt">
 <h3>Select a person</h3>
 <!-- TODO write the autofill part here -->
 <p>or <button type="button" class="newPerson3" onclick="newPerson3()">
 Create New Person</button></p>
 </div>
 
-<div class="source_prompt">
+<div class="sourcePrompt">
 <h3>Select a source</h3>
 <!-- TODO write the autofill part here -->
 <p>or <button type="button" class='newSource3' onclick="newSource3()">
@@ -223,17 +223,17 @@ Create New Source</button></p>
 
 <!-- Fan Club form -->
 
-<div class='div' id="div4">
-<form action="process4.php" method="post" />
+<div class='hidden' id="clubForm">
+<form action="processClub.php" method="post" />
 
-<div class="person_prompt">
+<div class="personPrompt">
 <h3>Select a person</h3>
 <!-- TODO write the autofill part here -->
 <p>or <button type="button" class="newPerson4" onclick="newPerson4()">
 Create New Person</button></p>
 </div>
 
-<div class="source_prompt">
+<div class="sourcePrompt">
 <h3>Select a source</h3>
 <!-- TODO write the autofill part here -->
 <p>or <button type="button" class='newSource4' onclick="newSource4()">
@@ -252,17 +252,17 @@ Create New Source</button></p>
 
 <!-- Meeting form -->
 
-<div class='div' id="div5">
-<form action="process5.php" method="post" />
+<div class='hidden' id="meetingForm">
+<form action="processMeeting.php" method="post" />
 
-<div class="person_prompt">
+<div class="personPrompt">
 <h3>Select a person</h3>
 <!-- TODO write the autofill part here -->
 <p>or <button type="button" class="newPerson5" onclick="newPerson5()">
 Create New Person</button></p>
 </div>
 
-<div class="source_prompt">
+<div class="sourcePrompt">
 <h3>Select a source</h3>
 <!-- TODO write the autofill part here -->
 <p>or <button type="button" class='newSource5' onclick="newSource5()">
@@ -278,17 +278,17 @@ Create New Source</button></p>
 
 <!-- Editorial form -->
 
-<div class='div' id="div6">
-<form action="process6.php" method="post" />
+<div class='hidden' id="editorialForm">
+<form action="processEditorial.php" method="post" />
 
-<div class="person_prompt">
+<div class="personPrompt">
 <h3>Select a person</h3>
 <!-- TODO write the autofill part here -->
 <p>or <button type="button" class="newPerson6" onclick="newPerson6()">
 Create New Person</button></p>
 </div>
 
-<div class="source_prompt">
+<div class="sourcePrompt">
 <h3>Select a source</h3>
 <!-- TODO write the autofill part here -->
 <p>or <button type="button" class='newSource6' onclick="newSource6()">
@@ -304,17 +304,17 @@ Create New Source</button></p>
 
 <!-- Classifieds form -->
 
-<div class='div' id="div7">
-<form action="process7.php" method="post" />
+<div class='hidden' id="classifiedsForm">
+<form action="processClassifieds.php" method="post" />
 
-<div class="person_prompt">
+<div class="personPrompt">
 <h3>Select a person</h3>
 <!-- TODO write the autofill part here -->
 <p>or <button type="button" class="newPerson7" onclick="newPerson7()">
 Create New Person</button></p>
 </div>
 
-<div class="source_prompt">
+<div class="sourcePrompt">
 <h3>Select a source</h3>
 <!-- TODO write the autofill part here -->
 <p>or <button type="button" class='newSource7' onclick="newSource7()">
@@ -330,17 +330,17 @@ Create New Source</button></p>
 
 
 <!-- Pen Pals form -->
-<div class='div' id="div8">
-<form action="process8.php" method="post" />
+<div class='hidden' id="penPalsForm">
+<form action="processPenPals.php" method="post" />
 
-<div class="person_prompt">
+<div class="personPrompt">
 <h3>Select a person</h3>
 <!-- TODO write the autofill part here -->
 <p>or <button type="button" class="newPerson8" onclick="newPerson8()">
 Create New Person</button></p>
 </div>
 
-<div class="source_prompt">
+<div class="sourcePrompt">
 <h3>Select a source</h3>
 <!-- TODO write the autofill part here -->
 <p>or <button type="button" class='newSource8' onclick="newSource8()">
@@ -357,17 +357,17 @@ Create New Source</button></p>
 
 <!-- Traces form -->
 
-<div class='div' id="div9">
-<form action="process9.php" method="post" />
+<div class='hidden' id="tracesForm">
+<form action="processTraces.php" method="post" />
 
-<div class="person_prompt">
+<div class="personPrompt">
 <h3>Select a person</h3>
 <!-- TODO write the autofill part here -->
 <p>or <button type="button" class="newPerson9" onclick="newPerson9()">
 Create New Person</button></p>
 </div>
 
-<div class="source_prompt">
+<div class="sourcePrompt">
 <h3>Select a source</h3>
 <!-- TODO write the autofill part here -->
 <p>or <button type="button" class='newSource9' onclick="newSource9()">

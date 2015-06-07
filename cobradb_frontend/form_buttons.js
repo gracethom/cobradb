@@ -10,8 +10,8 @@
 
 function newPerson() {
     var $b = $('button.newPerson');
-    var $f = $('.person_form');
-    var $p = $('.person_prompt');
+    var $f = $('.personForm');
+    var $p = $('.personPrompt');
     
     $b.click(function () {
         var i = $b.index(this);
@@ -22,8 +22,8 @@ function newPerson() {
 
 function newPerson2() {
     var $b = $('button.newPerson2');
-    var $f = $('.person_form');
-    var $p = $('.person_prompt');
+    var $f = $('.personForm');
+    var $p = $('.personPrompt');
     
     $b.click(function () {
         var i = $b.index(this);
@@ -34,8 +34,8 @@ function newPerson2() {
 
 function newPerson3() {
     var $b = $('button.newPerson3');
-    var $f = $('.person_form');
-    var $p = $('.person_prompt');
+    var $f = $('.personForm');
+    var $p = $('.personPrompt');
     
     $b.click(function () {
         var i = $b.index(this);
@@ -46,8 +46,8 @@ function newPerson3() {
 
 function newPerson4() {
     var $b = $('button.newPerson4');
-    var $f = $('.person_form');
-    var $p = $('.person_prompt');
+    var $f = $('.personForm');
+    var $p = $('.personPrompt');
     
     $b.click(function () {
         var i = $b.index(this);
@@ -58,8 +58,8 @@ function newPerson4() {
 
 function newPerson5() {
     var $b = $('button.newPerson5');
-    var $f = $('.person_form');
-    var $p = $('.person_prompt');
+    var $f = $('.personForm');
+    var $p = $('.personPrompt');
     
     $b.click(function () {
         var i = $b.index(this);
@@ -71,8 +71,8 @@ function newPerson5() {
 
 function newPerson6() {
     var $b = $('button.newPerson6');
-    var $f = $('.person_form');
-    var $p = $('.person_prompt');
+    var $f = $('.personForm');
+    var $p = $('.personPrompt');
     
     $b.click(function () {
         var i = $b.index(this);
@@ -84,8 +84,8 @@ function newPerson6() {
 
 function newPerson7() {
     var $b = $('button.newPerson7');
-    var $f = $('.person_form');
-    var $p = $('.person_prompt');
+    var $f = $('.personForm');
+    var $p = $('.personPrompt');
     
     $b.click(function () {
         var i = $b.index(this);
@@ -97,8 +97,8 @@ function newPerson7() {
 
 function newPerson8() {
     var $b = $('button.newPerson8');
-    var $f = $('.person_form');
-    var $p = $('.person_prompt');
+    var $f = $('.personForm');
+    var $p = $('.personPrompt');
     
     $b.click(function () {
         var i = $b.index(this);
@@ -110,8 +110,8 @@ function newPerson8() {
 
 function newPerson9() {
     var $b = $('button.newPerson9');
-    var $f = $('.person_form');
-    var $p = $('.person_prompt');
+    var $f = $('.personForm');
+    var $p = $('.personPrompt');
     
     $b.click(function () {
         var i = $b.index(this);
@@ -127,8 +127,8 @@ function newPerson9() {
 
 function newSource() {
     var $b = $('button.newSource');
-    var $f = $('.source_form');
-    var $p = $('.source_prompt');
+    var $f = $('.sourceForm');
+    var $p = $('.sourcePrompt');
     
     $b.click(function () {
         var i = $b.index(this);
@@ -139,8 +139,8 @@ function newSource() {
 
 function newSource2() {
     var $b = $('button.newSource2');
-    var $f = $('.source_form');
-    var $p = $('.source_prompt');
+    var $f = $('.sourceForm');
+    var $p = $('.sourcePrompt');
     
     $b.click(function () {
         var i = $b.index(this);
@@ -152,8 +152,8 @@ function newSource2() {
 
 function newSource3() {
     var $b = $('button.newSource3');
-    var $f = $('.source_form');
-    var $p = $('.source_prompt');
+    var $f = $('.sourceForm');
+    var $p = $('.sourcePrompt');
     
     $b.click(function () {
         var i = $b.index(this);
@@ -164,8 +164,8 @@ function newSource3() {
 
 function newSource4() {
     var $b = $('button.newSource4');
-    var $f = $('.source_form');
-    var $p = $('.source_prompt');
+    var $f = $('.sourceForm');
+    var $p = $('.sourcePrompt');
     
     $b.click(function () {
         var i = $b.index(this);
@@ -177,8 +177,8 @@ function newSource4() {
 
 function newSource5() {
     var $b = $('button.newSource5');
-    var $f = $('.source_form');
-    var $p = $('.source_prompt');
+    var $f = $('.sourceForm');
+    var $p = $('.sourcePrompt');
     
     $b.click(function () {
         var i = $b.index(this);
@@ -190,8 +190,8 @@ function newSource5() {
 
 function newSource6() {
     var $b = $('button.newSource6');
-    var $f = $('.source_form');
-    var $p = $('.source_prompt');
+    var $f = $('.sourceForm');
+    var $p = $('.sourcePrompt');
     
     $b.click(function () {
         var i = $b.index(this);
@@ -203,8 +203,8 @@ function newSource6() {
 
 function newSource7() {
     var $b = $('button.newSource7');
-    var $f = $('.source_form');
-    var $p = $('.source_prompt');
+    var $f = $('.sourceForm');
+    var $p = $('.sourcePrompt');
     
     $b.click(function () {
         var i = $b.index(this);
@@ -216,8 +216,8 @@ function newSource7() {
 
 function newSource8() {
     var $b = $('button.newSource8');
-    var $f = $('.source_form');
-    var $p = $('.source_prompt');
+    var $f = $('.sourceForm');
+    var $p = $('.sourcePrompt');
     
     $b.click(function () {
         var i = $b.index(this);
@@ -229,8 +229,8 @@ function newSource8() {
 
 function newSource9() {
     var $b = $('button.newSource9');
-    var $f = $('.source_form');
-    var $p = $('.source_prompt');
+    var $f = $('.sourceForm');
+    var $p = $('.sourcePrompt');
     
     $b.click(function () {
         var i = $b.index(this);

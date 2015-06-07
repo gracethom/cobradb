@@ -65,7 +65,7 @@ $penpals_desc = $_POST['penpals_desc'];
 $traces_column_title = $_POST['traces_column_title'];
 $traces_desc = $_POST['traces_desc'];
 
-$source_name = $_POST['source_name'];
+$source_name = $_POST['source_type'];
 $gcd_link = $_POST['gcd_link'];
 $date = $_POST['date'];
 $issue_num = $_POST['issue_num'];
@@ -77,7 +77,7 @@ $series_name = $_POST['series_name'];
 $blank = NULL;
 
 
-$sql1 = "INSERT INTO person_dim (surname, forename, name_title, name_role, alt_name, birth_year, byear_source, grade, race, ethnicity, sex, gender, occupation, occu_source) VALUES ('$surname','$forename','$pers_title','$role','$alt_name','$birth_year','$byear_source','$grade','$race','$ethnicity','$sex','$gender','$occupation','$occu_source')";
+$sql1 = "INSERT INTO person_dim (surname, forename, pers_title, pers_role, alt_name, birth_year, byear_source, grade, race, ethnicity, sex, gender, occupation, occu_source) VALUES ('$surname','$forename','$pers_title','$role','$alt_name','$birth_year','$byear_source','$grade','$race','$ethnicity','$sex','$gender','$occupation','$occu_source')";
 
 $sql2 = "INSERT INTO location_dim (street, city, state, country, zip_code) VALUES ('$street', '$city', '$state', '$country', '$zipcode')";
 
@@ -106,7 +106,7 @@ $sql10 = "INSERT INTO traces_dim (traces_col_title, traces_desc) VALUES ('$trace
 
 
 
-$sql11 = "INSERT INTO source_dim (source_name, GCD_link, pub_date, issue_number, series_name) VALUES ('$source_name', '$gcd_link', '$date', '$issue_num', '$series_name')";
+$sql11 = "INSERT INTO source_dim (source_type, GCD_link, pub_date, issue_number, series_name) VALUES ('$source_type', '$gcd_link', '$date', '$issue_num', '$series_name')";
 
 
 
