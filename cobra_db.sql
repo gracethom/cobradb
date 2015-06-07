@@ -30,8 +30,8 @@ CREATE TABLE IF NOT EXISTS `cobra`.`person_dim` (
   `person_authority` VARCHAR(45) NULL,
   `surname` VARCHAR(45) NULL,
   `forename` VARCHAR(45) NULL,
-  `name_title` VARCHAR(45) NULL,
-  `name_role` VARCHAR(45) NULL,
+  `pers_title` VARCHAR(45) NULL,
+  `pers_role` VARCHAR(45) NULL,
   `anonymous` BOOL NULL, -- use true or false here?
   `alt_name` VARCHAR(45) NULL, -- if signed with a false name
   `birth_year` VARCHAR(45) NULL,
