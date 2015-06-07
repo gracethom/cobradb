@@ -207,12 +207,12 @@ SHOW WARNINGS;
 -- Table `cobra`.`source_of_source_dim`
 -- Not sure how this should be connected
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `cobra`.`source_of_source` ;
+DROP TABLE IF EXISTS `cobra`.`phys_loc` ;
 
 SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `cobra`.`source_of_source` (
-  `id_source_of_source` INT NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`id_source_of_source`))
+CREATE TABLE IF NOT EXISTS `cobra`.`phys_loc` (
+  `id_phys_loc` INT NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id_phys_loc`))
 ENGINE = InnoDB;
 
 SHOW WARNINGS;
@@ -231,17 +231,17 @@ DROP TABLE IF EXISTS `cobra`.`source_dim` ;
 SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `cobra`.`source_dim` (
   `id_source_dim` INT NOT NULL AUTO_INCREMENT,
-  `source_name` VARCHAR(45) NULL,
+  `source_type` VARCHAR(45) NULL,
   `GCD_link` VARCHAR(45) NULL,
   `pub_date` VARCHAR(45) NULL,
   `issue_number` VARCHAR(45) NULL,
   `series_name` VARCHAR(45) NULL,
   `page_num` INT,
-  `id_source_of_source` INT,
+  `id_phys_loc` INT,
   PRIMARY KEY (`id_source_dim`),
   CONSTRAINT `fk_source_dim`
-    FOREIGN KEY (`id_source_of_source`)
-    REFERENCES `cobra`.`source_of_source` (`id_source_of_source`)
+    FOREIGN KEY (`id_phys_loc`)
+    REFERENCES `cobra`.`phys_loc` (`id_phys_loc`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -350,7 +350,7 @@ SHOW WARNINGS;
 -- -----------------------------------------------------
 
 
-INSERT INTO source_dim (source_name, pub_date, issue_number, series_name) VALUES ('issue', 'March 1962', '1', 'Fantastic 4');
+INSERT INTO source_dim (source_type, pub_date, issue_number, series_name) VALUES ('issue', 'March 1962', '1', 'Fantastic 4');
 INSERT INTO person_dim (surname, forename, gender) VALUES ('Weiss', 'Alan', 'male');
 INSERT INTO location_dim (street, city, state, country) VALUES ('Pardee Place', 'Las Vegas', 'Nevada', 'United States of America');
 INSERT INTO letter_dim (salutation, letter_text, letter_pg_title) VALUES ('Dear Editor', 'hello! this is a letter from Alan Weiss', 'Fantastic 4 Fan Page');
