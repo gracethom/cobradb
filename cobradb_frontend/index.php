@@ -61,7 +61,7 @@
     <option value="contestForm">Contest</option>
     <option value="clubForm">Fan Club</option>
     <option value="meetingForm">Meeting</option>
-    <option value="editorialForm">Editorial</option>
+    <option value="mentionForm">Mention</option>
     <option value="classifiedsForm">Classifieds</option>
     <option value="penPalsForm">Pen Pals</option>
     <option value="tracesForm">Traces</option>
@@ -276,9 +276,9 @@ Create New Source</button></p>
 </div>
 
 
-<!-- Editorial form -->
+<!-- Mention form -->
 
-<div class='hidden' id="editorialForm">
+<div class='hidden' id="mentionForm">
 <form action="processEditorial.php" method="post" />
 
 <div class="personPrompt">
@@ -295,8 +295,10 @@ Create New Person</button></p>
 Create New Source</button></p>
 </div>
 
-<h3>Editorial</h3>
+<h3>Mention</h3>
 <input type="submit" value="Submit" />
+<p>Mention column title <input type="text" name="mention_col_title" /></p>
+<p>Mention column description <input type="text" name="mention_desc" /></p>
 </form>
 </div>
 

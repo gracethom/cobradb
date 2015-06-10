@@ -71,6 +71,10 @@ $date = $_POST['date'];
 $issue_num = $_POST['issue_num'];
 $series_name = $_POST['series_name'];
 
+$mention_col_title = $_POST['mention_col_title'];
+$mention_desc = $_POST['mention_desc'];
+
+
 
 
 
@@ -109,6 +113,7 @@ $sql10 = "INSERT INTO traces_dim (traces_col_title, traces_desc) VALUES ('$trace
 $sql11 = "INSERT INTO source_dim (source_type, GCD_link, pub_date, issue_number, series_name) VALUES ('$source_type', '$gcd_link', '$date', '$issue_num', '$series_name')";
 
 
+$sql12 = $sql11 = "INSERT INTO mention_dim (mention_col_title, mention_desc) VALUES ('$mention_col_title', '$mention_desc')";
 
 
 
@@ -150,6 +155,10 @@ if (!mysql_query($sql10)) {
 }
 
 if (!mysql_query($sql11)) {
+	die('Error: ' . mysql_error());
+}
+
+if (!mysql_query($sql12)) {
 	die('Error: ' . mysql_error());
 }
 
