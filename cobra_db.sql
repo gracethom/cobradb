@@ -148,11 +148,13 @@ SHOW WARNINGS;
 -- -----------------------------------------------------
 -- Table `cobra`.`editorial_dim`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `cobra`.`editorial_dim` ;
+DROP TABLE IF EXISTS `cobra`.`mention_dim` ;
 
 SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `cobra`.`editorial_dim` (
-  `id_editorial_dim` INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `cobra`.`mention_dim` (
+  `id_mention_dim` INT NOT NULL AUTO_INCREMENT,
+  `mention_col_title` VARCHAR(45) NULL,
+  `mention_desc` VARCHAR(45) NULL,
   PRIMARY KEY (`id_editorial_dim`))
 ENGINE = InnoDB;
 
@@ -317,8 +319,8 @@ CREATE TABLE IF NOT EXISTS `cobra`.`activity_fact` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_activity_fact_editorial_dim1`
-    FOREIGN KEY (`fact_editorial`)
-    REFERENCES `cobra`.`editorial_dim` (`id_editorial_dim`)
+    FOREIGN KEY (`fact_mention`)
+    REFERENCES `cobra`.`mention_dim` (`id_mention_dim`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_activity_fact_classified_dim1`
