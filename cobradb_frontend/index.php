@@ -8,20 +8,17 @@
     <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" />
 
     <script>
-        currentIssueArray = [];
+        /* For javascript developer console. Function that outputs the issue information the autocomplete searches through                 (actual call commented below) */
 
-        $(document).ready(function () {
-                $("#autoissue").autocomplete({
-                source: currentIssueArray,
-                minLength: 1
-            });
-        });
+        /*currentIssueArray = [];
 
-        
         getAutoCompleteForIssues = function () {
             $series = $('#autoseries').val();
             $term = $('#autoissue').val();
-            $data = {series: $series, term: $term };
+            $data = {
+                series: $series,
+                term: $term
+            };
             console.log($data);
             $.get('getautoissue.php', $data, function ($result) {
                 console.log($result);
@@ -29,7 +26,7 @@
                 console.log(currentIssueArray);
             });
         }
-
+*/
         $(document).ready(function () {
             $("#autoname").autocomplete({
                 source: 'getautoname.php',
@@ -44,18 +41,31 @@
             });
         });
 
-         $(document).on('focus keyup', '#autoissue', function () {
-            $("#autoissue").autocomplete({
-                source: currentIssueArray,
-                minLength: 1
-            });
+        $(document).ready(function () {
+            $('#autoissue').autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: "getautoissue.php",
+                        dataType: "json",
+                        data: {
+                            term: request.term,
+                            series: $('#autoseries').val()
+                        },
+                        success: function (data) {
+                            response(data);
+                        }
+                    })
+                }
+            })
         });
 
-        $(document).on('focus keyup', '#autoissue', function () {
+
+        /* For javascript developer console. Outputs the issue information the autocomplete searches through */
+        /*$(document).on('focus keyup', '#autoissue', function () {
             if ($('#autoseries').val() != '') {
                 getAutoCompleteForIssues();
             }
-        });
+        });*/
 
         $(document).ready(function () {
             $("#dropdown").change(function () {
@@ -260,7 +270,36 @@
     <div class='hidden' id="reviewForm">
         <form action="processReview.php" method="post" />
 
-        <div id="personPrompt">
+        <div class="personPrompt">
+            <h3>Select a person</h3>
+            <form method="post" action="">
+                Name :
+                <input type="text" id="autoname" name="name" />
+            </form>
+            <p>or
+                <button type="button" class="newPerson" onclick="newPerson()">
+                    Create New Person</button>
+            </p>
+        </div>
+
+        <div class="sourcePrompt">
+            <h3>Select a source</h3>
+            <form method="post" action="">
+                Series Name :
+                <input type="text" id="autoseries" name="name" />
+            </form>
+            <form method="post" action="">
+                Issue :
+                <input type="text" id="autoissue" name="name" />
+            </form>
+            <p>or
+                <button type="button" class='newSource' onclick="newSource()">
+                    Create New Source</button>
+            </p>
+        </div>
+        
+        
+        <!--<div id="personPrompt">
             <h3>Select a person</h3>
             <form method="post" action="">
                 Name :
@@ -274,12 +313,12 @@
 
         <div id="sourcePrompt">
             <h3>Select a source</h3>
-            <!-- TODO write the autofill part here -->
+             TODO write the autofill part here 
             <p>or
                 <button type="button" class='newSource2' onclick="newSource2()">
                     Create New Source</button>
             </p>
-        </div>
+        </div>-->
 
         <h3>Review</h3>
         <p>Title
