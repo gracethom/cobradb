@@ -7,10 +7,10 @@
  $query=mysql_query("SELECT series_name FROM source_dim WHERE series_name LIKE '%".$term."%' GROUP BY series_name");
  $json=array();
  
-    while($source_dim=mysql_fetch_array($query)){
+    while($row=mysql_fetch_array($query)){
          $json[]=array(
-                    'value'=>$source_dim["series_name"],
-                    'label'=>$source_dim["series_name"]
+                    'value'=>$row["series_name"],
+                    'label'=>$row["series_name"]
                         );
     }
  

@@ -15,14 +15,13 @@
 // TODO: include both person_dim AND location_dim in this while loop to display person and location data.........
  
  $json=array();
-    while($person_dim=mysql_fetch_array($query)){
-    while($location_dim=mysql_fetch_array($query)){
+    while($row=mysql_fetch_array($query)){
          $json[]=array(
-                    'value'=>$person_dim["surname"].", ".$person_dim["forename"].", ".$location_dim["city"].", ".$location_dim["state"].", ".$location_dim["country"],
-                    'label'=>$person_dim["surname"].", ".$person_dim["forename"].", ".$location_dim["city"].", ".$location_dim["state"].", ".$location_dim["country"]
+                    'value'=>$row["surname"].", ".$row["forename"].", ".$row["city"].", ".$row["state"].", ".$row["country"],
+                    'label'=>$row["surname"].", ".$row["forename"].", ".$row["city"].", ".$row["state"].", ".$row["country"]
                         );
     
- }   
+   
 }
  
  echo json_encode($json);
