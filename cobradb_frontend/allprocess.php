@@ -67,9 +67,10 @@ $traces_desc = $_POST['traces_desc'];
 
 $source_name = $_POST['source_type'];
 $gcd_link = $_POST['gcd_link'];
-$date = $_POST['date'];
-$issue_num = $_POST['issue_num'];
 $series_name = $_POST['series_name'];
+$issue_num = $_POST['issue_num'];
+$date = $_POST['date'];
+$page_num = $_POST['page_num'];
 
 $mention_col_title = $_POST['mention_col_title'];
 $mention_desc = $_POST['mention_desc'];
@@ -110,10 +111,10 @@ $sql10 = "INSERT INTO traces_dim (traces_col_title, traces_desc) VALUES ('$trace
 
 
 
-$sql11 = "INSERT INTO source_dim (source_type, GCD_link, pub_date, issue_number, series_name) VALUES ('$source_type', '$gcd_link', '$date', '$issue_num', '$series_name')";
+$sql11 = "INSERT INTO source_dim (source_type, GCD_link, series_name, issue_number, pub_date, page_num) VALUES ('$source_type', '$gcd_link', '$series_name', '$issue_num', '$date', '$page_num')";
 
 
-$sql12 = $sql11 = "INSERT INTO mention_dim (mention_col_title, mention_desc) VALUES ('$mention_col_title', '$mention_desc')";
+$sql12 = "INSERT INTO mention_dim (mention_col_title, mention_desc) VALUES ('$mention_col_title', '$mention_desc')";
 
 
 

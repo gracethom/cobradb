@@ -192,15 +192,19 @@
         <p>GCD Link (or however this will work)
             <input type="text" name="gcd_link" />
         </p>
-        <p>Date
-            <input type="text" name="date" />
+        <p>Series Name
+            <input type="text" name="series_name" />
         </p>
         <p>Issue Number
             <input type="text" name="issue_num" />
         </p>
-        <p>Series Name
-            <input type="text" name="series_name" />
+        <p>Date
+            <input type="text" name="date" />
         </p>
+        <p>Page Number
+            <input type="text" name="page_num" />
+        </p>
+        
     </div>
 
 

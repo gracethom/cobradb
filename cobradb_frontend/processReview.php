@@ -41,9 +41,12 @@ $review_text = $_POST['review_text'];
 
 $source_name = $_POST['source_type'];
 $gcd_link = $_POST['gcd_link'];
-$date = $_POST['date'];
-$issue_num = $_POST['issue_num'];
 $series_name = $_POST['series_name'];
+$issue_num = $_POST['issue_num'];
+$date = $_POST['date'];
+$page_num = $_POST['page_num'];
+
+
 
 
 
@@ -56,7 +59,7 @@ $sql2 = "INSERT INTO location_dim (street, city, state, country, zip_code) VALUE
 $sql4 = "INSERT INTO review_dim (review_title, review_text) VALUES ('$review_title', '$review_text')";
 
 
-$sql11 = "INSERT INTO source_dim (source_type, GCD_link, pub_date, issue_number, series_name) VALUES ('$source_type', '$gcd_link', '$date', '$issue_num', '$series_name')";
+$sql11 = "INSERT INTO source_dim (source_type, GCD_link, series_name, issue_number, pub_date, page_num) VALUES ('$source_type', '$gcd_link', '$series_name', '$issue_num', '$date', '$page_num')";
 
 
 
