@@ -225,7 +225,7 @@
             <h3>Select a person</h3>
             <form method="post" action="">
                 Name :
-                <input type="text" id="autoname" name="name" />
+                <input type="text" class="autoname" name="name" />
             </form>
             <p>or
                 <button type="button" class="newPerson" onclick="newPerson()">
@@ -237,11 +237,11 @@
             <h3>Select a source</h3>
             <form method="post" action="">
                 Series Name :
-                <input type="text" id="autoseries" name="name" />
+                <input type="text" class="autoseries" name="name" />
             </form>
             <form method="post" action="">
                 Issue :
-                <input type="text" id="autoissue" name="name" />
+                <input type="text" class="autoissue" name="name" />
             </form>
             <p>or
                 <button type="button" class='newSource' onclick="newSource()">
@@ -284,7 +284,7 @@
             <h3>Select a person</h3>
             <form method="post" action="">
                 Name :
-                <input type="text" id="autoname" name="name" />
+                <input type="text" class="autoname" name="name" />
             </form>
             <p>or
                 <button type="button" class="newPerson" onclick="newPerson()">
@@ -296,39 +296,17 @@
             <h3>Select a source</h3>
             <form method="post" action="">
                 Series Name :
-                <input type="text" id="autoseries" name="name" />
+                <input type="text" class="autoseries" name="name" />
             </form>
             <form method="post" action="">
                 Issue :
-                <input type="text" id="autoissue" name="name" />
+                <input type="text" class="autoissue" name="name" />
             </form>
             <p>or
                 <button type="button" class='newSource' onclick="newSource()">
                     Create New Source</button>
             </p>
         </div>
-        
-        
-        <!--<div id="personPrompt">
-            <h3>Select a person</h3>
-            <form method="post" action="">
-                Name :
-                <input type="text" id="autoname" name="name" />
-            </form>
-            <p>or
-                <button type="button" class="newPerson2" onclick="newPerson2()">
-                    Create New Person</button>
-            </p>
-        </div>
-
-        <div id="sourcePrompt">
-            <h3>Select a source</h3>
-             TODO write the autofill part here 
-            <p>or
-                <button type="button" class='newSource2' onclick="newSource2()">
-                    Create New Source</button>
-            </p>
-        </div>-->
 
         <h3>Review</h3>
         <p>Title
@@ -354,18 +332,28 @@
 
         <div class="personPrompt">
             <h3>Select a person</h3>
-            <!-- TODO write the autofill part here -->
+            <form method="post" action="">
+                Name :
+                <input type="text" class="autoname" name="name" />
+            </form>
             <p>or
-                <button type="button" class="newPerson3" onclick="newPerson3()">
+                <button type="button" class="newPerson" onclick="newPerson()">
                     Create New Person</button>
             </p>
         </div>
 
         <div class="sourcePrompt">
             <h3>Select a source</h3>
-            <!-- TODO write the autofill part here -->
+            <form method="post" action="">
+                Series Name :
+                <input type="text" class="autoseries" name="name" />
+            </form>
+            <form method="post" action="">
+                Issue :
+                <input type="text" class="autoissue" name="name" />
+            </form>
             <p>or
-                <button type="button" class='newSource3' onclick="newSource3()">
+                <button type="button" class='newSource' onclick="newSource()">
                     Create New Source</button>
             </p>
         </div>
@@ -392,18 +380,28 @@
 
         <div class="personPrompt">
             <h3>Select a person</h3>
-            <!-- TODO write the autofill part here -->
+            <form method="post" action="">
+                Name :
+                <input type="text" class="autoname" name="name" />
+            </form>
             <p>or
-                <button type="button" class="newPerson4" onclick="newPerson4()">
+                <button type="button" class="newPerson" onclick="newPerson()">
                     Create New Person</button>
             </p>
         </div>
 
         <div class="sourcePrompt">
             <h3>Select a source</h3>
-            <!-- TODO write the autofill part here -->
+            <form method="post" action="">
+                Series Name :
+                <input type="text" class="autoseries" name="name" />
+            </form>
+            <form method="post" action="">
+                Issue :
+                <input type="text" class="autoissue" name="name" />
+            </form>
             <p>or
-                <button type="button" class='newSource4' onclick="newSource4()">
+                <button type="button" class='newSource' onclick="newSource()">
                     Create New Source</button>
             </p>
         </div>
@@ -431,18 +429,28 @@
 
         <div class="personPrompt">
             <h3>Select a person</h3>
-            <!-- TODO write the autofill part here -->
+            <form method="post" action="">
+                Name :
+                <input type="text" class="autoname" name="name" />
+            </form>
             <p>or
-                <button type="button" class="newPerson5" onclick="newPerson5()">
+                <button type="button" class="newPerson" onclick="newPerson()">
                     Create New Person</button>
             </p>
         </div>
 
         <div class="sourcePrompt">
             <h3>Select a source</h3>
-            <!-- TODO write the autofill part here -->
+            <form method="post" action="">
+                Series Name :
+                <input type="text" class="autoseries" name="name" />
+            </form>
+            <form method="post" action="">
+                Issue :
+                <input type="text" class="autoissue" name="name" />
+            </form>
             <p>or
-                <button type="button" class='newSource5' onclick="newSource5()">
+                <button type="button" class='newSource' onclick="newSource()">
                     Create New Source</button>
             </p>
         </div>
@@ -463,18 +471,28 @@
 
         <div class="personPrompt">
             <h3>Select a person</h3>
-            <!-- TODO write the autofill part here -->
+            <form method="post" action="">
+                Name :
+                <input type="text" class="autoname" name="name" />
+            </form>
             <p>or
-                <button type="button" class="newPerson6" onclick="newPerson6()">
+                <button type="button" class="newPerson" onclick="newPerson()">
                     Create New Person</button>
             </p>
         </div>
 
         <div class="sourcePrompt">
             <h3>Select a source</h3>
-            <!-- TODO write the autofill part here -->
+            <form method="post" action="">
+                Series Name :
+                <input type="text" class="autoseries" name="name" />
+            </form>
+            <form method="post" action="">
+                Issue :
+                <input type="text" class="autoissue" name="name" />
+            </form>
             <p>or
-                <button type="button" class='newSource6' onclick="newSource6()">
+                <button type="button" class='newSource' onclick="newSource()">
                     Create New Source</button>
             </p>
         </div>
@@ -499,18 +517,28 @@
 
         <div class="personPrompt">
             <h3>Select a person</h3>
-            <!-- TODO write the autofill part here -->
+            <form method="post" action="">
+                Name :
+                <input type="text" class="autoname" name="name" />
+            </form>
             <p>or
-                <button type="button" class="newPerson7" onclick="newPerson7()">
+                <button type="button" class="newPerson" onclick="newPerson()">
                     Create New Person</button>
             </p>
         </div>
 
         <div class="sourcePrompt">
             <h3>Select a source</h3>
-            <!-- TODO write the autofill part here -->
+            <form method="post" action="">
+                Series Name :
+                <input type="text" class="autoseries" name="name" />
+            </form>
+            <form method="post" action="">
+                Issue :
+                <input type="text" class="autoissue" name="name" />
+            </form>
             <p>or
-                <button type="button" class='newSource7' onclick="newSource7()">
+                <button type="button" class='newSource' onclick="newSource()">
                     Create New Source</button>
             </p>
         </div>
@@ -533,18 +561,28 @@
 
         <div class="personPrompt">
             <h3>Select a person</h3>
-            <!-- TODO write the autofill part here -->
+            <form method="post" action="">
+                Name :
+                <input type="text" class="autoname" name="name" />
+            </form>
             <p>or
-                <button type="button" class="newPerson8" onclick="newPerson8()">
+                <button type="button" class="newPerson" onclick="newPerson()">
                     Create New Person</button>
             </p>
         </div>
 
         <div class="sourcePrompt">
             <h3>Select a source</h3>
-            <!-- TODO write the autofill part here -->
+            <form method="post" action="">
+                Series Name :
+                <input type="text" class="autoseries" name="name" />
+            </form>
+            <form method="post" action="">
+                Issue :
+                <input type="text" class="autoissue" name="name" />
+            </form>
             <p>or
-                <button type="button" class='newSource8' onclick="newSource8()">
+                <button type="button" class='newSource' onclick="newSource()">
                     Create New Source</button>
             </p>
         </div>
@@ -568,18 +606,28 @@
 
         <div class="personPrompt">
             <h3>Select a person</h3>
-            <!-- TODO write the autofill part here -->
+            <form method="post" action="">
+                Name :
+                <input type="text" class="autoname" name="name" />
+            </form>
             <p>or
-                <button type="button" class="newPerson9" onclick="newPerson9()">
+                <button type="button" class="newPerson" onclick="newPerson()">
                     Create New Person</button>
             </p>
         </div>
 
         <div class="sourcePrompt">
             <h3>Select a source</h3>
-            <!-- TODO write the autofill part here -->
+            <form method="post" action="">
+                Series Name :
+                <input type="text" class="autoseries" name="name" />
+            </form>
+            <form method="post" action="">
+                Issue :
+                <input type="text" class="autoissue" name="name" />
+            </form>
             <p>or
-                <button type="button" class='newSource9' onclick="newSource9()">
+                <button type="button" class='newSource' onclick="newSource()">
                     Create New Source</button>
             </p>
         </div>
