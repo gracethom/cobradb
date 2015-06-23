@@ -10,7 +10,7 @@
     <script>
         /* For javascript developer console. Function that outputs the issue information the autocomplete searches through                 (actual call commented below) */
 
-        /*currentIssueArray = [];
+        currentIssueArray = [];
 
         getAutoCompleteForIssues = function () {
             $series = $('#autoseries').val();
@@ -26,13 +26,19 @@
                 console.log(currentIssueArray);
             });
         }
-*/
+
         $(document).ready(function () {
             $("#autoname").autocomplete({
                 source: 'getautoname.php',
                 minLength: 1
             });
         });
+        
+        $(document).on('keyup', '#autoname', function(){
+                $.get('getautoname.php?term=' + $(this).val(), function($res){
+                    console.log($res);
+                });
+            });
 
         $(document).ready(function () {
             $("#autoseries").autocomplete({
@@ -61,11 +67,11 @@
 
 
         /* For javascript developer console. Outputs the issue information the autocomplete searches through */
-        /*$(document).on('focus keyup', '#autoissue', function () {
+        $(document).on('focus keyup', '#autoissue', function () {
             if ($('#autoseries').val() != '') {
                 getAutoCompleteForIssues();
             }
-        });*/
+        });
 
         $(document).ready(function () {
             $("#dropdown").change(function () {

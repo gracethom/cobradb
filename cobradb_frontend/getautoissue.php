@@ -5,7 +5,7 @@
  $term=$_GET["term"];
  $series=$_GET["series"];
  
- //TODO: change "Fantasic 4" to whatever value was entered in series name field
+
  $query=mysql_query("SELECT pub_date, issue_number, series_name FROM source_dim WHERE series_name='".$series."'");
  $json=array();
  
