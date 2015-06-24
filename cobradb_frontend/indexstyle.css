@@ -1,0 +1,102 @@
+body {
+    margin: 3em;
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 1.1em;
+}
+
+form {
+    margin-bottom: 0;
+}
+
+td {
+    padding: 10px;
+}
+
+#dropdown {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -webkit-padding-end: 20px;
+    -moz-padding-end: 20px;
+    -webkit-padding-start: 2px;
+    -moz-padding-start: 2px;
+    /*background-color: #F07575;  fallback color if gradients are not supported */
+    
+    background-image: url("arrow.png") no-repeat right #ddd;
+    ;
+    /* background-position: center right;
+    background-repeat: no-repeat;*/
+    
+    border: 1px solid #D3D3D3;
+    border-radius: 2px;
+    /*box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);*/
+    
+    background-color: white;
+    font-size: inherit;
+    overflow: hidden;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+select option {
+    font-size: 2em;
+}
+
+table {
+    display: block;
+    margin: 40px auto;
+    border: 1px solid #E0E0E0;
+    border-radius: 3px;
+    padding: 10px;
+}
+
+tr:nth-child(even) {
+    background-color: #FaFaFa;
+}
+
+textarea {
+    -webkit-appearance: textfield;
+    border-radius: 3px;
+    border: 2px inset;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+}
+
+input {
+    border-radius: 3px;
+    width: 100%;
+}
+
+#submit {
+    -webkit-appearance: button;
+    display: block;
+    margin: 0 auto;
+    width: 100px;
+    position: right;
+    background-color: white;
+    border: 1px outset buttonface;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+}
+
+#selectActivity {
+    border: none;
+    margin-bottom: none;
+}
+
+.left style {
+    width: 300px;
+}
+
+.ui-autocomplete .ui-menu-item {
+    font-size: .65em;
+}
