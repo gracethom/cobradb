@@ -4,13 +4,13 @@
  
  $term=$_GET["term"];
  
- $query=mysql_query("SELECT series_name FROM source_dim WHERE series_name LIKE '%".$term."%' GROUP BY series_name");
+ $query=mysql_query("SELECT series_title FROM source_dim WHERE series_title LIKE '%".$term."%' GROUP BY series_title");
  $json=array();
  
     while($row=mysql_fetch_array($query)){
          $json[]=array(
-                    'value'=>$row["series_name"],
-                    'label'=>$row["series_name"]
+                    'value'=>$row["series_title"],
+                    'label'=>$row["series_title"]
                         );
     }
  

@@ -186,8 +186,8 @@
                 <td style="width: 400px"><input type="text" name="source_type" /></td></tr>
             <tr><td style="width: 150px">GCD Link</td>
                 <td style="width: 400px"><input type="text" name="gcd_link" /></td></tr>
-            <tr><td style="width: 150px">Series Name</td>
-                <td style="width: 400px"><input type="text" name="series_name" /></td></tr>
+            <tr><td style="width: 150px">Series Title</td>
+                <td style="width: 400px"><input type="text" name="series_title" /></td></tr>
             <tr><td style="width: 150px">Issue Number</td>
                 <td style="width: 400px"><input type="text" name="issue_num" /></td></tr>
             <tr><td style="width: 150px">Date</td>
@@ -247,7 +247,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="width: 150px">Series Name</td>
+                    <td style="width: 150px">Series Title</td>
                     <td style="width: 400px">
                         <form method="post" action="">
                             <input type="text" class="autoseries" name="name" />
@@ -358,7 +358,7 @@
                     <h3>Select a source</h3>
                 </tr>
                 <tr>
-                    <td>Series Name</td>
+                    <td>Series Title</td>
                     <td>
                         <form method="post" action="">
                             <input type="text" class="autoseries" name="name" />
@@ -449,7 +449,7 @@
                     <h3>Select a source</h3>
                 </tr>
                 <tr>
-                    <td>Series Name</td>
+                    <td>Series Title</td>
                     <td>
                         <form method="post" action="">
                             <input type="text" class="autoseries" name="name" />
@@ -541,7 +541,7 @@
                     <h3>Select a source</h3>
                 </tr>
                 <tr>
-                    <td>Series Name</td>
+                    <td>Series Title</td>
                     <td>
                         <form method="post" action="">
                             <input type="text" class="autoseries" name="name" />
@@ -633,7 +633,7 @@
                     <h3>Select a source</h3>
                 </tr>
                 <tr>
-                    <td>Series Name</td>
+                    <td>Series Title</td>
                     <td>
                         <form method="post" action="">
                             <input type="text" class="autoseries" name="name" />
@@ -712,7 +712,7 @@
                     <h3>Select a source</h3>
                 </tr>
                 <tr>
-                    <td>Series Name</td>
+                    <td>Series Title</td>
                     <td>
                         <form method="post" action="">
                             <input type="text" class="autoseries" name="name" />
@@ -799,7 +799,7 @@
                     <h3>Select a source</h3>
                 </tr>
                 <tr>
-                    <td>Series Name</td>
+                    <td>Series Title</td>
                     <td>
                         <form method="post" action="">
                             <input type="text" class="autoseries" name="name" />
@@ -883,7 +883,7 @@
                     <h3>Select a source</h3>
                 </tr>
                 <tr>
-                    <td>Series Name</td>
+                    <td>Series Title</td>
                     <td>
                         <form method="post" action="">
                             <input type="text" class="autoseries" name="name" />
@@ -967,7 +967,7 @@
                     <h3>Select a source</h3>
                 </tr>
                 <tr>
-                    <td>Series Name</td>
+                    <td>Series Title</td>
                     <td>
                         <form method="post" action="">
                             <input type="text" class="autoseries" name="name" />

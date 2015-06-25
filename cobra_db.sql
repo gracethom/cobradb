@@ -237,7 +237,7 @@ CREATE TABLE IF NOT EXISTS `cobra`.`source_dim` (
   `GCD_link` VARCHAR(45) NULL,
   `pub_date` VARCHAR(45) NULL,
   `issue_number` VARCHAR(45) NULL,
-  `series_name` VARCHAR(45) NULL,
+  `series_title` VARCHAR(45) NULL,
   `page_num` INT,
   `id_phys_loc` INT,
   PRIMARY KEY (`id_source_dim`),
@@ -352,10 +352,10 @@ SHOW WARNINGS;
 -- -----------------------------------------------------
 
 
-INSERT INTO source_dim (source_type, pub_date, issue_number, series_name) VALUES ('issue', 'March 1962', '1', 'Fantastic 4');
+INSERT INTO source_dim (source_type, pub_date, issue_number, series_title) VALUES ('issue', 'July 1962', '5', 'Fantastic Four');
 INSERT INTO person_dim (surname, forename, gender) VALUES ('Weiss', 'Alan', 'male');
 INSERT INTO location_dim (street, city, state, country) VALUES ('Pardee Place', 'Las Vegas', 'Nevada', 'United States of America');
-INSERT INTO letter_dim (salutation, letter_text, letter_pg_title) VALUES ('Dear Editor', 'hello! this is a letter from Alan Weiss', 'Fantastic 4 Fan Page');
+INSERT INTO letter_dim (salutation, letter_text, letter_pg_title) VALUES ('Dear Editor', 'hello! this is a letter from Alan Weiss', 'Fantastic Four Fan Page');
 
 INSERT INTO activity_fact (fact_person, fact_location, fact_letter, fact_source) SELECT person_dim.id_person_dim, location_dim.id_location_dim, letter_dim.id_letter_dim, source_dim.id_source_dim FROM person_dim, location_dim, letter_dim, source_dim WHERE person_dim.surname = 'Weiss' AND person_dim.forename = 'Alan' AND location_dim.street = 'Pardee Place' AND letter_dim.salutation = 'Dear Editor' AND source_dim.pub_date = 'March 1962';
 
