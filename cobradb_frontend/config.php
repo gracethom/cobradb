@@ -11,8 +11,8 @@ define('DB_USER', 'grace');
 /*Database user password*/
 define('DB_PASSWORD', 'gracie');
 
-/* Chances are you won't need to change the following three
-settings. Only do so if you know what you're doing.*/
+
+
 
 /*Database host*/
 define('DB_HOST', 'localhost');
