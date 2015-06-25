@@ -146,7 +146,7 @@ ENGINE = InnoDB;
 SHOW WARNINGS;
 
 -- -----------------------------------------------------
--- Table `cobra`.`editorial_dim`
+-- Table `cobra`.`mention_dim`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `cobra`.`mention_dim` ;
 
@@ -155,7 +155,7 @@ CREATE TABLE IF NOT EXISTS `cobra`.`mention_dim` (
   `id_mention_dim` INT NOT NULL AUTO_INCREMENT,
   `mention_col_title` VARCHAR(45) NULL,
   `mention_desc` VARCHAR(45) NULL,
-  PRIMARY KEY (`id_editorial_dim`))
+  PRIMARY KEY (`id_mention_dim`))
 ENGINE = InnoDB;
 
 SHOW WARNINGS;
@@ -265,7 +265,7 @@ CREATE TABLE IF NOT EXISTS `cobra`.`activity_fact` (
   `fact_contest` INT,
   `fact_club` INT,
   `fact_meeting` INT,
-  `fact_editorial` INT,
+  `fact_mention` INT,
   `fact_classified` INT,
   `fact_pen_pals` INT,
   `fact_traces` INT,
@@ -278,7 +278,7 @@ CREATE TABLE IF NOT EXISTS `cobra`.`activity_fact` (
   INDEX `fk_activity_fact_contest_dim1_idx` (`fact_contest` ASC),
   INDEX `fk_activity_fact_club_dim1_idx` (`fact_club` ASC),
   INDEX `fk_activity_fact_meeting_dim1_idx` (`fact_meeting` ASC),
-  INDEX `fk_activity_fact_editorial_dim1_idx` (`fact_editorial` ASC),
+  INDEX `fk_activity_fact_mention_dim1_idx` (`fact_mention` ASC),
   INDEX `fk_activity_fact_classified_dim1_idx` (`fact_classified` ASC),
   INDEX `fk_activity_fact_pen_pals_dim1_idx` (`fact_pen_pals` ASC),
   INDEX `fk_activity_fact_traces_dim1_idx` (`fact_traces` ASC),
@@ -318,7 +318,7 @@ CREATE TABLE IF NOT EXISTS `cobra`.`activity_fact` (
     REFERENCES `cobra`.`meeting_dim` (`id_meeting_dim`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_activity_fact_editorial_dim1`
+  CONSTRAINT `fk_activity_fact_mention_dim1`
     FOREIGN KEY (`fact_mention`)
     REFERENCES `cobra`.`mention_dim` (`id_mention_dim`)
     ON DELETE NO ACTION
