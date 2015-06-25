@@ -6,7 +6,7 @@
  $series=$_GET["series"];
  
 
- $query=mysql_query("SELECT pub_date, issue_number, series_name FROM source_dim WHERE series_name='".$series."'");
+ $query=mysql_query("SELECT pub_date, issue_number, series_title FROM source_dim WHERE series_title='".$series."'");
  $json=array();
  
     while($row=mysql_fetch_array($query)){
