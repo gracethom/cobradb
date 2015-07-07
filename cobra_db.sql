@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `cobra`.`person_dim` (
   `alt_name` VARCHAR(45) NULL, -- if signed with a false name
   `birth_year` VARCHAR(45) NULL,
   `byear_source` VARCHAR(45) NULL,
-  `grade` INT NULL,
+  `grade` VARCHAR(45) NULL,
   `race` VARCHAR(45) NULL,
   `ethnicity` VARCHAR(45) NULL,
   `sex` VARCHAR(45) NULL,
@@ -218,8 +218,8 @@ CREATE TABLE IF NOT EXISTS `cobra`.`source_dim` (
   `pub_date` VARCHAR(45) NULL,
   `issue_number` VARCHAR(45) NULL,
   `series_title` VARCHAR(45) NULL,
-  `page_num` INT,
-  `id_phys_loc` INT,
+  `page_num` VARCHAR(45) NULL,
+  `id_phys_loc` VARCHAR(45) NULL,
   PRIMARY KEY (`id_source_dim`),
   CONSTRAINT `fk_source_dim`
     FOREIGN KEY (`id_phys_loc`)
