@@ -12,7 +12,6 @@
  AND id_location_dim=fact_location
  GROUP BY surname");
 
-/*TODO: include both person_dim AND location_dim in this while loop to display person and location data.........*/
  
  $json=array();
     while($row=mysql_fetch_array($query)){

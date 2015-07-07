@@ -335,9 +335,9 @@
                 <tr>
                     <td style="width: 150px">Name</td>
                     <td style="width: 400px">
-                        <form method="post" action="">
+                      
                             <input type="text" class="autoname" name="name" />
-                        </form>
+                 
                     </td>
                 </tr>
 
@@ -361,18 +361,18 @@
                 <tr>
                     <td style="width: 150px">Series Title</td>
                     <td style="width: 400px">
-                        <form method="post" action="">
+                       
                             <input type="text" class="autoseries" name="name" />
-                        </form>
+                    
                     </td>
                 </tr>
                 <tr>
 
                     <td style="width: 150px">Issue</td>
                     <td style="width: 400px">
-                        <form method="post" action="">
+                   
                             <input type="text" class="autoissue" name="name" />
-                        </form>
+                    
                     </td>
 
                     <tr style="background-color: white">
