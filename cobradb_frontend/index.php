@@ -127,7 +127,7 @@
 
     <!-- The new person form, brough up if the user clicks "Create New Person" button instead of selecting an existing person -->
     <!-- Located here to make it "global" and "reusable" ?? TODO in form_buttons.js file -->
-    <div class='hidden personForm'>
+   <!-- <div class='hidden personForm'>
         <table>
             <tr>
                 <td>
@@ -256,14 +256,205 @@
                 </td>
             </tr>
         </table>
-    </div>
+    </div>-->
 
 
 
     <!-- The new source form, brough up if the user clicks "Create New Source" button instead of selecting an existing source -->
     <!-- Located here to make it "global" and "reusable" ?? TODO -->
 
-    <div class='hidden sourceForm'>
+    <!--<div class='hidden sourceForm'>
+        <table>
+            <tr>
+                <td>
+                    <h3>New Source</h3>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 150px">Source type</td>
+                <td style="width: 400px">
+                    <input type="text" name="source_type" />
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 150px">GCD Link</td>
+                <td style="width: 400px">
+                    <input type="text" name="gcd_link" />
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 150px">Series Title</td>
+                <td style="width: 400px">
+                    <input type="text" name="series_title" />
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 150px">Issue Number</td>
+                <td style="width: 400px">
+                    <input type="text" name="issue_num" />
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 150px">Date</td>
+                <td style="width: 400px">
+                    <input type="text" name="date" />
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 150px">Page Number</td>
+                <td style="width: 400px">
+                    <input type="text" name="page_num" />
+                </td>
+            </tr>
+        </table>
+
+    </div>-->
+
+
+
+
+
+
+    <!-- Individual forms -->
+
+
+
+    <!-- Letter form -->
+
+    <div class='hidden indform' id="letterForm">
+
+        <form action="processLetter.php" method="post" />
+        <div class='hidden personForm'>
+            <table>
+                <tr>
+                    <td>
+                        <h3>New Person </h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Surname</td>
+                    <td style="width: 400px">
+                        <input type="text" name="surname" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Forename</td>
+                    <td style="width: 400px">
+                        <input type="text" name="forename" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Title</td>
+                    <td style="width: 400px">
+                        <input type="text" name="pers_title" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Role</td>
+                    <td style="width: 400px">
+                        <input type="text" name="role" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Alternate name</td>
+                    <td style="width: 400px">
+                        <input type="text" name="alt_name" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Birth year</td>
+                    <td style="width: 400px">
+                        <input type="text" name="birth_year" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Birth year source</td>
+                    <td style="width: 400px">
+                        <input type="text" name="byear_source" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Grade</td>
+                    <td style="width: 400px">
+                        <input type="text" name="grade" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Race</td>
+                    <td style="width: 400px">
+                        <input type="text" name="race" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Ethnicity</td>
+                    <td style="width: 400px">
+                        <input type="text" name="ethnicity" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Sex</td>
+                    <td style="width: 400px">
+                        <input type="text" name="sex" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Gender</td>
+                    <td style="width: 400px">
+                        <input type="text" name="gender" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Occupation</td>
+                    <td style="width: 400px">
+                        <input type="text" name="occupation" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Occupation Source</td>
+                    <td style="width: 400px">
+                        <input type="text" name="occu_source" />
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td>
+                        <h3>New Location</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Street</td>
+                    <td style="width: 400px">
+                        <input type="text" name="street" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">City</td>
+                    <td style="width: 400px">
+                        <input type="text" name="city" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">State</td>
+                    <td style="width: 400px">
+                        <input type="text" name="state" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Country</td>
+                    <td style="width: 400px">
+                        <input type="text" name="country" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Zipcode</td>
+                    <td style="width: 400px">
+                        <input type="text" name="zipcode" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class='hidden sourceForm'>
         <table>
             <tr>
                 <td>
@@ -309,22 +500,6 @@
         </table>
 
     </div>
-
-
-
-
-
-
-    <!-- Individual forms -->
-
-
-
-    <!-- Letter form -->
-
-    <div class='hidden indform' id="letterForm">
-
-        <form action="processLetter.php" method="post" />
-
         <div class="personPrompt">
             <table>
                 <tr>
@@ -335,9 +510,9 @@
                 <tr>
                     <td style="width: 150px">Name</td>
                     <td style="width: 400px">
-                      
-                            <input type="text" class="autoname" name="name" />
-                 
+
+                        <input type="text" class="autoname" name="name" />
+
                     </td>
                 </tr>
 
@@ -361,18 +536,18 @@
                 <tr>
                     <td style="width: 150px">Series Title</td>
                     <td style="width: 400px">
-                       
-                            <input type="text" class="autoseries" name="name" />
-                    
+
+                        <input type="text" class="autoseries" name="name" />
+
                     </td>
                 </tr>
                 <tr>
 
                     <td style="width: 150px">Issue</td>
                     <td style="width: 400px">
-                   
-                            <input type="text" class="autoissue" name="name" />
-                    
+
+                        <input type="text" class="autoissue" name="name" />
+
                     </td>
 
                     <tr style="background-color: white">
@@ -439,7 +614,190 @@
 
     <div class='hidden indform' id="reviewForm">
         <form action="processReview.php" method="post" />
+        <!-- The new person form, brough up if the user clicks "Create New Person" button instead of selecting an existing person -->
+        <!-- Located here to make it "global" and "reusable" ?? TODO in form_buttons.js file -->
+        <div class='hidden personForm'>
+            <table>
+                <tr>
+                    <td>
+                        <h3>New Person </h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Surname</td>
+                    <td style="width: 400px">
+                        <input type="text" name="surname" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Forename</td>
+                    <td style="width: 400px">
+                        <input type="text" name="forename" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Title</td>
+                    <td style="width: 400px">
+                        <input type="text" name="pers_title" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Role</td>
+                    <td style="width: 400px">
+                        <input type="text" name="role" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Alternate name</td>
+                    <td style="width: 400px">
+                        <input type="text" name="alt_name" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Birth year</td>
+                    <td style="width: 400px">
+                        <input type="text" name="birth_year" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Birth year source</td>
+                    <td style="width: 400px">
+                        <input type="text" name="byear_source" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Grade</td>
+                    <td style="width: 400px">
+                        <input type="text" name="grade" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Race</td>
+                    <td style="width: 400px">
+                        <input type="text" name="race" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Ethnicity</td>
+                    <td style="width: 400px">
+                        <input type="text" name="ethnicity" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Sex</td>
+                    <td style="width: 400px">
+                        <input type="text" name="sex" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Gender</td>
+                    <td style="width: 400px">
+                        <input type="text" name="gender" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Occupation</td>
+                    <td style="width: 400px">
+                        <input type="text" name="occupation" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Occupation Source</td>
+                    <td style="width: 400px">
+                        <input type="text" name="occu_source" />
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td>
+                        <h3>New Location</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Street</td>
+                    <td style="width: 400px">
+                        <input type="text" name="street" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">City</td>
+                    <td style="width: 400px">
+                        <input type="text" name="city" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">State</td>
+                    <td style="width: 400px">
+                        <input type="text" name="state" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Country</td>
+                    <td style="width: 400px">
+                        <input type="text" name="country" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Zipcode</td>
+                    <td style="width: 400px">
+                        <input type="text" name="zipcode" />
+                    </td>
+                </tr>
+            </table>
+        </div>
 
+
+
+        <!-- The new source form, brough up if the user clicks "Create New Source" button instead of selecting an existing source -->
+        <!-- Located here to make it "global" and "reusable" ?? TODO -->
+
+        <div class='hidden sourceForm'>
+            <table>
+                <tr>
+                    <td>
+                        <h3>New Source</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Source type</td>
+                    <td style="width: 400px">
+                        <input type="text" name="source_type" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">GCD Link</td>
+                    <td style="width: 400px">
+                        <input type="text" name="gcd_link" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Series Title</td>
+                    <td style="width: 400px">
+                        <input type="text" name="series_title" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Issue Number</td>
+                    <td style="width: 400px">
+                        <input type="text" name="issue_num" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Date</td>
+                    <td style="width: 400px">
+                        <input type="text" name="date" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Page Number</td>
+                    <td style="width: 400px">
+                        <input type="text" name="page_num" />
+                    </td>
+                </tr>
+            </table>
+
+        </div>
         <div class="personPrompt">
             <table>
                 <tr>
@@ -504,7 +862,9 @@
 
         <table>
             <tr>
-                <td><h3>Review</h3></td>
+                <td>
+                    <h3>Review</h3>
+                </td>
             </tr>
             <tr>
                 <td style="width: 150px">Title</td>
@@ -534,7 +894,190 @@
 
     <div class='hidden indform' id="contestForm">
         <form action="processContest.php" method="post" />
+        <!-- The new person form, brough up if the user clicks "Create New Person" button instead of selecting an existing person -->
+        <!-- Located here to make it "global" and "reusable" ?? TODO in form_buttons.js file -->
+        <div class='hidden personForm'>
+            <table>
+                <tr>
+                    <td>
+                        <h3>New Person </h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Surname</td>
+                    <td style="width: 400px">
+                        <input type="text" name="surname" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Forename</td>
+                    <td style="width: 400px">
+                        <input type="text" name="forename" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Title</td>
+                    <td style="width: 400px">
+                        <input type="text" name="pers_title" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Role</td>
+                    <td style="width: 400px">
+                        <input type="text" name="role" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Alternate name</td>
+                    <td style="width: 400px">
+                        <input type="text" name="alt_name" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Birth year</td>
+                    <td style="width: 400px">
+                        <input type="text" name="birth_year" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Birth year source</td>
+                    <td style="width: 400px">
+                        <input type="text" name="byear_source" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Grade</td>
+                    <td style="width: 400px">
+                        <input type="text" name="grade" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Race</td>
+                    <td style="width: 400px">
+                        <input type="text" name="race" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Ethnicity</td>
+                    <td style="width: 400px">
+                        <input type="text" name="ethnicity" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Sex</td>
+                    <td style="width: 400px">
+                        <input type="text" name="sex" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Gender</td>
+                    <td style="width: 400px">
+                        <input type="text" name="gender" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Occupation</td>
+                    <td style="width: 400px">
+                        <input type="text" name="occupation" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Occupation Source</td>
+                    <td style="width: 400px">
+                        <input type="text" name="occu_source" />
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td>
+                        <h3>New Location</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Street</td>
+                    <td style="width: 400px">
+                        <input type="text" name="street" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">City</td>
+                    <td style="width: 400px">
+                        <input type="text" name="city" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">State</td>
+                    <td style="width: 400px">
+                        <input type="text" name="state" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Country</td>
+                    <td style="width: 400px">
+                        <input type="text" name="country" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Zipcode</td>
+                    <td style="width: 400px">
+                        <input type="text" name="zipcode" />
+                    </td>
+                </tr>
+            </table>
+        </div>
 
+
+
+        <!-- The new source form, brough up if the user clicks "Create New Source" button instead of selecting an existing source -->
+        <!-- Located here to make it "global" and "reusable" ?? TODO -->
+
+        <div class='hidden sourceForm'>
+            <table>
+                <tr>
+                    <td>
+                        <h3>New Source</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Source type</td>
+                    <td style="width: 400px">
+                        <input type="text" name="source_type" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">GCD Link</td>
+                    <td style="width: 400px">
+                        <input type="text" name="gcd_link" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Series Title</td>
+                    <td style="width: 400px">
+                        <input type="text" name="series_title" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Issue Number</td>
+                    <td style="width: 400px">
+                        <input type="text" name="issue_num" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Date</td>
+                    <td style="width: 400px">
+                        <input type="text" name="date" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Page Number</td>
+                    <td style="width: 400px">
+                        <input type="text" name="page_num" />
+                    </td>
+                </tr>
+            </table>
+
+        </div>
         <div class="personPrompt">
             <table>
                 <tr>
@@ -599,7 +1142,9 @@
 
         <table>
             <tr>
-                <td><h3>Contests</h3></td>
+                <td>
+                    <h3>Contests</h3>
+                </td>
             </tr>
             <tr>
                 <td style="width: 150px">Name</td>
@@ -629,7 +1174,190 @@
 
     <div class='hidden indform' id="clubForm">
         <form action="processClub.php" method="post" />
+        <!-- The new person form, brough up if the user clicks "Create New Person" button instead of selecting an existing person -->
+        <!-- Located here to make it "global" and "reusable" ?? TODO in form_buttons.js file -->
+        <div class='hidden personForm'>
+            <table>
+                <tr>
+                    <td>
+                        <h3>New Person </h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Surname</td>
+                    <td style="width: 400px">
+                        <input type="text" name="surname" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Forename</td>
+                    <td style="width: 400px">
+                        <input type="text" name="forename" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Title</td>
+                    <td style="width: 400px">
+                        <input type="text" name="pers_title" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Role</td>
+                    <td style="width: 400px">
+                        <input type="text" name="role" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Alternate name</td>
+                    <td style="width: 400px">
+                        <input type="text" name="alt_name" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Birth year</td>
+                    <td style="width: 400px">
+                        <input type="text" name="birth_year" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Birth year source</td>
+                    <td style="width: 400px">
+                        <input type="text" name="byear_source" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Grade</td>
+                    <td style="width: 400px">
+                        <input type="text" name="grade" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Race</td>
+                    <td style="width: 400px">
+                        <input type="text" name="race" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Ethnicity</td>
+                    <td style="width: 400px">
+                        <input type="text" name="ethnicity" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Sex</td>
+                    <td style="width: 400px">
+                        <input type="text" name="sex" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Gender</td>
+                    <td style="width: 400px">
+                        <input type="text" name="gender" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Occupation</td>
+                    <td style="width: 400px">
+                        <input type="text" name="occupation" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Occupation Source</td>
+                    <td style="width: 400px">
+                        <input type="text" name="occu_source" />
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td>
+                        <h3>New Location</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Street</td>
+                    <td style="width: 400px">
+                        <input type="text" name="street" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">City</td>
+                    <td style="width: 400px">
+                        <input type="text" name="city" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">State</td>
+                    <td style="width: 400px">
+                        <input type="text" name="state" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Country</td>
+                    <td style="width: 400px">
+                        <input type="text" name="country" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Zipcode</td>
+                    <td style="width: 400px">
+                        <input type="text" name="zipcode" />
+                    </td>
+                </tr>
+            </table>
+        </div>
 
+
+
+        <!-- The new source form, brough up if the user clicks "Create New Source" button instead of selecting an existing source -->
+        <!-- Located here to make it "global" and "reusable" ?? TODO -->
+
+        <div class='hidden sourceForm'>
+            <table>
+                <tr>
+                    <td>
+                        <h3>New Source</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Source type</td>
+                    <td style="width: 400px">
+                        <input type="text" name="source_type" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">GCD Link</td>
+                    <td style="width: 400px">
+                        <input type="text" name="gcd_link" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Series Title</td>
+                    <td style="width: 400px">
+                        <input type="text" name="series_title" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Issue Number</td>
+                    <td style="width: 400px">
+                        <input type="text" name="issue_num" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Date</td>
+                    <td style="width: 400px">
+                        <input type="text" name="date" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Page Number</td>
+                    <td style="width: 400px">
+                        <input type="text" name="page_num" />
+                    </td>
+                </tr>
+            </table>
+
+        </div>
         <div class="personPrompt">
             <table>
                 <tr>
@@ -694,7 +1422,9 @@
 
         <table>
             <tr>
-                <td><h3>Fan Club</h3></td>
+                <td>
+                    <h3>Fan Club</h3>
+                </td>
             </tr>
             <tr>
                 <td style="width: 150px">Name</td>
@@ -725,7 +1455,190 @@
 
     <div class='hidden indform' id="meetingForm">
         <form action="processMeeting.php" method="post" />
+        <!-- The new person form, brough up if the user clicks "Create New Person" button instead of selecting an existing person -->
+        <!-- Located here to make it "global" and "reusable" ?? TODO in form_buttons.js file -->
+        <div class='hidden personForm'>
+            <table>
+                <tr>
+                    <td>
+                        <h3>New Person </h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Surname</td>
+                    <td style="width: 400px">
+                        <input type="text" name="surname" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Forename</td>
+                    <td style="width: 400px">
+                        <input type="text" name="forename" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Title</td>
+                    <td style="width: 400px">
+                        <input type="text" name="pers_title" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Role</td>
+                    <td style="width: 400px">
+                        <input type="text" name="role" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Alternate name</td>
+                    <td style="width: 400px">
+                        <input type="text" name="alt_name" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Birth year</td>
+                    <td style="width: 400px">
+                        <input type="text" name="birth_year" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Birth year source</td>
+                    <td style="width: 400px">
+                        <input type="text" name="byear_source" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Grade</td>
+                    <td style="width: 400px">
+                        <input type="text" name="grade" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Race</td>
+                    <td style="width: 400px">
+                        <input type="text" name="race" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Ethnicity</td>
+                    <td style="width: 400px">
+                        <input type="text" name="ethnicity" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Sex</td>
+                    <td style="width: 400px">
+                        <input type="text" name="sex" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Gender</td>
+                    <td style="width: 400px">
+                        <input type="text" name="gender" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Occupation</td>
+                    <td style="width: 400px">
+                        <input type="text" name="occupation" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Occupation Source</td>
+                    <td style="width: 400px">
+                        <input type="text" name="occu_source" />
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td>
+                        <h3>New Location</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Street</td>
+                    <td style="width: 400px">
+                        <input type="text" name="street" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">City</td>
+                    <td style="width: 400px">
+                        <input type="text" name="city" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">State</td>
+                    <td style="width: 400px">
+                        <input type="text" name="state" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Country</td>
+                    <td style="width: 400px">
+                        <input type="text" name="country" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Zipcode</td>
+                    <td style="width: 400px">
+                        <input type="text" name="zipcode" />
+                    </td>
+                </tr>
+            </table>
+        </div>
 
+
+
+        <!-- The new source form, brough up if the user clicks "Create New Source" button instead of selecting an existing source -->
+        <!-- Located here to make it "global" and "reusable" ?? TODO -->
+
+        <div class='hidden sourceForm'>
+            <table>
+                <tr>
+                    <td>
+                        <h3>New Source</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Source type</td>
+                    <td style="width: 400px">
+                        <input type="text" name="source_type" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">GCD Link</td>
+                    <td style="width: 400px">
+                        <input type="text" name="gcd_link" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Series Title</td>
+                    <td style="width: 400px">
+                        <input type="text" name="series_title" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Issue Number</td>
+                    <td style="width: 400px">
+                        <input type="text" name="issue_num" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Date</td>
+                    <td style="width: 400px">
+                        <input type="text" name="date" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Page Number</td>
+                    <td style="width: 400px">
+                        <input type="text" name="page_num" />
+                    </td>
+                </tr>
+            </table>
+
+        </div>
         <div class="personPrompt">
             <table>
                 <tr>
@@ -790,7 +1703,9 @@
 
         <table>
             <tr>
-                <td><h3>Meeting</h3></td>
+                <td>
+                    <h3>Meeting</h3>
+                </td>
             </tr>
             <tr>
                 <td style="width: 150px">Name</td>
@@ -808,7 +1723,190 @@
 
     <div class='hidden indform' id="mentionForm">
         <form action="processEditorial.php" method="post" />
+        <!-- The new person form, brough up if the user clicks "Create New Person" button instead of selecting an existing person -->
+        <!-- Located here to make it "global" and "reusable" ?? TODO in form_buttons.js file -->
+        <div class='hidden personForm'>
+            <table>
+                <tr>
+                    <td>
+                        <h3>New Person </h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Surname</td>
+                    <td style="width: 400px">
+                        <input type="text" name="surname" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Forename</td>
+                    <td style="width: 400px">
+                        <input type="text" name="forename" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Title</td>
+                    <td style="width: 400px">
+                        <input type="text" name="pers_title" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Role</td>
+                    <td style="width: 400px">
+                        <input type="text" name="role" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Alternate name</td>
+                    <td style="width: 400px">
+                        <input type="text" name="alt_name" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Birth year</td>
+                    <td style="width: 400px">
+                        <input type="text" name="birth_year" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Birth year source</td>
+                    <td style="width: 400px">
+                        <input type="text" name="byear_source" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Grade</td>
+                    <td style="width: 400px">
+                        <input type="text" name="grade" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Race</td>
+                    <td style="width: 400px">
+                        <input type="text" name="race" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Ethnicity</td>
+                    <td style="width: 400px">
+                        <input type="text" name="ethnicity" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Sex</td>
+                    <td style="width: 400px">
+                        <input type="text" name="sex" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Gender</td>
+                    <td style="width: 400px">
+                        <input type="text" name="gender" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Occupation</td>
+                    <td style="width: 400px">
+                        <input type="text" name="occupation" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Occupation Source</td>
+                    <td style="width: 400px">
+                        <input type="text" name="occu_source" />
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td>
+                        <h3>New Location</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Street</td>
+                    <td style="width: 400px">
+                        <input type="text" name="street" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">City</td>
+                    <td style="width: 400px">
+                        <input type="text" name="city" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">State</td>
+                    <td style="width: 400px">
+                        <input type="text" name="state" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Country</td>
+                    <td style="width: 400px">
+                        <input type="text" name="country" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Zipcode</td>
+                    <td style="width: 400px">
+                        <input type="text" name="zipcode" />
+                    </td>
+                </tr>
+            </table>
+        </div>
 
+
+
+        <!-- The new source form, brough up if the user clicks "Create New Source" button instead of selecting an existing source -->
+        <!-- Located here to make it "global" and "reusable" ?? TODO -->
+
+        <div class='hidden sourceForm'>
+            <table>
+                <tr>
+                    <td>
+                        <h3>New Source</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Source type</td>
+                    <td style="width: 400px">
+                        <input type="text" name="source_type" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">GCD Link</td>
+                    <td style="width: 400px">
+                        <input type="text" name="gcd_link" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Series Title</td>
+                    <td style="width: 400px">
+                        <input type="text" name="series_title" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Issue Number</td>
+                    <td style="width: 400px">
+                        <input type="text" name="issue_num" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Date</td>
+                    <td style="width: 400px">
+                        <input type="text" name="date" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Page Number</td>
+                    <td style="width: 400px">
+                        <input type="text" name="page_num" />
+                    </td>
+                </tr>
+            </table>
+
+        </div>
         <div class="personPrompt">
             <table>
                 <tr>
@@ -873,7 +1971,9 @@
 
         <table>
             <tr>
-                <td><h3>Mention</h3></td>
+                <td>
+                    <h3>Mention</h3>
+                </td>
             </tr>
 
             <tr>
@@ -899,7 +1999,190 @@
 
     <div class='hidden indform' id="classifiedsForm">
         <form action="processClassifieds.php" method="post" />
+        <!-- The new person form, brough up if the user clicks "Create New Person" button instead of selecting an existing person -->
+        <!-- Located here to make it "global" and "reusable" ?? TODO in form_buttons.js file -->
+        <div class='hidden personForm'>
+            <table>
+                <tr>
+                    <td>
+                        <h3>New Person </h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Surname</td>
+                    <td style="width: 400px">
+                        <input type="text" name="surname" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Forename</td>
+                    <td style="width: 400px">
+                        <input type="text" name="forename" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Title</td>
+                    <td style="width: 400px">
+                        <input type="text" name="pers_title" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Role</td>
+                    <td style="width: 400px">
+                        <input type="text" name="role" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Alternate name</td>
+                    <td style="width: 400px">
+                        <input type="text" name="alt_name" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Birth year</td>
+                    <td style="width: 400px">
+                        <input type="text" name="birth_year" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Birth year source</td>
+                    <td style="width: 400px">
+                        <input type="text" name="byear_source" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Grade</td>
+                    <td style="width: 400px">
+                        <input type="text" name="grade" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Race</td>
+                    <td style="width: 400px">
+                        <input type="text" name="race" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Ethnicity</td>
+                    <td style="width: 400px">
+                        <input type="text" name="ethnicity" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Sex</td>
+                    <td style="width: 400px">
+                        <input type="text" name="sex" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Gender</td>
+                    <td style="width: 400px">
+                        <input type="text" name="gender" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Occupation</td>
+                    <td style="width: 400px">
+                        <input type="text" name="occupation" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Occupation Source</td>
+                    <td style="width: 400px">
+                        <input type="text" name="occu_source" />
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td>
+                        <h3>New Location</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Street</td>
+                    <td style="width: 400px">
+                        <input type="text" name="street" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">City</td>
+                    <td style="width: 400px">
+                        <input type="text" name="city" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">State</td>
+                    <td style="width: 400px">
+                        <input type="text" name="state" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Country</td>
+                    <td style="width: 400px">
+                        <input type="text" name="country" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Zipcode</td>
+                    <td style="width: 400px">
+                        <input type="text" name="zipcode" />
+                    </td>
+                </tr>
+            </table>
+        </div>
 
+
+
+        <!-- The new source form, brough up if the user clicks "Create New Source" button instead of selecting an existing source -->
+        <!-- Located here to make it "global" and "reusable" ?? TODO -->
+
+        <div class='hidden sourceForm'>
+            <table>
+                <tr>
+                    <td>
+                        <h3>New Source</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Source type</td>
+                    <td style="width: 400px">
+                        <input type="text" name="source_type" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">GCD Link</td>
+                    <td style="width: 400px">
+                        <input type="text" name="gcd_link" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Series Title</td>
+                    <td style="width: 400px">
+                        <input type="text" name="series_title" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Issue Number</td>
+                    <td style="width: 400px">
+                        <input type="text" name="issue_num" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Date</td>
+                    <td style="width: 400px">
+                        <input type="text" name="date" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Page Number</td>
+                    <td style="width: 400px">
+                        <input type="text" name="page_num" />
+                    </td>
+                </tr>
+            </table>
+
+        </div>
         <div class="personPrompt">
             <table>
                 <tr>
@@ -964,21 +2247,23 @@
 
         <table>
             <tr>
-                <td><h3>Classified</h3></td>
-                </tr>
-<tr>
-                    <td style="width: 150px">Page title</td>
-                    <td style="width: 400px">
-                        <input type="text" name="classified_title" />
-                    </td>
-                </tr>
+                <td>
+                    <h3>Classified</h3>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 150px">Page title</td>
+                <td style="width: 400px">
+                    <input type="text" name="classified_title" />
+                </td>
+            </tr>
 
-                <tr>
-                    <td style="width:150px;vertical-align:top">Information</td>
-                    <td style="width: 400px">
-                        <textarea type="text" style="height: 50px; width: 400px" name="classified_info"></textarea>
-                    </td>
-                </tr>
+            <tr>
+                <td style="width:150px;vertical-align:top">Information</td>
+                <td style="width: 400px">
+                    <textarea type="text" style="height: 50px; width: 400px" name="classified_info"></textarea>
+                </td>
+            </tr>
         </table>
         <input id="submit" type="submit" value="Submit" />
         </form>
@@ -988,7 +2273,190 @@
     <!-- Pen Pals form -->
     <div class='hidden indform' id="penPalsForm">
         <form action="processPenPals.php" method="post" />
+        <!-- The new person form, brough up if the user clicks "Create New Person" button instead of selecting an existing person -->
+        <!-- Located here to make it "global" and "reusable" ?? TODO in form_buttons.js file -->
+        <div class='hidden personForm'>
+            <table>
+                <tr>
+                    <td>
+                        <h3>New Person </h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Surname</td>
+                    <td style="width: 400px">
+                        <input type="text" name="surname" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Forename</td>
+                    <td style="width: 400px">
+                        <input type="text" name="forename" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Title</td>
+                    <td style="width: 400px">
+                        <input type="text" name="pers_title" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Role</td>
+                    <td style="width: 400px">
+                        <input type="text" name="role" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Alternate name</td>
+                    <td style="width: 400px">
+                        <input type="text" name="alt_name" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Birth year</td>
+                    <td style="width: 400px">
+                        <input type="text" name="birth_year" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Birth year source</td>
+                    <td style="width: 400px">
+                        <input type="text" name="byear_source" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Grade</td>
+                    <td style="width: 400px">
+                        <input type="text" name="grade" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Race</td>
+                    <td style="width: 400px">
+                        <input type="text" name="race" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Ethnicity</td>
+                    <td style="width: 400px">
+                        <input type="text" name="ethnicity" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Sex</td>
+                    <td style="width: 400px">
+                        <input type="text" name="sex" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Gender</td>
+                    <td style="width: 400px">
+                        <input type="text" name="gender" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Occupation</td>
+                    <td style="width: 400px">
+                        <input type="text" name="occupation" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Occupation Source</td>
+                    <td style="width: 400px">
+                        <input type="text" name="occu_source" />
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td>
+                        <h3>New Location</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Street</td>
+                    <td style="width: 400px">
+                        <input type="text" name="street" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">City</td>
+                    <td style="width: 400px">
+                        <input type="text" name="city" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">State</td>
+                    <td style="width: 400px">
+                        <input type="text" name="state" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Country</td>
+                    <td style="width: 400px">
+                        <input type="text" name="country" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Zipcode</td>
+                    <td style="width: 400px">
+                        <input type="text" name="zipcode" />
+                    </td>
+                </tr>
+            </table>
+        </div>
 
+
+
+        <!-- The new source form, brough up if the user clicks "Create New Source" button instead of selecting an existing source -->
+        <!-- Located here to make it "global" and "reusable" ?? TODO -->
+
+        <div class='hidden sourceForm'>
+            <table>
+                <tr>
+                    <td>
+                        <h3>New Source</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Source type</td>
+                    <td style="width: 400px">
+                        <input type="text" name="source_type" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">GCD Link</td>
+                    <td style="width: 400px">
+                        <input type="text" name="gcd_link" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Series Title</td>
+                    <td style="width: 400px">
+                        <input type="text" name="series_title" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Issue Number</td>
+                    <td style="width: 400px">
+                        <input type="text" name="issue_num" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Date</td>
+                    <td style="width: 400px">
+                        <input type="text" name="date" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Page Number</td>
+                    <td style="width: 400px">
+                        <input type="text" name="page_num" />
+                    </td>
+                </tr>
+            </table>
+
+        </div>
         <div class="personPrompt">
             <table>
                 <tr>
@@ -1053,7 +2521,9 @@
 
         <table>
             <tr>
-                <td><h3>Pen Pals</h3></td>
+                <td>
+                    <h3>Pen Pals</h3>
+                </td>
             </tr>
             <tr>
                 <td style="width: 150px">Column title</td>
@@ -1077,7 +2547,190 @@
 
     <div class='hidden indform' id="tracesForm">
         <form action="processTraces.php" method="post" />
+        <!-- The new person form, brough up if the user clicks "Create New Person" button instead of selecting an existing person -->
+        <!-- Located here to make it "global" and "reusable" ?? TODO in form_buttons.js file -->
+        <div class='hidden personForm'>
+            <table>
+                <tr>
+                    <td>
+                        <h3>New Person </h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Surname</td>
+                    <td style="width: 400px">
+                        <input type="text" name="surname" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Forename</td>
+                    <td style="width: 400px">
+                        <input type="text" name="forename" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Title</td>
+                    <td style="width: 400px">
+                        <input type="text" name="pers_title" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Role</td>
+                    <td style="width: 400px">
+                        <input type="text" name="role" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Alternate name</td>
+                    <td style="width: 400px">
+                        <input type="text" name="alt_name" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Birth year</td>
+                    <td style="width: 400px">
+                        <input type="text" name="birth_year" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Birth year source</td>
+                    <td style="width: 400px">
+                        <input type="text" name="byear_source" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Grade</td>
+                    <td style="width: 400px">
+                        <input type="text" name="grade" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Race</td>
+                    <td style="width: 400px">
+                        <input type="text" name="race" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Ethnicity</td>
+                    <td style="width: 400px">
+                        <input type="text" name="ethnicity" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Sex</td>
+                    <td style="width: 400px">
+                        <input type="text" name="sex" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Gender</td>
+                    <td style="width: 400px">
+                        <input type="text" name="gender" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Occupation</td>
+                    <td style="width: 400px">
+                        <input type="text" name="occupation" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Occupation Source</td>
+                    <td style="width: 400px">
+                        <input type="text" name="occu_source" />
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td>
+                        <h3>New Location</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Street</td>
+                    <td style="width: 400px">
+                        <input type="text" name="street" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">City</td>
+                    <td style="width: 400px">
+                        <input type="text" name="city" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">State</td>
+                    <td style="width: 400px">
+                        <input type="text" name="state" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Country</td>
+                    <td style="width: 400px">
+                        <input type="text" name="country" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Zipcode</td>
+                    <td style="width: 400px">
+                        <input type="text" name="zipcode" />
+                    </td>
+                </tr>
+            </table>
+        </div>
 
+
+
+        <!-- The new source form, brough up if the user clicks "Create New Source" button instead of selecting an existing source -->
+        <!-- Located here to make it "global" and "reusable" ?? TODO -->
+
+        <div class='hidden sourceForm'>
+            <table>
+                <tr>
+                    <td>
+                        <h3>New Source</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Source type</td>
+                    <td style="width: 400px">
+                        <input type="text" name="source_type" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">GCD Link</td>
+                    <td style="width: 400px">
+                        <input type="text" name="gcd_link" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Series Title</td>
+                    <td style="width: 400px">
+                        <input type="text" name="series_title" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Issue Number</td>
+                    <td style="width: 400px">
+                        <input type="text" name="issue_num" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Date</td>
+                    <td style="width: 400px">
+                        <input type="text" name="date" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Page Number</td>
+                    <td style="width: 400px">
+                        <input type="text" name="page_num" />
+                    </td>
+                </tr>
+            </table>
+
+        </div>
         <div class="personPrompt">
             <table>
                 <tr>
@@ -1142,7 +2795,9 @@
 
         <table>
             <tr>
-                <td><h3>Traces</h3></td>
+                <td>
+                    <h3>Traces</h3>
+                </td>
             </tr>
             <tr>
                 <td style="width: 150px">Column title</td>
