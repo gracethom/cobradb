@@ -135,6 +135,12 @@
                 </td>
             </tr>
             <tr>
+                <td style="width: 150px">Authority</td>
+                <td style="width: 400px">
+                    <input type="text" name="pers_auth" />
+                </td>
+            </tr>
+            <tr>
                 <td style="width: 150px">Surname</td>
                 <td style="width: 400px">
                     <input type="text" name="surname" />
@@ -250,9 +256,9 @@
                 </td>
             </tr>
             <tr>
-                <td style="width: 150px">Zipcode</td>
+                <td style="width: 150px">Postal Code</td>
                 <td style="width: 400px">
-                    <input type="text" name="zipcode" />
+                    <input type="text" name="postal_code" />
                 </td>
             </tr>
         </table>
@@ -297,7 +303,7 @@
             <tr>
                 <td style="width: 150px">Date</td>
                 <td style="width: 400px">
-                    <input type="text" name="date" />
+                    <input type="text" name="pub_date" />
                 </td>
             </tr>
             <tr>
@@ -311,7 +317,7 @@
     </div>-->
 
 
-
+    <!-- TODO: reconcile individual forms with allprocess.php doc -->
 
 
 
@@ -332,13 +338,20 @@
                     </td>
                 </tr>
                 <tr>
+                    <td style="width: 150px">Authority</td>
+                    <td style="width: 400px">
+                        <input type="text" name="pers_auth" />
+                    </td>
+                </tr>
+                <tr>
                     <td style="width: 150px">Surname</td>
                     <td style="width: 400px">
                         <input type="text" name="surname" />
                     </td>
                 </tr>
                 <tr>
-                    <td style="width: 150px">Forename</td>
+                    <td style="width: 150px">
+                    </td>
                     <td style="width: 400px">
                         <input type="text" name="forename" />
                     </td>
@@ -447,9 +460,9 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="width: 150px">Zipcode</td>
+                    <td style="width: 150px">Postal Code</td>
                     <td style="width: 400px">
-                        <input type="text" name="zipcode" />
+                        <input type="text" name="postal_code" />
                     </td>
                 </tr>
             </table>
@@ -486,9 +499,9 @@
                 </td>
             </tr>
             <tr>
-                <td style="width: 150px">Date</td>
+                <td style="width: 150px">Publication Date</td>
                 <td style="width: 400px">
-                    <input type="text" name="date" />
+                    <input type="text" name="pub_date" />
                 </td>
             </tr>
             <tr>
@@ -569,24 +582,6 @@
                 </td>
             </tr>
             <tr>
-                <td style="width:150px">Unique ID</td>
-                <td style="width: 400px">
-                    <input type="text" name="letter_title" />
-                </td>
-            </tr>
-            <tr>
-                <td style="width:150px">Salutation</td>
-                <td style="width: 400px">
-                    <input type="text" name="salutation" />
-                </td>
-            </tr>
-            <tr>
-                <td style="width:150px">Closing</td>
-                <td style="width: 400px">
-                    <input type="text" name="closing" />
-                </td>
-            </tr>
-            <tr>
                 <td style="width:150px">Letter page title</td>
                 <td style="width: 400px">
                     <input type="text" name="letter_pg_title" />
@@ -621,6 +616,12 @@
                 <tr>
                     <td>
                         <h3>New Person </h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Authority</td>
+                    <td style="width: 400px">
+                        <input type="text" name="authority" />
                     </td>
                 </tr>
                 <tr>
@@ -739,9 +740,9 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="width: 150px">Zipcode</td>
+                    <td style="width: 150px">Postal Code</td>
                     <td style="width: 400px">
-                        <input type="text" name="zipcode" />
+                        <input type="text" name="postal_code" />
                     </td>
                 </tr>
             </table>
@@ -786,7 +787,7 @@
                 <tr>
                     <td style="width: 150px">Date</td>
                     <td style="width: 400px">
-                        <input type="text" name="date" />
+                        <input type="text" name="pub_date" />
                     </td>
                 </tr>
                 <tr>
@@ -904,6 +905,12 @@
                     </td>
                 </tr>
                 <tr>
+                    <td style="width: 150px">Authority</td>
+                    <td style="width: 400px">
+                        <input type="text" name="authority" />
+                    </td>
+                </tr>
+                <tr>
                     <td style="width: 150px">Surname</td>
                     <td style="width: 400px">
                         <input type="text" name="surname" />
@@ -1019,9 +1026,9 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="width: 150px">Zipcode</td>
+                    <td style="width: 150px">Postal Code</td>
                     <td style="width: 400px">
-                        <input type="text" name="zipcode" />
+                        <input type="text" name="postal_code" />
                     </td>
                 </tr>
             </table>
@@ -1066,7 +1073,7 @@
                 <tr>
                     <td style="width: 150px">Date</td>
                     <td style="width: 400px">
-                        <input type="text" name="date" />
+                        <input type="text" name="pub_date" />
                     </td>
                 </tr>
                 <tr>
@@ -1143,7 +1150,7 @@
         <table>
             <tr>
                 <td>
-                    <h3>Contests</h3>
+                    <h3>Contest</h3>
                 </td>
             </tr>
             <tr>
@@ -1181,6 +1188,12 @@
                 <tr>
                     <td>
                         <h3>New Person </h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Authority</td>
+                    <td style="width: 400px">
+                        <input type="text" name="authority" />
                     </td>
                 </tr>
                 <tr>
@@ -1299,9 +1312,9 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="width: 150px">Zipcode</td>
+                    <td style="width: 150px">Postal Code</td>
                     <td style="width: 400px">
-                        <input type="text" name="zipcode" />
+                        <input type="text" name="postal_code" />
                     </td>
                 </tr>
             </table>
@@ -1346,7 +1359,7 @@
                 <tr>
                     <td style="width: 150px">Date</td>
                     <td style="width: 400px">
-                        <input type="text" name="date" />
+                        <input type="text" name="pub_date" />
                     </td>
                 </tr>
                 <tr>
@@ -1465,6 +1478,12 @@
                     </td>
                 </tr>
                 <tr>
+                    <td style="width: 150px">Authority</td>
+                    <td style="width: 400px">
+                        <input type="text" name="authority" />
+                    </td>
+                </tr>
+                <tr>
                     <td style="width: 150px">Surname</td>
                     <td style="width: 400px">
                         <input type="text" name="surname" />
@@ -1580,9 +1599,9 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="width: 150px">Zipcode</td>
+                    <td style="width: 150px">Postal Code</td>
                     <td style="width: 400px">
-                        <input type="text" name="zipcode" />
+                        <input type="text" name="postal_code" />
                     </td>
                 </tr>
             </table>
@@ -1627,7 +1646,7 @@
                 <tr>
                     <td style="width: 150px">Date</td>
                     <td style="width: 400px">
-                        <input type="text" name="date" />
+                        <input type="text" name="pub_date" />
                     </td>
                 </tr>
                 <tr>
@@ -1708,9 +1727,27 @@
                 </td>
             </tr>
             <tr>
-                <td style="width: 150px">Name</td>
+                <td style="width: 150px">Meeting Name</td>
                 <td style="width: 400px">
                     <input type="text" name="mtg_name" />
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 150px">Start Date</td>
+                <td style="width: 400px">
+                    <input type="text" name="mtg_start" />
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 150px">End Date</td>
+                <td style="width: 400px">
+                    <input type="text" name="mtg_end" />
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 150px">Meeting Notes</td>
+                <td style="width: 400px">
+                    <input type="text" name="mtg_notes" />
                 </td>
             </tr>
         </table>
@@ -1730,6 +1767,12 @@
                 <tr>
                     <td>
                         <h3>New Person </h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Authority</td>
+                    <td style="width: 400px">
+                        <input type="text" name="authority" />
                     </td>
                 </tr>
                 <tr>
@@ -1848,9 +1891,9 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="width: 150px">Zipcode</td>
+                    <td style="width: 150px">Postal Code</td>
                     <td style="width: 400px">
-                        <input type="text" name="zipcode" />
+                        <input type="text" name="postal_code" />
                     </td>
                 </tr>
             </table>
@@ -1895,7 +1938,7 @@
                 <tr>
                     <td style="width: 150px">Date</td>
                     <td style="width: 400px">
-                        <input type="text" name="date" />
+                        <input type="text" name="pub_date" />
                     </td>
                 </tr>
                 <tr>
@@ -1988,6 +2031,12 @@
                     <textarea type="text" style="height: 50px; width: 400px" name="mention_desc"></textarea>
                 </td>
             </tr>
+            <tr>
+                <td style="width:150px;vertical-align:top">Mention notes</td>
+                <td style="width: 400px">
+                    <textarea type="text" style="height: 50px; width: 400px" name="mention_notes"></textarea>
+                </td>
+            </tr>
         </table>
         </form>
         <input id="submit" type="submit" value="Submit" />
@@ -2006,6 +2055,12 @@
                 <tr>
                     <td>
                         <h3>New Person </h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Authority</td>
+                    <td style="width: 400px">
+                        <input type="text" name="authority" />
                     </td>
                 </tr>
                 <tr>
@@ -2124,9 +2179,9 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="width: 150px">Zipcode</td>
+                    <td style="width: 150px">Postal Code</td>
                     <td style="width: 400px">
-                        <input type="text" name="zipcode" />
+                        <input type="text" name="postal_code" />
                     </td>
                 </tr>
             </table>
@@ -2171,7 +2226,7 @@
                 <tr>
                     <td style="width: 150px">Date</td>
                     <td style="width: 400px">
-                        <input type="text" name="date" />
+                        <input type="text" name="pub_date" />
                     </td>
                 </tr>
                 <tr>
@@ -2259,9 +2314,9 @@
             </tr>
 
             <tr>
-                <td style="width:150px;vertical-align:top">Information</td>
+                <td style="width:150px;vertical-align:top">Notes</td>
                 <td style="width: 400px">
-                    <textarea type="text" style="height: 50px; width: 400px" name="classified_info"></textarea>
+                    <textarea type="text" style="height: 50px; width: 400px" name="classified_notes"></textarea>
                 </td>
             </tr>
         </table>
@@ -2280,6 +2335,12 @@
                 <tr>
                     <td>
                         <h3>New Person </h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Authority</td>
+                    <td style="width: 400px">
+                        <input type="text" name="authority" />
                     </td>
                 </tr>
                 <tr>
@@ -2398,9 +2459,9 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="width: 150px">Zipcode</td>
+                    <td style="width: 150px">Postal Code</td>
                     <td style="width: 400px">
-                        <input type="text" name="zipcode" />
+                        <input type="text" name="postal_code" />
                     </td>
                 </tr>
             </table>
@@ -2445,7 +2506,7 @@
                 <tr>
                     <td style="width: 150px">Date</td>
                     <td style="width: 400px">
-                        <input type="text" name="date" />
+                        <input type="text" name="pub_date" />
                     </td>
                 </tr>
                 <tr>
@@ -2532,9 +2593,9 @@
                 </td>
             </tr>
             <tr>
-                <td style="width:150px;vertical-align:top">Description</td>
+                <td style="width:150px;vertical-align:top">Notes</td>
                 <td style="width: 400px">
-                    <textarea type="text" style="height: 50px; width: 400px" name="penpals_desc"></textarea>
+                    <textarea type="text" style="height: 50px; width: 400px" name="penpals_notes"></textarea>
                 </td>
             </tr>
         </table>
@@ -2554,6 +2615,12 @@
                 <tr>
                     <td>
                         <h3>New Person </h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Authority</td>
+                    <td style="width: 400px">
+                        <input type="text" name="authority" />
                     </td>
                 </tr>
                 <tr>
@@ -2672,9 +2739,9 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="width: 150px">Zipcode</td>
+                    <td style="width: 150px">Postal Code</td>
                     <td style="width: 400px">
-                        <input type="text" name="zipcode" />
+                        <input type="text" name="postal_code" />
                     </td>
                 </tr>
             </table>
@@ -2719,7 +2786,7 @@
                 <tr>
                     <td style="width: 150px">Date</td>
                     <td style="width: 400px">
-                        <input type="text" name="date" />
+                        <input type="text" name="pub_date" />
                     </td>
                 </tr>
                 <tr>
@@ -2806,9 +2873,9 @@
                 </td>
 
                 <tr>
-                    <td style="width:150px;vertical-align:top">Description</td>
+                    <td style="width:150px;vertical-align:top">Notes</td>
                     <td style="width: 400px">
-                        <textarea type="text" style="height: 50px; width: 400px" name="traces_desc"></textarea>
+                        <textarea type="text" style="height: 50px; width: 400px" name="traces_notes"></textarea>
                     </td>
                 </tr>
         </table>

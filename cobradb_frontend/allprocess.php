@@ -14,6 +14,7 @@ if (!$db_selected) {
 	die('Can\'t use ' . DB_NAME . ': ' . mysql_error());
 }
 
+$pers_auth = $_POST['pers_auth'];
 $surname = $_POST['surname'];
 $forename = $_POST['forename'];
 $pers_title = $_POST['pers_title'];
@@ -34,46 +35,50 @@ $street = $_POST['street'];
 $city = $_POST['city'];
 $state = $_POST['state'];
 $country = $_POST['country'];
-$zipcode = $_POST['zipcode'];
+$postal_code = $_POST['postal_code'];
 
-$letter_title = $_POST['letter_title'];
-$salutation = $_POST['salutation'];
-$closing = $_POST['closing'];
-$letter_text = $_POST['letter_text'];
 $letter_pg_title = $_POST['letter_pg_title'];
+$letter_text = $_POST['letter_text'];
 
 $review_title = $_POST['review_title'];
 $review_text = $_POST['review_text'];
 
 $contest_name = $_POST['contest_name'];
+$contest_aff = $_POST['contest_assoc'];
 $contest_desc = $_POST['contest_desc'];
-$contest_aff = $_POST['contest_aff'];
 
-$club_name = $_POST['club_name'];
-$club_abbr = $_POST['club_abbr'];
-$club_aff = $_POST['club_aff'];
+
+$fan_club_name = $_POST['fan_club_name'];
+$fan_club_abbr = $_POST['fan_club_abbr'];
+$fan_club_aff = $_POST['fan_club_assoc'];
+$fan_club_notes = $_POST['fan_club_notes'];
 
 $mtg_name = $_POST['mtg_name'];
-
-
-$classified_title = $_POST['classified_title'];
-$classified_info = $_POST['classified_info'];
-
-$penpals_title = $_POST['penpals_title'];
-$penpals_desc = $_POST['penpals_desc'];
-
-$traces_column_title = $_POST['traces_column_title'];
-$traces_desc = $_POST['traces_desc'];
-
-$source_name = $_POST['source_type'];
-$gcd_link = $_POST['gcd_link'];
-$series_title = $_POST['series_title'];
-$issue_num = $_POST['issue_num'];
-$date = $_POST['date'];
-$page_num = $_POST['page_num'];
+$mtg_start = $_POST['mtg_start'];
+$mtg_end = $_POST['mtg_end'];
+$mtg_notes = $_POST['mtg_notes'];
 
 $mention_col_title = $_POST['mention_col_title'];
 $mention_desc = $_POST['mention_desc'];
+$mention_notes = $_POST['mention_notes'];
+
+$classified_title = $_POST['classified_title'];
+$classified_notes = $_POST['classified_notes'];
+
+$penpals_title = $_POST['penpals_title'];
+$penpals_notes = $_POST['penpals_notes'];
+
+$traces_col_title = $_POST['traces_col_title'];
+$traces_notes = $_POST['traces_notes'];
+
+$source_type = $_POST['source_type'];
+$gcd_link = $_POST['gcd_link'];
+$series_title = $_POST['series_title'];
+$issue_num = $_POST['issue_num'];
+$pub_date = $_POST['pub_date'];
+$page_num = $_POST['page_num'];
+
+
 
 
 
@@ -82,39 +87,39 @@ $mention_desc = $_POST['mention_desc'];
 $blank = NULL;
 
 
-$sql1 = "INSERT INTO person_dim (surname, forename, pers_title, pers_role, alt_name, birth_year, byear_source, grade, race, ethnicity, sex, gender, occupation, occu_source) VALUES ('$surname','$forename','$pers_title','$role','$alt_name','$birth_year','$byear_source','$grade','$race','$ethnicity','$sex','$gender','$occupation','$occu_source')";
+$sql1 = "INSERT INTO person_dim (pers_auth, surname, forename, pers_title, pers_role, alt_name, birth_year, byear_source, grade, race, ethnicity, sex, gender, occupation, occu_source) VALUES ('$pers_auth', '$surname','$forename','$pers_title','$role','$alt_name','$birth_year','$byear_source','$grade','$race','$ethnicity','$sex','$gender','$occupation','$occu_source')";
 
-$sql2 = "INSERT INTO location_dim (street, city, state, country, zip_code) VALUES ('$street', '$city', '$state', '$country', '$zipcode')";
+$sql2 = "INSERT INTO location_dim (street, city, state, country, postal_code) VALUES ('$street', '$city', '$state', '$country', '$postal_code')";
 
-$sql3 = "INSERT INTO letter_dim (letter_title, salutation, closing, letter_text, letter_pg_title) VALUES ('$letter_title', '$salutation', '$closing', '$letter_text', '$letter_pg_title')";
+$sql3 = "INSERT INTO letter_dim (letter_pg_title, letter_text) VALUES ('$letter_pg_title', '$letter_text')";
 
 
 
 $sql4 = "INSERT INTO review_dim (review_title, review_text) VALUES ('$review_title', '$review_text')";
 
-$sql5 = "INSERT INTO contest_dim (contest_name, contest_desc, contest_affiliation) VALUES ('$contest_name', '$contest_desc', '$contest_aff')";
+$sql5 = "INSERT INTO contest_dim (contest_name, contest_assoc, contest_desc) VALUES ('$contest_name', '$contest_assoc', '$contest_desc')";
 
-$sql6 = "INSERT INTO club_dim (fan_club_name, fan_club_abbr, club_association) VALUES ('$club_name', '$club_abbr', '$club_aff')";
-
-
-$sql7 = "INSERT INTO meeting_dim (mtg_name) VALUES ('$mtg_name')";
+$sql6 = "INSERT INTO club_dim (fan_club_name, fan_club_abbr, fan_club_assoc, fan_club_notes) VALUES ('$fan_club_name', '$fan_club_abbr', '$fan_club_assoc', '$fan_club_notes')";
 
 
-$sql8 = "INSERT INTO classified_dim (classified_title, classified_info) VALUES ('$classified_title', '$classified_info')";
+$sql7 = "INSERT INTO meeting_dim (mtg_name, mtg_start, mtg_end, mtg_notes) VALUES ('$mtg_name', '$mtg_start', '$mtg_end', '$mtg_notes')";
 
 
-
-$sql9 = "INSERT INTO pen_pals_dim (column_title, penpals_desc) VALUES ('$penpals_title', '$penpals_desc')";
-
-
-$sql10 = "INSERT INTO traces_dim (traces_col_title, traces_desc) VALUES ('$traces_column_title', '$traces_desc')";
+$sql8 = "INSERT INTO classified_dim (classified_title, classified_notes) VALUES ('$classified_title', '$classified_notes')";
 
 
 
-$sql11 = "INSERT INTO source_dim (source_type, GCD_link, series_title, issue_number, pub_date, page_num) VALUES ('$source_type', '$gcd_link', '$series_title', '$issue_num', '$date', '$page_num')";
+$sql9 = "INSERT INTO pen_pals_dim (penpals_title, penpals_notes) VALUES ('$penpals_title', '$penpals_notes')";
 
 
-$sql12 = "INSERT INTO mention_dim (mention_col_title, mention_desc) VALUES ('$mention_col_title', '$mention_desc')";
+$sql10 = "INSERT INTO traces_dim (traces_col_title, traces_notes) VALUES ('$traces_col_title', '$traces_notes')";
+
+
+
+$sql11 = "INSERT INTO source_dim (source_type, GCD_link, series_title, issue_number, pub_date, page_num) VALUES ('$source_type', '$gcd_link', '$series_title', '$issue_num', '$pub_date', '$page_num')";
+
+
+$sql12 = "INSERT INTO mention_dim (mention_col_title, mention_desc, mention_notes) VALUES ('$mention_col_title', '$mention_desc', '$mention_notes')";
 
 
 

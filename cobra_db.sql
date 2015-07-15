@@ -27,12 +27,11 @@ DROP TABLE IF EXISTS `cobra`.`person_dim` ;
 SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `cobra`.`person_dim` (
   `id_person_dim` INT NOT NULL AUTO_INCREMENT,
-  `person_authority` VARCHAR(45) NULL,
+  `pers_auth` VARCHAR(45) NULL,
   `surname` VARCHAR(45) NULL,
   `forename` VARCHAR(45) NULL,
   `pers_title` VARCHAR(45) NULL,
   `pers_role` VARCHAR(45) NULL,
-  `anonymous` BOOL NULL, -- use true or false here?
   `alt_name` VARCHAR(45) NULL, -- if signed with a false name
   `birth_year` VARCHAR(45) NULL,
   `byear_source` VARCHAR(45) NULL,
@@ -60,11 +59,59 @@ CREATE TABLE IF NOT EXISTS `cobra`.`location_dim` (
   `city` VARCHAR(45) NULL,
   `state` VARCHAR(45) NULL,
   `country` VARCHAR(45) NULL,
-  `zip_code` VARCHAR(45) NULL,
+  `postal_code` VARCHAR(45) NULL,
   PRIMARY KEY (`id_location_dim`))
 ENGINE = InnoDB;
 
 SHOW WARNINGS;
+
+
+-- -----------------------------------------------------
+-- Table `cobra`.`source_dim`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `cobra`.`source_dim` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `cobra`.`source_dim` (
+  `id_source_dim` INT NOT NULL AUTO_INCREMENT,
+  `source_type` VARCHAR(45) NULL,
+  `GCD_link` VARCHAR(45) NULL,
+  `series_title` VARCHAR(45) NULL,
+  `issue_number` VARCHAR(45) NULL,
+  `pub_date` VARCHAR(45) NULL,
+  `page_num` VARCHAR(45) NULL,
+  `id_phys_loc` VARCHAR(45) NULL,
+  PRIMARY KEY (`id_source_dim`),
+  CONSTRAINT `fk_source_dim`
+    FOREIGN KEY (`id_phys_loc`)
+    REFERENCES `cobra`.`phys_loc` (`id_phys_loc`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+
+-- -----------------------------------------------------
+-- Table `cobra`.`phys_loc_dim`
+-- Not sure how this should be connected
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `cobra`.`phys_loc` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `cobra`.`phys_loc` (
+  `id_phys_loc` INT NOT NULL AUTO_INCREMENT,
+  `phys_loc_name` VARCHAR(45) NULL,
+  `phys_loc_phone` VARCHAR(45) NULL,
+  PRIMARY KEY (`id_phys_loc`))
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
 
 -- -----------------------------------------------------
 -- Table `cobra`.`letter_dim`
@@ -74,11 +121,8 @@ DROP TABLE IF EXISTS `cobra`.`letter_dim` ;
 SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `cobra`.`letter_dim` (
   `id_letter_dim` INT NOT NULL AUTO_INCREMENT,
-  `letter_title` VARCHAR(45) NULL,
-  `salutation` VARCHAR(45) NULL,
-  `closing` VARCHAR(45) NULL,
-  `letter_text` VARCHAR(255) NULL,
   `letter_pg_title` VARCHAR(45) NULL,
+  `letter_text` VARCHAR(255) NULL,
   PRIMARY KEY (`id_letter_dim`))
 ENGINE = InnoDB;
 
@@ -108,8 +152,8 @@ SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `cobra`.`contest_dim` (
   `id_contest_dim` INT NOT NULL AUTO_INCREMENT,
   `contest_name` VARCHAR(45) NULL,
+  `contest_assoc` VARCHAR(45) NULL,
   `contest_desc` VARCHAR(45) NULL,
-  `contest_affiliation` VARCHAR(45) NULL,
   PRIMARY KEY (`id_contest_dim`))
 ENGINE = InnoDB;
 
@@ -125,7 +169,8 @@ CREATE TABLE IF NOT EXISTS `cobra`.`club_dim` (
   `id_club_dim` INT NOT NULL AUTO_INCREMENT,
   `fan_club_name` VARCHAR(45) NULL,
   `fan_club_abbr` VARCHAR(45) NULL,
-  `club_association` VARCHAR(45) NULL,
+  `fan_club_assoc` VARCHAR(45) NULL,
+  `fan_club_notes` VARCHAR(255) NULL,
   PRIMARY KEY (`id_club_dim`))
 ENGINE = InnoDB;
 
@@ -140,6 +185,9 @@ SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `cobra`.`meeting_dim` (
   `id_meeting_dim` INT NOT NULL AUTO_INCREMENT,
   `mtg_name` VARCHAR(45) NULL,
+  `mtg_start` VARCHAR(45) NULL,
+  `mtg_end` VARCHAR(45) NULL,
+  `mtg_notes` VARCHAR(255) NULL,
   PRIMARY KEY (`id_meeting_dim`))
 ENGINE = InnoDB;
 
@@ -154,7 +202,8 @@ SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `cobra`.`mention_dim` (
   `id_mention_dim` INT NOT NULL AUTO_INCREMENT,
   `mention_col_title` VARCHAR(45) NULL,
-  `mention_desc` VARCHAR(45) NULL,
+  `mention_desc` VARCHAR(255) NULL,
+  `mention_notes` VARCHAR(255) NULL,
   PRIMARY KEY (`id_mention_dim`))
 ENGINE = InnoDB;
 
@@ -169,7 +218,7 @@ SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `cobra`.`classified_dim` (
   `id_classified_dim` INT NOT NULL AUTO_INCREMENT,
   `classified_title` VARCHAR(45) NULL,
-  `classified_info` VARCHAR(45) NULL,
+  `classified_notes` VARCHAR(255) NULL,
   PRIMARY KEY (`id_classified_dim`))
 ENGINE = InnoDB;
 
@@ -183,8 +232,8 @@ DROP TABLE IF EXISTS `cobra`.`pen_pals_dim` ;
 SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `cobra`.`pen_pals_dim` (
   `id_pen_pals_dim` INT NOT NULL AUTO_INCREMENT,
-  `column_title` VARCHAR(45) NULL,
-  `penpals_desc` VARCHAR(255) NULL,
+  `penpals_title` VARCHAR(45) NULL,
+  `penpals_notes` VARCHAR(255) NULL,
   PRIMARY KEY (`id_pen_pals_dim`))
 ENGINE = InnoDB;
 
@@ -199,33 +248,8 @@ SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `cobra`.`traces_dim` (
   `id_traces_dim` INT NOT NULL AUTO_INCREMENT,
   `traces_col_title` VARCHAR(45) NULL,
-  `traces_desc` VARCHAR(255) NULL, 
+  `traces_notes` VARCHAR(255) NULL, 
   PRIMARY KEY (`id_traces_dim`))
-ENGINE = InnoDB;
-
-SHOW WARNINGS;
-
--- -----------------------------------------------------
--- Table `cobra`.`source_dim`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `cobra`.`source_dim` ;
-
-SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `cobra`.`source_dim` (
-  `id_source_dim` INT NOT NULL AUTO_INCREMENT,
-  `source_type` VARCHAR(45) NULL,
-  `GCD_link` VARCHAR(45) NULL,
-  `pub_date` VARCHAR(45) NULL,
-  `issue_number` VARCHAR(45) NULL,
-  `series_title` VARCHAR(45) NULL,
-  `page_num` VARCHAR(45) NULL,
-  `id_phys_loc` VARCHAR(45) NULL,
-  PRIMARY KEY (`id_source_dim`),
-  CONSTRAINT `fk_source_dim`
-    FOREIGN KEY (`id_phys_loc`)
-    REFERENCES `cobra`.`phys_loc` (`id_phys_loc`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 SHOW WARNINGS;
@@ -327,23 +351,6 @@ ENGINE = InnoDB;
 
 SHOW WARNINGS;
 
--- -----------------------------------------------------
--- Table `cobra`.`source_of_source_dim`
--- Not sure how this should be connected
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `cobra`.`source_of_source_dim` ;
-
-SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `cobra`.`source_of_source_dim` (
-  `id_source_of_source_dim` INT NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`id_source_of_source_dim`))
-ENGINE = InnoDB;
-
-SHOW WARNINGS;
-
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 -- -----------------------------------------------------
 -- Insert statements
