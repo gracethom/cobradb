@@ -30,18 +30,15 @@ CREATE TABLE IF NOT EXISTS `cobra`.`person_dim` (
   `pers_auth` VARCHAR(45) NULL,
   `surname` VARCHAR(45) NULL,
   `forename` VARCHAR(45) NULL,
-  `pers_title` VARCHAR(45) NULL,
-  `pers_role` VARCHAR(45) NULL,
+  `person_title` VARCHAR(45) NULL,
+  `person_role` VARCHAR(45) NULL,
   `alt_name` VARCHAR(45) NULL, -- if signed with a false name
   `birth_year` VARCHAR(45) NULL,
   `byear_source` VARCHAR(45) NULL,
-  `grade` VARCHAR(45) NULL,
   `race` VARCHAR(45) NULL,
+  `race_note` VARCHAR(45) NULL,
   `ethnicity` VARCHAR(45) NULL,
-  `sex` VARCHAR(45) NULL,
-  `gender` VARCHAR(45) NULL,
-  `occupation` VARCHAR(45) NULL,
-  `occu_source` VARCHAR(45) NULL,
+  `ethnicity_note` VARCHAR(45) NULL,
   PRIMARY KEY (`id_person_dim`))
 ENGINE = InnoDB;
 
@@ -79,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `cobra`.`person_occu` (
   `id_person_dim` VARCHAR(45) NULL,
   `id_occu_dim` VARCHAR(45) NULL,
   `occu_note` VARCHAR(255) NULL,
-  PRIMARY KEY (`id_person_occu`))
+  PRIMARY KEY (`id_person_occu`),
   CONSTRAINT `fk_occu_dim`
     FOREIGN KEY (`id_occu_dim`)
     REFERENCES `cobra`.`occu_dim` (`id_occu_dim`)
@@ -121,7 +118,7 @@ CREATE TABLE IF NOT EXISTS `cobra`.`person_grade` (
   `id_person_dim` VARCHAR(45) NULL,
   `id_grade_dim` VARCHAR(45) NULL,
 	`grade_note` VARCHAR(255) NULL,
-  PRIMARY KEY (`id_person_grade`))
+  PRIMARY KEY (`id_person_grade`),
   CONSTRAINT `fk_grade_dim`
     FOREIGN KEY (`id_grade_dim`)
     REFERENCES `cobra`.`grade_dim` (`id_grade_dim`)
@@ -161,8 +158,8 @@ CREATE TABLE IF NOT EXISTS `cobra`.`person_sex` (
   `id_person_sex` INT NOT NULL AUTO_INCREMENT,
   `id_person_dim` VARCHAR(45) NULL,
   `id_sex_dim` VARCHAR(45) NULL,
-	`sex_note` VARCHAR(255) NULL,
-  PRIMARY KEY (`id_person_sex`))
+  `sex_note` VARCHAR(255) NULL,
+  PRIMARY KEY (`id_person_sex`),
   CONSTRAINT `fk_sex_dim`
     FOREIGN KEY (`id_sex_dim`)
     REFERENCES `cobra`.`sex_dim` (`id_sex_dim`)
@@ -202,8 +199,8 @@ CREATE TABLE IF NOT EXISTS `cobra`.`person_gender` (
   `id_person_gender` INT NOT NULL AUTO_INCREMENT,
   `id_person_dim` VARCHAR(45) NULL,
   `id_gender_dim` VARCHAR(45) NULL,
-	`gender_note` VARCHAR(255) NULL,
-  PRIMARY KEY (`id_person_gender`))
+  `gender_note` VARCHAR(255) NULL,
+  PRIMARY KEY (`id_person_gender`),
   CONSTRAINT `fk_gender_dim`
     FOREIGN KEY (`id_gender_dim`)
     REFERENCES `cobra`.`gender_dim` (`id_gender_dim`)
