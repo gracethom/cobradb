@@ -47,6 +47,186 @@ ENGINE = InnoDB;
 
 SHOW WARNINGS;
 
+
+
+
+-- -----------------------------------------------------
+-- MUTABLE ATTRIBUTES IN SEPARATE TABLES RELATING TO PERSON
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Table `cobra`.`occu_dim`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `cobra`.`occu_dim` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `cobra`.`occu_dim` (
+  `id_occu_dim` INT NOT NULL AUTO_INCREMENT,
+  `occupation` VARCHAR(45) NULL,
+  PRIMARY KEY (`id_occu_dim`))
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- Table `cobra`.`person_occu`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `cobra`.`person_occu` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `cobra`.`person_occu` (
+  `id_person_occu` INT NOT NULL AUTO_INCREMENT,
+  `id_person_dim` VARCHAR(45) NULL,
+  `id_occu_dim` VARCHAR(45) NULL,
+  `occu_note` VARCHAR(255) NULL,
+  PRIMARY KEY (`id_person_occu`))
+  CONSTRAINT `fk_occu_dim`
+    FOREIGN KEY (`id_occu_dim`)
+    REFERENCES `cobra`.`occu_dim` (`id_occu_dim`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_person_dim`
+    FOREIGN KEY (`id_person_dim`)
+    REFERENCES `cobra`.`person_dim` (`id_person_dim`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+
+
+-- -----------------------------------------------------
+-- Table `cobra`.`grade_dim`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `cobra`.`grade_dim` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `cobra`.`grade_dim` (
+  `id_grade_dim` INT NOT NULL AUTO_INCREMENT,
+  `grade` VARCHAR(45) NULL,
+  PRIMARY KEY (`id_grade_dim`))
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- Table `cobra`.`person_grade`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `cobra`.`person_grade` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `cobra`.`person_grade` (
+  `id_person_grade` INT NOT NULL AUTO_INCREMENT,
+  `id_person_dim` VARCHAR(45) NULL,
+  `id_grade_dim` VARCHAR(45) NULL,
+	`grade_note` VARCHAR(255) NULL,
+  PRIMARY KEY (`id_person_grade`))
+  CONSTRAINT `fk_grade_dim`
+    FOREIGN KEY (`id_grade_dim`)
+    REFERENCES `cobra`.`grade_dim` (`id_grade_dim`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_person_dim`
+    FOREIGN KEY (`id_person_dim`)
+    REFERENCES `cobra`.`person_dim` (`id_person_dim`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+
+-- -----------------------------------------------------
+-- Table `cobra`.`sex_dim`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `cobra`.`sex_dim` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `cobra`.`sex_dim` (
+  `id_sex_dim` INT NOT NULL AUTO_INCREMENT,
+  `sex` VARCHAR(45) NULL,
+  PRIMARY KEY (`id_sex_dim`))
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- Table `cobra`.`person_sex`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `cobra`.`person_sex` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `cobra`.`person_sex` (
+  `id_person_sex` INT NOT NULL AUTO_INCREMENT,
+  `id_person_dim` VARCHAR(45) NULL,
+  `id_sex_dim` VARCHAR(45) NULL,
+	`sex_note` VARCHAR(255) NULL,
+  PRIMARY KEY (`id_person_sex`))
+  CONSTRAINT `fk_sex_dim`
+    FOREIGN KEY (`id_sex_dim`)
+    REFERENCES `cobra`.`sex_dim` (`id_sex_dim`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_person_dim`
+    FOREIGN KEY (`id_person_dim`)
+    REFERENCES `cobra`.`person_dim` (`id_person_dim`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+
+-- -----------------------------------------------------
+-- Table `cobra`.`gender_dim`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `cobra`.`gender_dim` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `cobra`.`gender_dim` (
+  `id_gender_dim` INT NOT NULL AUTO_INCREMENT,
+  `gender` VARCHAR(45) NULL,
+  PRIMARY KEY (`id_gender_dim`))
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- Table `cobra`.`person_gender`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `cobra`.`person_gender` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `cobra`.`person_gender` (
+  `id_person_gender` INT NOT NULL AUTO_INCREMENT,
+  `id_person_dim` VARCHAR(45) NULL,
+  `id_gender_dim` VARCHAR(45) NULL,
+	`gender_note` VARCHAR(255) NULL,
+  PRIMARY KEY (`id_person_gender`))
+  CONSTRAINT `fk_gender_dim`
+    FOREIGN KEY (`id_gender_dim`)
+    REFERENCES `cobra`.`gender_dim` (`id_gender_dim`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_person_dim`
+    FOREIGN KEY (`id_person_dim`)
+    REFERENCES `cobra`.`person_dim` (`id_person_dim`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- END OF MUTABLE ATTRIBUTES
+-- -----------------------------------------------------
+
+
+
+
+
+
 -- -----------------------------------------------------
 -- Table `cobra`.`location_dim`
 -- -----------------------------------------------------
@@ -94,7 +274,6 @@ SHOW WARNINGS;
 
 -- -----------------------------------------------------
 -- Table `cobra`.`phys_loc_dim`
--- Not sure how this should be connected
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `cobra`.`phys_loc` ;
 
@@ -263,6 +442,10 @@ SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `cobra`.`activity_fact` (
   `id_activity_fact` INT NOT NULL AUTO_INCREMENT,
   `fact_person` INT,
+  `fact_person_occu` INT,
+  `fact_person_grade` INT,
+  `fact_person_sex` INT,
+  `fact_person_gender` INT,
   `fact_location` INT,
   `fact_letter` INT,
   `fact_review` INT,
@@ -276,6 +459,10 @@ CREATE TABLE IF NOT EXISTS `cobra`.`activity_fact` (
   `fact_source` INT,
   PRIMARY KEY (`id_activity_fact`),
   INDEX `fk_activity_fact_person_dim_idx` (`fact_person` ASC),
+  INDEX `fk_activity_fact_person_occu_idx` (`fact_person_occu` ASC),
+  INDEX `fk_activity_fact_person_grade_idx` (`fact_person_grade` ASC),
+  INDEX `fk_activity_fact_person_sex_idx` (`fact_person_sex` ASC),
+  INDEX `fk_activity_fact_person_gender_idx` (`fact_person_gender` ASC),
   INDEX `fk_activity_fact_location_dim1_idx` (`fact_location` ASC),
   INDEX `fk_activity_fact_letter_dim1_idx` (`fact_letter` ASC),
   INDEX `fk_activity_fact_review_dim1_idx` (`fact_review` ASC),
@@ -290,6 +477,26 @@ CREATE TABLE IF NOT EXISTS `cobra`.`activity_fact` (
   CONSTRAINT `fk_activity_fact_person_dim`
     FOREIGN KEY (`fact_person`)
     REFERENCES `cobra`.`person_dim` (`id_person_dim`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_activity_fact_person_occu`
+    FOREIGN KEY (`fact_person_occu`)
+    REFERENCES `cobra`.`person_occu` (`id_person_occu`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_activity_fact_person_grade`
+    FOREIGN KEY (`fact_person_grade`)
+    REFERENCES `cobra`.`person_grade` (`id_person_grade`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_activity_fact_person_sex`
+    FOREIGN KEY (`fact_person_sex`)
+    REFERENCES `cobra`.`person_sex` (`id_person_sex`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_activity_fact_person_gender`
+    FOREIGN KEY (`fact_person_gender`)
+    REFERENCES `cobra`.`person_gender` (`id_person_gender`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_activity_fact_location_dim1`
