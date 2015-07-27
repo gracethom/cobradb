@@ -270,7 +270,7 @@ SHOW WARNINGS;
 
 
 -- -----------------------------------------------------
--- Table `cobra`.`phys_loc_dim`
+-- Table `cobra`.`phys_loc`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `cobra`.`phys_loc` ;
 
@@ -439,11 +439,16 @@ SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `cobra`.`activity_fact` (
   `id_activity_fact` INT NOT NULL AUTO_INCREMENT,
   `fact_person` INT,
+  `fact_occu` INT,
   `fact_person_occu` INT,
+  `fact_grade` INT,
   `fact_person_grade` INT,
+  `fact_sex` INT,
   `fact_person_sex` INT,
+  `fact_gender` INT,
   `fact_person_gender` INT,
   `fact_location` INT,
+  `fact_phys_loc` INT,
   `fact_letter` INT,
   `fact_review` INT,
   `fact_contest` INT,
@@ -456,11 +461,16 @@ CREATE TABLE IF NOT EXISTS `cobra`.`activity_fact` (
   `fact_source` INT,
   PRIMARY KEY (`id_activity_fact`),
   INDEX `fk_activity_fact_person_dim_idx` (`fact_person` ASC),
+  INDEX `fk_activity_fact_occu_idx` (`fact_occu` ASC),
   INDEX `fk_activity_fact_person_occu_idx` (`fact_person_occu` ASC),
+  INDEX `fk_activity_fact_grade_idx` (`fact_grade` ASC),
   INDEX `fk_activity_fact_person_grade_idx` (`fact_person_grade` ASC),
+  INDEX `fk_activity_fact_sex_idx` (`fact_sex` ASC),
   INDEX `fk_activity_fact_person_sex_idx` (`fact_person_sex` ASC),
+  INDEX `fk_activity_fact_gender_idx` (`fact_gender` ASC),
   INDEX `fk_activity_fact_person_gender_idx` (`fact_person_gender` ASC),
   INDEX `fk_activity_fact_location_dim1_idx` (`fact_location` ASC),
+  INDEX `fk_activity_fact_phys_loc_dim1_idx` (`fact_phys_loc` ASC),
   INDEX `fk_activity_fact_letter_dim1_idx` (`fact_letter` ASC),
   INDEX `fk_activity_fact_review_dim1_idx` (`fact_review` ASC),
   INDEX `fk_activity_fact_contest_dim1_idx` (`fact_contest` ASC),
@@ -476,9 +486,19 @@ CREATE TABLE IF NOT EXISTS `cobra`.`activity_fact` (
     REFERENCES `cobra`.`person_dim` (`id_person_dim`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
+  CONSTRAINT `fk_activity_fact_occu`
+    FOREIGN KEY (`fact_occu`)
+    REFERENCES `cobra`.`occu_dim` (`id_occu_dim`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
   CONSTRAINT `fk_activity_fact_person_occu`
     FOREIGN KEY (`fact_person_occu`)
     REFERENCES `cobra`.`person_occu` (`id_person_occu`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_activity_fact_grade`
+    FOREIGN KEY (`fact_grade`)
+    REFERENCES `cobra`.`grade_dim` (`id_grade_dim`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_activity_fact_person_grade`
@@ -486,9 +506,19 @@ CREATE TABLE IF NOT EXISTS `cobra`.`activity_fact` (
     REFERENCES `cobra`.`person_grade` (`id_person_grade`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
+  CONSTRAINT `fk_activity_fact_sex`
+    FOREIGN KEY (`fact_sex`)
+    REFERENCES `cobra`.`sex_dim` (`id_sex_dim`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
   CONSTRAINT `fk_activity_fact_person_sex`
     FOREIGN KEY (`fact_person_sex`)
     REFERENCES `cobra`.`person_sex` (`id_person_sex`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_activity_fact_gender`
+    FOREIGN KEY (`fact_gender`)
+    REFERENCES `cobra`.`gender_dim` (`id_gender_dim`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_activity_fact_person_gender`
@@ -499,6 +529,11 @@ CREATE TABLE IF NOT EXISTS `cobra`.`activity_fact` (
   CONSTRAINT `fk_activity_fact_location_dim1`
     FOREIGN KEY (`fact_location`)
     REFERENCES `cobra`.`location_dim` (`id_location_dim`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_activity_fact_phys_loc_dim1`
+    FOREIGN KEY (`fact_phys_loc`)
+    REFERENCES `cobra`.`phys_loc` (`id_phys_loc`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_activity_fact_letter_dim1`

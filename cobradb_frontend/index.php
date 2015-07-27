@@ -46,6 +46,13 @@
                 minLength: 1
             });
         });
+        
+        $(document).ready(function () {
+            $(".autophysloc").autocomplete({
+                source: 'getphysloc.php',
+                minLength: 1
+            });
+        });
 
         $(document).ready(function () {
             $('.autoissue').autocomplete({
@@ -511,6 +518,58 @@
                 </td>
             </tr>
         </table>
+        <div class='hidden physLocForm'>
+        <table>
+            <tr>
+                <td>
+                    <h3>New Physical Location</h3>
+                </td>
+            </tr>
+            <tr>
+            <!-- add another set of location fields -->
+                <td style="width: 150px">Location Name</td>
+                <td style="width: 400px">
+                    <input type="text" name="loc_name" />
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 150px">Location Phone</td>
+                <td style="width: 400px">
+                    <input type="text" name="loc_phone" />
+                </td>
+            </tr>
+            <tr>
+                    <td style="width: 150px">Street</td>
+                    <td style="width: 400px">
+                        <input type="text" name="loc_street" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">City</td>
+                    <td style="width: 400px">
+                        <input type="text" name="loc_city" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">State</td>
+                    <td style="width: 400px">
+                        <input type="text" name="loc_state" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Country</td>
+                    <td style="width: 400px">
+                        <input type="text" name="loc_country" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Postal Code</td>
+                    <td style="width: 400px">
+                        <input type="text" name="loc_postal_code" />
+                    </td>
+                </tr>
+        </table>
+        </div>
 
     </div>
         <div class="personPrompt">
@@ -568,6 +627,24 @@
                         <td>
                             <button type="button" class='newSource' onclick="newSource()">
                                 Create New Source</button>
+                        </td>
+                    </tr>
+
+                </tr>
+                <tr>
+
+                    <td style="width: 150px">Physical Location</td>
+                    <td style="width: 400px">
+
+                        <input type="text" class="autophysloc" name="name" />
+
+                    </td>
+
+                    <tr style="background-color: white">
+                        <td style="width: 150px"></td>
+                        <td>
+                            <button type="button" class='newSource' onclick="newSource()">
+                                Create New Physical Location</button>
                         </td>
                     </tr>
 

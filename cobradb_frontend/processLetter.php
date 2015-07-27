@@ -47,6 +47,14 @@ $issue_num = $_POST['issue_num'];
 $pub_date = $_POST['pub_date'];
 $page_num = $_POST['page_num'];
 
+$loc_name = $_POST['loc_name'];
+$loc_phone = $_POST['loc_phone'];
+$loc_street = $_POST['loc_street'];
+$loc_city = $_POST['loc_city'];
+$loc_state = $_POST['loc_state'];
+$loc_country = $_POST['loc_country'];
+$loc_postal_code = $_POST['loc_postal_code'];
+
 
 
 
@@ -59,6 +67,10 @@ $sql3 = "INSERT INTO letter_dim (letter_pg_title, letter_text) VALUES ('$letter_
 
 
 $sql11 = "INSERT INTO source_dim (source_type, GCD_link, series_title, issue_number, pub_date, page_num) VALUES ('$source_type', '$gcd_link', '$series_title', '$issue_num', '$pub_date', '$page_num')";
+
+$sql13 = "INSERT INTO phys_loc (phys_loc_name, phys_loc_phone) AND location_dim (street, city, state, country, postal_code) VALUES ('$loc_name', '$loc_phone', '$loc_street', '$loc_city', '$loc_state', '$loc_country', '$loc_postal_code')";
+
+
 
 
 
@@ -78,6 +90,10 @@ if (!mysql_query($sql3)) {
 
 
 if (!mysql_query($sql11)) {
+	die('Error: ' . mysql_error());
+}
+
+if (!mysql_query($sql13)) {
 	die('Error: ' . mysql_error());
 }
 
