@@ -14,11 +14,11 @@ if (!$db_selected) {
 	die('Can\'t use ' . DB_NAME . ': ' . mysql_error());
 }
 
-$pers_auth = $_POST['pers_auth'];
+$person_auth = $_POST['pers_auth'];
 $surname = $_POST['surname'];
 $forename = $_POST['forename'];
-$pers_title = $_POST['pers_title'];
-$role = $_POST['role'];
+$person_title = $_POST['pers_title'];
+$person_role = $_POST['pers_role'];
 $alt_name = $_POST['alt_name'];
 $birth_year = $_POST['birth_year'];
 $byear_source = $_POST['byear_source'];
@@ -59,7 +59,9 @@ $loc_postal_code = $_POST['loc_postal_code'];
 
 
 
-$sql1 = "INSERT INTO person_dim (pers_auth, surname, forename, pers_title, pers_role, alt_name, birth_year, byear_source, grade, race, ethnicity, sex, gender, occupation, occu_source) VALUES ('$pers_auth', '$surname','$forename','$pers_title','$role','$alt_name','$birth_year','$byear_source','$grade','$race','$ethnicity','$sex','$gender','$occupation','$occu_source')";
+$sql1 = "INSERT INTO person_dim (person_auth, surname, forename, person_title, person_role, alt_name, birth_year, byear_source, race, ethnicity) VALUES ('$pers_auth', '$surname','$forename','$pers_title','$pers_role','$alt_name','$birth_year','$byear_source','$race','$ethnicity')";
+
+
 
 $sql2 = "INSERT INTO location_dim (street, city, state, country, postal_code) VALUES ('$street', '$city', '$state', '$country', '$postal_code')";
 
@@ -68,7 +70,10 @@ $sql3 = "INSERT INTO letter_dim (letter_pg_title, letter_text) VALUES ('$letter_
 
 $sql11 = "INSERT INTO source_dim (source_type, GCD_link, series_title, issue_number, pub_date, page_num) VALUES ('$source_type', '$gcd_link', '$series_title', '$issue_num', '$pub_date', '$page_num')";
 
-$sql13 = "INSERT INTO phys_loc (phys_loc_name, phys_loc_phone) AND location_dim (street, city, state, country, postal_code) VALUES ('$loc_name', '$loc_phone', '$loc_street', '$loc_city', '$loc_state', '$loc_country', '$loc_postal_code')";
+$sql13 = "INSERT INTO phys_loc (phys_loc_name, phys_loc_phone) VALUES ('$loc_name', '$loc_phone')";
+
+
+$sql14 = "INSERT INTO location_dim (street, city, state, country, postal_code) VALUES ('$loc_street', '$loc_city', '$loc_state', '$loc_country', '$loc_postal_code')";
 
 
 
@@ -94,6 +99,10 @@ if (!mysql_query($sql11)) {
 }
 
 if (!mysql_query($sql13)) {
+	die('Error: ' . mysql_error());
+}
+
+if (!mysql_query($sql14)) {
 	die('Error: ' . mysql_error());
 }
 

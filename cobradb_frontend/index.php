@@ -39,6 +39,13 @@
                 console.log($res);
             });
         });
+        
+        $(document).ready(function () {
+            $(".autoLocation").autocomplete({
+                source: 'getAutoLocation.php',
+                minLength: 1
+            });
+        });
 
         $(document).ready(function () {
             $(".autoseries").autocomplete({
@@ -46,7 +53,7 @@
                 minLength: 1
             });
         });
-        
+
         $(document).ready(function () {
             $(".autophysloc").autocomplete({
                 source: 'getphysloc.php',
@@ -134,7 +141,7 @@
 
     <!-- The new person form, brough up if the user clicks "Create New Person" button instead of selecting an existing person -->
     <!-- Located here to make it "global" and "reusable" ?? TODO in form_buttons.js file -->
-   <!-- <div class='hidden personForm'>
+    <!-- <div class='hidden personForm'>
         <table>
             <tr>
                 <td>
@@ -357,8 +364,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="width: 150px">
-                    </td>
+                    <td style="width: 150px">Forename</td>
                     <td style="width: 400px">
                         <input type="text" name="forename" />
                     </td>
@@ -372,7 +378,7 @@
                 <tr>
                     <td style="width: 150px">Role</td>
                     <td style="width: 400px">
-                        <input type="text" name="role" />
+                        <input type="text" name="pers_role" />
                     </td>
                 </tr>
                 <tr>
@@ -436,6 +442,8 @@
                     </td>
                 </tr>
             </table>
+        </div>
+        <div class='hidden locationForm'>
             <table>
                 <tr>
                     <td>
@@ -475,70 +483,71 @@
             </table>
         </div>
         <div class='hidden sourceForm'>
-        <table>
-            <tr>
-                <td>
-                    <h3>New Source</h3>
-                </td>
-            </tr>
-            <tr>
-                <td style="width: 150px">Source type</td>
-                <td style="width: 400px">
-                    <input type="text" name="source_type" />
-                </td>
-            </tr>
-            <tr>
-                <td style="width: 150px">GCD Link</td>
-                <td style="width: 400px">
-                    <input type="text" name="gcd_link" />
-                </td>
-            </tr>
-            <tr>
-                <td style="width: 150px">Series Title</td>
-                <td style="width: 400px">
-                    <input type="text" name="series_title" />
-                </td>
-            </tr>
-            <tr>
-                <td style="width: 150px">Issue Number</td>
-                <td style="width: 400px">
-                    <input type="text" name="issue_num" />
-                </td>
-            </tr>
-            <tr>
-                <td style="width: 150px">Publication Date</td>
-                <td style="width: 400px">
-                    <input type="text" name="pub_date" />
-                </td>
-            </tr>
-            <tr>
-                <td style="width: 150px">Page Number</td>
-                <td style="width: 400px">
-                    <input type="text" name="page_num" />
-                </td>
-            </tr>
-        </table>
+            <table>
+                <tr>
+                    <td>
+                        <h3>New Source</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Source type</td>
+                    <td style="width: 400px">
+                        <input type="text" name="source_type" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">GCD Link</td>
+                    <td style="width: 400px">
+                        <input type="text" name="gcd_link" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Series Title</td>
+                    <td style="width: 400px">
+                        <input type="text" name="series_title" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Issue Number</td>
+                    <td style="width: 400px">
+                        <input type="text" name="issue_num" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Publication Date</td>
+                    <td style="width: 400px">
+                        <input type="text" name="pub_date" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Page Number</td>
+                    <td style="width: 400px">
+                        <input type="text" name="page_num" />
+                    </td>
+                </tr>
+            </table>
+        </div>
         <div class='hidden physLocForm'>
-        <table>
-            <tr>
-                <td>
-                    <h3>New Physical Location</h3>
-                </td>
-            </tr>
-            <tr>
-            <!-- add another set of location fields -->
-                <td style="width: 150px">Location Name</td>
-                <td style="width: 400px">
-                    <input type="text" name="loc_name" />
-                </td>
-            </tr>
-            <tr>
-                <td style="width: 150px">Location Phone</td>
-                <td style="width: 400px">
-                    <input type="text" name="loc_phone" />
-                </td>
-            </tr>
-            <tr>
+            <table>
+                <tr>
+                    <td>
+                        <h3>New Location</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <!-- add another set of location fields -->
+                    <td style="width: 150px">Location Name</td>
+                    <td style="width: 400px">
+                        <input type="text" name="loc_name" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Location Phone</td>
+                    <td style="width: 400px">
+                        <input type="text" name="loc_phone" />
+                    </td>
+                </tr>
+                <tr>
                     <td style="width: 150px">Street</td>
                     <td style="width: 400px">
                         <input type="text" name="loc_street" />
@@ -568,10 +577,10 @@
                         <input type="text" name="loc_postal_code" />
                     </td>
                 </tr>
-        </table>
+            </table>
         </div>
 
-    </div>
+
         <div class="personPrompt">
             <table>
                 <tr>
@@ -593,6 +602,32 @@
                     <td>
                         <button type="button" class="newPerson" onclick="newPerson()">
                             Create New Person</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="locationPrompt">
+            <table>
+                <tr>
+                    <td>
+                        <h3>Select a location</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Location</td>
+                    <td style="width: 400px">
+
+                        <input type="text" class="autoLocation" name="name" />
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="width: 150px"></td>
+                    <td>
+                        <button type="button" class="newLocation" onclick="newLocation()">
+                            Create New Location</button>
                     </td>
                 </tr>
             </table>
@@ -631,19 +666,24 @@
                     </tr>
 
                 </tr>
+
+            </table>
+        </div>
+        <div class="physLocPrompt">
+            <table>
                 <tr>
 
                     <td style="width: 150px">Physical Location</td>
                     <td style="width: 400px">
 
-                        <input type="text" class="autophysloc" name="name" />
+                        <input type="text" class="autoPhysloc" name="name" />
 
                     </td>
 
                     <tr style="background-color: white">
                         <td style="width: 150px"></td>
                         <td>
-                            <button type="button" class='newSource' onclick="newSource()">
+                            <button type="button" class='newPhysLoc' onclick="newPhysLoc()">
                                 Create New Physical Location</button>
                         </td>
                     </tr>

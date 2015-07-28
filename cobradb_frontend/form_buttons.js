@@ -238,3 +238,129 @@ function newSource9() {
         $p.hide()
     })
 };
+
+
+
+
+
+
+
+
+
+/* Show new source form */
+
+
+function newPhysLoc() {
+    var $b = $('button.newPhysLoc');
+    var $f = $('.physLocForm');
+    var $p = $('.physLocPrompt');
+    
+    $b.click(function () {
+        var i = $b.index(this);
+        $f.hide().eq(i).show()
+        $p.hide()
+    })
+};
+
+function newPhysLoc2() {
+    var $b = $('button.newPhysLoc2');
+    var $f = $('.physLocForm');
+    var $p = $('.physLocPrompt');
+    
+    $b.click(function () {
+        var i = $b.index(this);
+        $f.hide().eq(i).show()
+        $p.hide()
+    })
+};
+
+
+function newPhysLoc3() {
+    var $b = $('button.newPhysLoc3');
+    var $f = $('.physLocForm');
+    var $p = $('.physLocPrompt');
+    
+    $b.click(function () {
+        var i = $b.index(this);
+        $f.hide().eq(i).show()
+        $p.hide()
+    })
+};
+
+function newPhysLoc4() {
+    var $b = $('button.newPhysLoc4');
+    var $f = $('.physLocForm');
+    var $p = $('.physLocPrompt');
+    
+    $b.click(function () {
+        var i = $b.index(this);
+        $f.hide().eq(i).show()
+        $p.hide()
+    })
+};
+
+
+function newPhysLoc5() {
+    var $b = $('button.newPhysLoc5');
+    var $f = $('.physLocForm');
+    var $p = $('.physLocPrompt');
+    
+    $b.click(function () {
+        var i = $b.index(this);
+        $f.hide().eq(i).show()
+        $p.hide()
+    })
+};
+
+
+function newPhysLoc6() {
+    var $b = $('button.newPhysLoc6');
+    var $f = $('.physLocForm');
+    var $p = $('.physLocPrompt');
+    
+    $b.click(function () {
+        var i = $b.index(this);
+        $f.hide().eq(i).show()
+        $p.hide()
+    })
+};
+
+
+function newPhysLoc7() {
+    var $b = $('button.newPhysLoc7');
+    var $f = $('.physLocForm');
+    var $p = $('.physLocPrompt');
+    
+    $b.click(function () {
+        var i = $b.index(this);
+        $f.hide().eq(i).show()
+        $p.hide()
+    })
+};
+
+
+function newPhysLoc8() {
+    var $b = $('button.newPhysLoc8');
+    var $f = $('.physLocForm');
+    var $p = $('.physLocPrompt');
+    
+    $b.click(function () {
+        var i = $b.index(this);
+        $f.hide().eq(i).show()
+        $p.hide()
+    })
+};
+
+
+function newPhysLoc9() {
+    var $b = $('button.newPhysLoc9');
+    var $f = $('.physLocForm');
+    var $p = $('.physLocPrompt');
+    
+    $b.click(function () {
+        var i = $b.index(this);
+        $f.hide().eq(i).show()
+        $p.hide()
+    })
+};
+
