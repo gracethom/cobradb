@@ -59,7 +59,15 @@ $loc_postal_code = $_POST['loc_postal_code'];
 
 
 
-$sql1 = "INSERT INTO person_dim (person_auth, surname, forename, person_title, person_role, alt_name, birth_year, byear_source, race, ethnicity) VALUES ('$pers_auth', '$surname','$forename','$pers_title','$pers_role','$alt_name','$birth_year','$byear_source','$race','$ethnicity')";
+$sql1 = "INSERT INTO person_dim (person_auth, surname, forename, person_title, person_role, alt_name, birth_year, byear_source, race, ethnicity) VALUES ? ? ? ? ? ? ? ? ? ?";
+
+$sql1->bind_param("ssssssssss", "$pers_auth", "$surname", "$forename", "$pers_title", "$pers_role", "$alt_name", "$birth_year", "$byear_source", "$race", "$ethnicity");
+
+
+
+
+
+
 
 
 
