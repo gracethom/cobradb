@@ -1,0 +1,26 @@
+<?php
+
+function connectRW(){
+$mysqli = new mysqli("URL","USER","PASSWORD","DBNAME");
+    if ($mysqli->connect_errno) {
+        echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+    }
+    return $mysqli;
+}
+
+$mysqliConnection = connect();
+
+$username = 'cldmckay';
+if($stmt = mysqli_prepare( $mysqliConnection, "SELECT id, secondThing FROM users WHERE username = ? AND column2 = ?")){
+        $stmt->bind_param("si", $username, $integerThing);
+        $stmt->execute();
+        $stmt->bind_result($id, $secondThing);
+        $assessments = array();
+        while (mysqli_stmt_fetch($stmt)) {
+            echo $id . " " . $secondThing;
+        }
+        mysqli_stmt_close($stmt);
+        $mysqliConnection->close();
+}
+
+?>

@@ -13,10 +13,16 @@
  GROUP BY surname");
 
  
+
+
+
+//after parameterization, just save id into the VALUE array below then can use the id of whatever name I selected
+
+
  $json=array();
     while($row=mysql_fetch_array($query)){
          $json[]=array(
-                    'value'=>$row["surname"].", ".$row["forename"].", ".$row["city"].", ".$row["state"].", ".$row["country"],
+                    'value'=>$row["id_person_dim"],
                     'label'=>$row["surname"].", ".$row["forename"].", ".$row["city"].", ".$row["state"].", ".$row["country"]
                         );
     

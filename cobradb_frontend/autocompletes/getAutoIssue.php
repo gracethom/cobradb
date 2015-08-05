@@ -6,12 +6,12 @@
  $series=$_GET["series"];
  
 
- $query=mysql_query("SELECT pub_date, issue_number, series_title FROM source_dim WHERE series_title='".$series."'");
+ $query=mysql_query("SELECT id_source_dim, pub_date, issue_number, series_title FROM source_dim WHERE series_title='".$series."'");
  $json=array();
  
     while($row=mysql_fetch_array($query)){
          $json[]=array(
-                    'value'=>$row["issue_number"].", ".$row["pub_date"],
+                    'value'=>$row["id_source_dim"],
                     'label'=>"Issue ".$row["issue_number"].", ".$row["pub_date"],
                         );
     }
