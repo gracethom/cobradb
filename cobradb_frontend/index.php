@@ -533,15 +533,15 @@
                 </td>
             </tr>
             <tr>
-                <td style="width: 150px">Affiliation</td>
+                <td style="width: 150px">Association</td>
                 <td style="width: 400px">
-                    <input type="text" name="contest_aff" />
+                    <input type="text" name="contest_assoc" />
                 </td>
             </tr>
             <tr>
-                <td style="width:150px;vertical-align:top">Description</td>
+                <td style="width:150px;vertical-align:top">Notes</td>
                 <td style="width: 400px">
-                    <textarea type="text" style="height: 50px; width: 400px" name="contest_desc"></textarea>
+                    <textarea type="text" style="height: 50px; width: 400px" name="contest_notes"></textarea>
                 </td>
             </tr>
         </table>
@@ -662,19 +662,25 @@
             <tr>
                 <td style="width: 150px">Name</td>
                 <td style="width: 400px">
-                    <input type="text" name="club_name" />
+                    <input type="text" name="fan_club_name" />
                 </td>
             </tr>
             <tr>
                 <td style="width: 150px">Abbreviation</td>
                 <td style="width: 400px">
-                    <input type="text" name="club_abbr" />
+                    <input type="text" name="fan_club_abbr" />
                 </td>
             </tr>
             <tr>
-                <td style="width: 150px">Affiliation</td>
+                <td style="width: 150px">Association</td>
                 <td style="width: 400px">
-                    <input type="text" name="club_aff" />
+                    <input type="text" name="fan_club_assoc" />
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 150px">Notes</td>
+                <td style="width: 400px">
+                    <input type="text" name="fan_club_notes" />
                 </td>
             </tr>
         </table>
@@ -955,6 +961,12 @@
         </form>
         <input id="submit" type="submit" value="Submit" />
     </div>
+
+
+
+
+
+
 
 
 
@@ -1330,7 +1342,7 @@
             <tr>
                 <td style="width: 150px">Column title</td>
                 <td style="width: 400px">
-                    <input type="text" name="traces_column_title" />
+                    <input type="text" name="traces_col_title" />
                 </td>
 
                 <tr>
