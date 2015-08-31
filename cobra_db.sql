@@ -39,6 +39,8 @@ CREATE TABLE IF NOT EXISTS `cobra`.`person_dim` (
   `race_note` VARCHAR(45) NULL,
   `ethnicity` VARCHAR(45) NULL,
   `ethnicity_note` VARCHAR(45) NULL,
+  `person_created` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `person_updated` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_person_dim`))
 ENGINE = InnoDB;
 
@@ -60,6 +62,8 @@ SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `cobra`.`occu_dim` (
   `id_occu_dim` INT NOT NULL AUTO_INCREMENT,
   `occupation` VARCHAR(45) NULL,
+  `occu_created` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `occu_updated` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_occu_dim`))
 ENGINE = InnoDB;
 
@@ -102,6 +106,8 @@ SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `cobra`.`grade_dim` (
   `id_grade_dim` INT NOT NULL AUTO_INCREMENT,
   `grade` VARCHAR(45) NULL,
+  `grade_created` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `grade_updated` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_grade_dim`))
 ENGINE = InnoDB;
 
@@ -135,47 +141,6 @@ SHOW WARNINGS;
 
 
 -- -----------------------------------------------------
--- Table `cobra`.`sex_dim`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `cobra`.`sex_dim` ;
-
-SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `cobra`.`sex_dim` (
-  `id_sex_dim` INT NOT NULL AUTO_INCREMENT,
-  `sex` VARCHAR(45) NULL,
-  PRIMARY KEY (`id_sex_dim`))
-ENGINE = InnoDB;
-
-SHOW WARNINGS;
-
--- -----------------------------------------------------
--- Table `cobra`.`person_sex`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `cobra`.`person_sex` ;
-
-SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `cobra`.`person_sex` (
-  `id_person_sex` INT NOT NULL AUTO_INCREMENT,
-  `id_person_dim` INT NOT NULL,
-  `id_sex_dim` INT NOT NULL,
-  `sex_note` VARCHAR(255) NULL,
-  PRIMARY KEY (`id_person_sex`),
-  CONSTRAINT `fk_sex_dim`
-    FOREIGN KEY (`id_sex_dim`)
-    REFERENCES `cobra`.`sex_dim` (`id_sex_dim`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_person_sex_dim`
-    FOREIGN KEY (`id_person_dim`)
-    REFERENCES `cobra`.`person_dim` (`id_person_dim`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-SHOW WARNINGS;
-
-
--- -----------------------------------------------------
 -- Table `cobra`.`gender_dim`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `cobra`.`gender_dim` ;
@@ -184,6 +149,8 @@ SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `cobra`.`gender_dim` (
   `id_gender_dim` INT NOT NULL AUTO_INCREMENT,
   `gender` VARCHAR(45) NULL,
+  `gender_created` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `gender_updated` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_gender_dim`))
 ENGINE = InnoDB;
 
@@ -230,17 +197,47 @@ DROP TABLE IF EXISTS `cobra`.`location_dim` ;
 SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `cobra`.`location_dim` (
   `id_location_dim` INT NOT NULL AUTO_INCREMENT,
-  `loc_name` VARCHAR(45) NULL,
   `street` VARCHAR(45) NULL,
   `city` VARCHAR(45) NULL,
   `state` VARCHAR(45) NULL,
   `country` VARCHAR(45) NULL,
   `postal_code` VARCHAR(45) NULL,
-  `phone` VARCHAR(45) NULL,
+  `location_created` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `location_updated` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_location_dim`))
 ENGINE = InnoDB;
 
 SHOW WARNINGS;
+
+
+-- -----------------------------------------------------
+-- Table `cobra`.`phys_loc_dim`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `cobra`.`phys_loc_dim` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `cobra`.`phys_loc_dim` (
+  `id_phys_loc_dim` INT NOT NULL AUTO_INCREMENT,
+  `phys_loc_name` VARCHAR(45) NULL,
+  `phone` VARCHAR(45) NULL,
+  `repository` VARCHAR(45) NULL,
+  `coll_name` VARCHAR(45) NULL,
+  `coll_num` VARCHAR(45) NULL,
+  `id_location_dim`INT NOT NULL,
+  `phys_loc_created` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `phys_loc_updated` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id_phys_loc_dim`),
+  CONSTRAINT `fk_phys_loc_dim`
+    FOREIGN KEY (`id_location_dim`)
+    REFERENCES `cobra`.`location_dim` (`id_location_dim`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+
+
 
 
 -- -----------------------------------------------------
@@ -257,6 +254,8 @@ CREATE TABLE IF NOT EXISTS `cobra`.`source_dim` (
   `issue_number` VARCHAR(45) NULL,
   `pub_date` VARCHAR(45) NULL,
   `page_num` VARCHAR(45) NULL,
+  `source_created` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `source_updated` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_source_dim`))
 ENGINE = InnoDB;
 
@@ -277,6 +276,9 @@ CREATE TABLE IF NOT EXISTS `cobra`.`letter_dim` (
   `id_letter_dim` INT NOT NULL AUTO_INCREMENT,
   `letter_pg_title` VARCHAR(45) NULL,
   `letter_text` VARCHAR(255) NULL,
+  `letter_note` VARCHAR(255) NULL,
+  `letter_created` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `letter_updated` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_letter_dim`))
 ENGINE = InnoDB;
 
@@ -292,6 +294,9 @@ CREATE TABLE IF NOT EXISTS `cobra`.`review_dim` (
   `id_review_dim` INT NOT NULL AUTO_INCREMENT,
   `review_title` VARCHAR(45) NULL,
   `review_text` VARCHAR(255) NULL,
+  `review_note` VARCHAR(255) NULL,
+  `review_created` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `review_updated` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_review_dim`))
 ENGINE = InnoDB;
 
@@ -308,6 +313,8 @@ CREATE TABLE IF NOT EXISTS `cobra`.`contest_dim` (
   `contest_name` VARCHAR(45) NULL,
   `contest_assoc` VARCHAR(45) NULL,
   `contest_notes` VARCHAR(45) NULL,
+  `contest_created` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `contest_updated` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_contest_dim`))
 ENGINE = InnoDB;
 
@@ -325,6 +332,8 @@ CREATE TABLE IF NOT EXISTS `cobra`.`club_dim` (
   `fan_club_abbr` VARCHAR(45) NULL,
   `fan_club_assoc` VARCHAR(45) NULL,
   `fan_club_notes` VARCHAR(255) NULL,
+  `fan_club_created` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `fan_club_updated` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_club_dim`))
 ENGINE = InnoDB;
 
@@ -342,6 +351,8 @@ CREATE TABLE IF NOT EXISTS `cobra`.`meeting_dim` (
   `mtg_start` VARCHAR(45) NULL,
   `mtg_end` VARCHAR(45) NULL,
   `mtg_notes` VARCHAR(255) NULL,
+  `mtg_created` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `mtg_updated` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_meeting_dim`))
 ENGINE = InnoDB;
 
@@ -358,6 +369,8 @@ CREATE TABLE IF NOT EXISTS `cobra`.`mention_dim` (
   `mention_col_title` VARCHAR(45) NULL,
   `mention_desc` VARCHAR(255) NULL,
   `mention_notes` VARCHAR(255) NULL,
+  `mention_created` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `mention_updated` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_mention_dim`))
 ENGINE = InnoDB;
 
@@ -373,6 +386,8 @@ CREATE TABLE IF NOT EXISTS `cobra`.`classified_dim` (
   `id_classified_dim` INT NOT NULL AUTO_INCREMENT,
   `classified_title` VARCHAR(45) NULL,
   `classified_notes` VARCHAR(255) NULL,
+  `classified_created` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `classified_updated` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_classified_dim`))
 ENGINE = InnoDB;
 
@@ -388,6 +403,8 @@ CREATE TABLE IF NOT EXISTS `cobra`.`pen_pals_dim` (
   `id_pen_pals_dim` INT NOT NULL AUTO_INCREMENT,
   `penpals_title` VARCHAR(45) NULL,
   `penpals_notes` VARCHAR(255) NULL,
+  `penpals_created` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `penpals_updated` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_pen_pals_dim`))
 ENGINE = InnoDB;
 
@@ -403,6 +420,8 @@ CREATE TABLE IF NOT EXISTS `cobra`.`traces_dim` (
   `id_traces_dim` INT NOT NULL AUTO_INCREMENT,
   `traces_col_title` VARCHAR(45) NULL,
   `traces_notes` VARCHAR(255) NULL, 
+  `traces_created` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `traces_updated` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_traces_dim`))
 ENGINE = InnoDB;
 
@@ -421,8 +440,6 @@ CREATE TABLE IF NOT EXISTS `cobra`.`activity_fact` (
   `fact_person_occu` INT,
   `fact_grade` INT,
   `fact_person_grade` INT,
-  `fact_sex` INT,
-  `fact_person_sex` INT,
   `fact_gender` INT,
   `fact_person_gender` INT,
   `fact_location` INT,
@@ -443,8 +460,6 @@ CREATE TABLE IF NOT EXISTS `cobra`.`activity_fact` (
   INDEX `fk_activity_fact_person_occu_idx` (`fact_person_occu` ASC),
   INDEX `fk_activity_fact_grade_idx` (`fact_grade` ASC),
   INDEX `fk_activity_fact_person_grade_idx` (`fact_person_grade` ASC),
-  INDEX `fk_activity_fact_sex_idx` (`fact_sex` ASC),
-  INDEX `fk_activity_fact_person_sex_idx` (`fact_person_sex` ASC),
   INDEX `fk_activity_fact_gender_idx` (`fact_gender` ASC),
   INDEX `fk_activity_fact_person_gender_idx` (`fact_person_gender` ASC),
   INDEX `fk_activity_fact_location_dim1_idx` (`fact_location` ASC),
@@ -484,16 +499,6 @@ CREATE TABLE IF NOT EXISTS `cobra`.`activity_fact` (
     REFERENCES `cobra`.`person_grade` (`id_person_grade`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_activity_fact_sex`
-    FOREIGN KEY (`fact_sex`)
-    REFERENCES `cobra`.`sex_dim` (`id_sex_dim`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_activity_fact_person_sex`
-    FOREIGN KEY (`fact_person_sex`)
-    REFERENCES `cobra`.`person_sex` (`id_person_sex`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
   CONSTRAINT `fk_activity_fact_gender`
     FOREIGN KEY (`fact_gender`)
     REFERENCES `cobra`.`gender_dim` (`id_gender_dim`)
@@ -511,7 +516,7 @@ CREATE TABLE IF NOT EXISTS `cobra`.`activity_fact` (
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_activity_fact_phys_loc_dim1`
     FOREIGN KEY (`fact_phys_loc`)
-    REFERENCES `cobra`.`location_dim` (`id_location_dim`)
+    REFERENCES `cobra`.`phys_loc_dim` (`id_phys_loc_dim`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_activity_fact_letter_dim1`
@@ -606,6 +611,7 @@ INSERT INTO person_dim (surname, forename) VALUES ('Mann', 'Roger');
 INSERT INTO person_dim (surname, forename) VALUES ('McIntosh', 'Harold');
 INSERT INTO person_dim (surname, forename) VALUES ('Jiminez', 'Cruz');
 INSERT INTO person_dim (surname, forename) VALUES ('Frazier', 'William');
+INSERT INTO person_dim (surname, forename) VALUES ('Test', 'Testy');
 
 
 
@@ -630,7 +636,9 @@ INSERT INTO location_dim (city, state, country) VALUES ('Minneapolis', 'Minnesot
 INSERT INTO location_dim (city, state, country) VALUES ('Marblehead', 'Massachusetts', 'United States of America');
 INSERT INTO location_dim (city, state, country) VALUES ('Ft. Riley', 'Kansas', 'United States of America');
 INSERT INTO location_dim (city, state, country) VALUES ('Mt. Sterling', 'Kentucky', 'United States of America');
-INSERT INTO location_dim (loc_name, city, state, country) VALUES ('Michigan State Libraries', 'East Lansing', 'Michigan', 'United States of America');
+
+INSERT INTO location_dim (city, state, country) VALUES ('East Lansing', 'Michigan', 'United States of America');
+INSERT INTO phys_loc_dim (phys_loc_name, repository, coll_name, id_location_dim) VALUES ('Michigan State University', 'Michigan State University Libraries', 'Comics Collection', (SELECT id_location_dim FROM location_dim WHERE city = 'East Lansing'));
 
 
 
