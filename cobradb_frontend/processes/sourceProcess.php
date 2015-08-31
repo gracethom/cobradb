@@ -29,7 +29,7 @@ $page_num = $_POST['page_num'];
 
 
     //sql statement
-$sqlSource = "INSERT INTO source_dim (source_type, gcd_link, series_title, issue_num, pub_date, page_num) VALUES (?,?,?,?,?,?)";
+$sqlSource = "INSERT INTO source_dim (source_type, gcd_link, series_title, issue_number, pub_date, page_num) VALUES (?,?,?,?,?,?)";
     
 
     // id for location record

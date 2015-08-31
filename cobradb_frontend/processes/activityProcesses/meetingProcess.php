@@ -70,12 +70,8 @@ if($stmtMeeting = mysqli_prepare( $mysqliConnection, $sqlMeeting)){
 
 //Output the id of person just added
 
-if($meetingId){
-    echo $meetingId;   
-}
-    
 if($activityId){
-    echo $activityId;   
+echo "Success! <a href='" . $link_address."'>Add another activity record</a>";
 }
 
     

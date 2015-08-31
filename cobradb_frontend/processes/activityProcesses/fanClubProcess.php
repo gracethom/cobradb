@@ -70,12 +70,8 @@ if($stmtClub = mysqli_prepare( $mysqliConnection, $sqlClub)){
 
 //Output the id of person just added
 
-if($clubId){
-    echo $clubId;   
-}
-    
 if($activityId){
-    echo $activityId;   
+echo "Success! <a href='" . $link_address."'>Add another activity record</a>";
 }
 
     

@@ -66,14 +66,9 @@ if($stmtTraces = mysqli_prepare( $mysqliConnection, $sqlTraces)){
 
 //Output the id of person just added
 
-if($tracesId){
-    echo $tracesId;   
-}
-    
 if($activityId){
-    echo $activityId;   
+echo "Success! <a href='" . $link_address."'>Add another activity record</a>";
 }
-
     
 }
 ?>

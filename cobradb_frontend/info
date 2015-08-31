@@ -1,22 +1,23 @@
 This is the folder for the CoBRA SQL Database front-end, data-entry interface.
 
-index.php —- contains the input forms and is the central interface document
+index.php —- contains the acitivity input forms, plus person, location, source, and physical location prompts and is the central interface document
+
+indexstyle.css -- styling for the main index page
 
 config.php —- contains configuration settings for the CoBRA SQL database
 
-allprocess.php —- contains all input scripts to grab the value inputted in the interface form and insert that value into the database fields to create records. These are split based on activity type…
+header.jpg -- header on top of index page
 
-processLetter.php, processReview.php, etc —- currently, the letter and review processes are live in these documents
+autocompletes -- folder containing scripts to carry out the autocomplete of names, locations, sources, and physical locations, filling in from the cobra database (getAutoSeries.php and getAutoIssue.php are both for source so that the issue choices fill in from whatever series was chosen earlier)
 
-form_buttons.js —- contains the separate forms which pop up when the data-entry user needs to create a new person or source
+forms -- folder containing person, location, source, and physical location pop up forms, appearing when the user clicks on "create new..." from the index.php page
 
-getautoname.php, getautoseries.php, and getautoissue.php —- documents for the autocomplete person and source fields - contain the code to look up and display possible matches as the user types in the fields. TODO: connect the selected values to their record in the CoBRA database
+processes -- folder containing the code to submit values from their forms into the MySQL database. the person, location, source, and physical location processes are in this folder. Each individual activity process is in the activityProcess folder (within the processes folder)
 
-ind_forms folder contains separate interface forms for each activity type. These have been incorporated in the index.php file, so shouldn’t be necessary, but keeping for now.
+scripts, spec, and src -- folders containing code for pop-up forms (borrowed)
 
 
-
-Last updated: 6/7/2015, Grace Thomas
+Last updated: 8/31/2015, Grace Thomas
 
 
 

@@ -9,7 +9,7 @@
 
 
 
-    <!-- leave in this order for successful autocomplete -->
+    <!-- leave in this order for successful autocomplete!!! -->
     <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" />
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" /></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
@@ -20,7 +20,7 @@
         currentIssueArray = [];
 
         getAutoCompleteForIssues = function () {
-            $series = $('.autoSeries').val();
+            $series = $('#selectedSeries').val();
             $term = $('.autoIssue').val();
             $data = {
                 series: $series,
@@ -84,8 +84,8 @@
                 console.log($res);
             });
         });
-        
-         $(document).on('keyup', '.autoLocation', function () {
+
+        $(document).on('keyup', '.autoLocation', function () {
             $.get('autocompletes/getAutoLocation.php?term=' + $(this).val(), function ($res) {
                 console.log($res);
             });
@@ -154,128 +154,134 @@
     <div class='hidden indForm' id="letterForm">
 
         <form action="processes/activityProcesses/letterProcess.php" method="post" />
-            <div class="personPrompt">
-                <table>
-                    <tr>
-                        <td>
-                            <h3>Select a person</h3>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="width: 150px">Name</td>
-                        <td style="width: 400px">
-                            <input type="text" class="autoName" name="selectedPerson" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="width: 150px"></td>
-                        <td>
-                            <a href="forms/personForm.html" class="form" title="Create New Person" data-modal="{ width: 500, closeOnEscape: true }">
-    Create New Person</a>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            <!-- put the the overlay below before closing </body> the end of the page -->
-
-            <div class="locationPrompt">
-                <table>
-                    <tr>
-                        <td>
-                            <h3>Select a location</h3>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="width: 150px">Location</td>
-                        <td style="width: 400px">
-                            <input type="text" class="autoLocation" name="selectedLocation" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="width: 150px"></td>
-                        <td>
-                            <a href="forms/locationForm.html" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }">
-    Create New Location</a>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-
-            <div class="sourcePrompt">
-                <table>
-                    <tr>
-                        <td>
-                            <h3>Select a source</h3>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="width: 150px">Series Title</td>
-                        <td style="width: 400px">
-                            <input type="text" class="autoSeries" name="selectedSeries" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="width: 150px">Issue</td>
-                        <td style="width: 400px">
-                            <input type="text" class="autoIssue" name="selectedSource" />
-                        </td>
-                        <tr style="background-color: white">
-                            <td style="width: 150px"></td>
-                            <td>
-                                <a href="forms/sourceForm.html" class="form" title="Create New Source" data-modal="{ width: 500, closeOnEscape: true }">
-    Create New Source</a>
-                            </td>
-                        </tr>
-
-                    </tr>
-
-                </table>
-            </div>
-            <div class="physLocPrompt">
-                <table>
-                    <tr>
-
-                        <td style="width: 150px">Physical Location</td>
-                        <td style="width: 400px">
-
-                            <input type="text" class="autoPhysLoc" name="selectedPhysLoc" />
-
-                        </td>
-
-                        <tr style="background-color: white">
-                            <td style="width: 150px"></td>
-                            <td>
-                                <a href="forms/physLocForm.html" class="form" title="Create New Physical Location" data-modal="{ width: 500, closeOnEscape: true }">
-    Create New Physical Location</a>
-                            </td>
-                        </tr>
-
-                    </tr>
-                </table>
-            </div>
-
+        <div class="personPrompt">
             <table>
                 <tr>
                     <td>
-                        <h3>Letter</h3>
+                        <h3>Select a person</h3>
                     </td>
                 </tr>
                 <tr>
-                    <td style="width:150px">Letter page title</td>
+                    <td style="width: 150px">Name</td>
                     <td style="width: 400px">
-                        <input type="text" name="letter_pg_title" />
+                        <input type="text" class="autoName" name="selectedPerson" />
                     </td>
                 </tr>
                 <tr>
-                    <td style="width:150px;vertical-align:top">Text</td>
-                    <td style="width: 400px">
-                        <textarea type="text" style="height: 125px; width: 400px" name="letter_text"></textarea>
+                    <td style="width: 150px"></td>
+                    <td>
+                        <a href="forms/personForm.html" class="form" title="Create New Person" data-modal="{ width: 500, closeOnEscape: true }">
+                            <button>
+                                Create New Person</button>
+                        </a>
                     </td>
+                </tr>
+            </table>
+        </div>
+        <!-- put the the overlay below before closing </body> the end of the page -->
+
+        <div class="locationPrompt">
+            <table>
+                <tr>
+                    <td>
+                        <h3>Select a location</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Location</td>
+                    <td style="width: 400px">
+                        <input type="text" class="autoLocation" name="selectedLocation" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px"></td>
+                    <td>
+                        <a href="forms/locationForm.html" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }"><button>
+                            Create New Location
+                            </button>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="sourcePrompt">
+            <table>
+                <tr>
+                    <td>
+                        <h3>Select a source</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Series Title</td>
+                    <td style="width: 400px">
+                        <input type="text" class="autoSeries" name="selectedSeries" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 150px">Issue</td>
+                    <td style="width: 400px">
+                        <input type="text" class="autoIssue" name="selectedSource" />
+                    </td>
+                    <tr style="background-color: white">
+                        <td style="width: 150px"></td>
+                        <td>
+                            <a href="forms/sourceForm.html" class="form" title="Create New Source" data-modal="{ width: 500, closeOnEscape: true }">
+                                <button>Create New Source</button>
+                            </a>
+                        </td>
+                    </tr>
+
                 </tr>
 
             </table>
+        </div>
+        <div class="physLocPrompt">
+            <table>
+                <tr>
 
-            <input id="submit" type="submit" value="Submit" />
+                    <td style="width: 150px">Physical Location</td>
+                    <td style="width: 400px">
+
+                        <input type="text" class="autoPhysLoc" name="selectedPhysLoc" />
+
+                    </td>
+
+                    <tr style="background-color: white">
+                        <td style="width: 150px"></td>
+                        <td>
+                            <a href="forms/physLocForm.html" class="form" title="Create New Physical Location" data-modal="{ width: 500, closeOnEscape: true }">
+                                <button>Create New Physical Location</button>
+                            </a>
+                        </td>
+                    </tr>
+
+                </tr>
+            </table>
+        </div>
+
+        <table>
+            <tr>
+                <td>
+                    <h3>Letter</h3>
+                </td>
+            </tr>
+            <tr>
+                <td style="width:150px">Letter page title</td>
+                <td style="width: 400px">
+                    <input type="text" name="letter_pg_title" />
+                </td>
+            </tr>
+            <tr>
+                <td style="width:150px;vertical-align:top">Text</td>
+                <td style="width: 400px">
+                    <textarea type="text" style="height: 125px; width: 400px" name="letter_text"></textarea>
+                </td>
+            </tr>
+
+        </table>
+
+        <input id="submit" type="submit" value="Submit" />
         </form>
 
     </div>
@@ -298,14 +304,16 @@
                 <tr>
                     <td style="width: 150px">Name</td>
                     <td style="width: 400px">
-                        <input type="text" class="autoName" name="name" />
+                        <input type="text" class="autoName" name="selectedPerson" />
                     </td>
                 </tr>
                 <tr>
                     <td style="width: 150px"></td>
                     <td>
                         <a href="forms/personForm.html" class="form" title="Create New Person" data-modal="{ width: 500, closeOnEscape: true }">
-    Create New Person</a>
+                            <button>
+                                Create New Person</button>
+                        </a>
                     </td>
                 </tr>
             </table>
@@ -322,14 +330,16 @@
                 <tr>
                     <td style="width: 150px">Location</td>
                     <td style="width: 400px">
-                        <input type="text" class="autoLocation" name="name" />
+                        <input type="text" class="autoLocation" name="selectedLocation" />
                     </td>
                 </tr>
                 <tr>
                     <td style="width: 150px"></td>
                     <td>
-                        <a href="forms/locationForm.html" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }">
-    Create New Location</a>
+                        <a href="forms/locationForm.html" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }"><button>
+                            Create New Location
+                            </button>
+                        </a>
                     </td>
                 </tr>
             </table>
@@ -345,19 +355,20 @@
                 <tr>
                     <td style="width: 150px">Series Title</td>
                     <td style="width: 400px">
-                        <input type="text" class="autoSeries" name="name" />
+                        <input type="text" class="autoSeries" name="selectedSeries" />
                     </td>
                 </tr>
                 <tr>
                     <td style="width: 150px">Issue</td>
                     <td style="width: 400px">
-                        <input type="text" class="autoIssue" name="name" />
+                        <input type="text" class="autoIssue" name="selectedSource" />
                     </td>
                     <tr style="background-color: white">
                         <td style="width: 150px"></td>
                         <td>
                             <a href="forms/sourceForm.html" class="form" title="Create New Source" data-modal="{ width: 500, closeOnEscape: true }">
-    Create New Source</a>
+                                <button>Create New Source</button>
+                            </a>
                         </td>
                     </tr>
 
@@ -372,7 +383,7 @@
                     <td style="width: 150px">Physical Location</td>
                     <td style="width: 400px">
 
-                        <input type="text" class="autoPhysLoc" name="name" />
+                        <input type="text" class="autoPhysLoc" name="selectedPhysLoc" />
 
                     </td>
 
@@ -380,7 +391,8 @@
                         <td style="width: 150px"></td>
                         <td>
                             <a href="forms/physLocForm.html" class="form" title="Create New Physical Location" data-modal="{ width: 500, closeOnEscape: true }">
-    Create New Physical Location</a>
+                                <button>Create New Physical Location</button>
+                            </a>
                         </td>
                     </tr>
 
@@ -431,14 +443,16 @@
                 <tr>
                     <td style="width: 150px">Name</td>
                     <td style="width: 400px">
-                        <input type="text" class="autoName" name="name" />
+                        <input type="text" class="autoName" name="selectedPerson" />
                     </td>
                 </tr>
                 <tr>
                     <td style="width: 150px"></td>
                     <td>
                         <a href="forms/personForm.html" class="form" title="Create New Person" data-modal="{ width: 500, closeOnEscape: true }">
-    Create New Person</a>
+                            <button>
+                                Create New Person</button>
+                        </a>
                     </td>
                 </tr>
             </table>
@@ -455,14 +469,16 @@
                 <tr>
                     <td style="width: 150px">Location</td>
                     <td style="width: 400px">
-                        <input type="text" class="autoLocation" name="name" />
+                        <input type="text" class="autoLocation" name="selectedLocation" />
                     </td>
                 </tr>
                 <tr>
                     <td style="width: 150px"></td>
                     <td>
-                        <a href="forms/locationForm.html" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }">
-    Create New Location</a>
+                        <a href="forms/locationForm.html" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }"><button>
+                            Create New Location
+                            </button>
+                        </a>
                     </td>
                 </tr>
             </table>
@@ -478,19 +494,20 @@
                 <tr>
                     <td style="width: 150px">Series Title</td>
                     <td style="width: 400px">
-                        <input type="text" class="autoSeries" name="name" />
+                        <input type="text" class="autoSeries" name="selectedSeries" />
                     </td>
                 </tr>
                 <tr>
                     <td style="width: 150px">Issue</td>
                     <td style="width: 400px">
-                        <input type="text" class="autoIssue" name="name" />
+                        <input type="text" class="autoIssue" name="selectedSource" />
                     </td>
                     <tr style="background-color: white">
                         <td style="width: 150px"></td>
                         <td>
                             <a href="forms/sourceForm.html" class="form" title="Create New Source" data-modal="{ width: 500, closeOnEscape: true }">
-    Create New Source</a>
+                                <button>Create New Source</button>
+                            </a>
                         </td>
                     </tr>
 
@@ -505,7 +522,7 @@
                     <td style="width: 150px">Physical Location</td>
                     <td style="width: 400px">
 
-                        <input type="text" class="autoPhysLoc" name="name" />
+                        <input type="text" class="autoPhysLoc" name="selectedPhysLoc" />
 
                     </td>
 
@@ -513,7 +530,8 @@
                         <td style="width: 150px"></td>
                         <td>
                             <a href="forms/physLocForm.html" class="form" title="Create New Physical Location" data-modal="{ width: 500, closeOnEscape: true }">
-    Create New Physical Location</a>
+                                <button>Create New Physical Location</button>
+                            </a>
                         </td>
                     </tr>
 
@@ -553,7 +571,7 @@
     <!-- Fan Club form -->
 
     <div class='hidden indForm' id="clubForm">
-        <form action="processes/activityProcesses/clubProcess.php" method="post" />
+        <form action="processes/activityProcesses/fanClubProcess.php" method="post" />
         <div class="personPrompt">
             <table>
                 <tr>
@@ -564,14 +582,16 @@
                 <tr>
                     <td style="width: 150px">Name</td>
                     <td style="width: 400px">
-                        <input type="text" class="autoName" name="name" />
+                        <input type="text" class="autoName" name="selectedPerson" />
                     </td>
                 </tr>
                 <tr>
                     <td style="width: 150px"></td>
                     <td>
                         <a href="forms/personForm.html" class="form" title="Create New Person" data-modal="{ width: 500, closeOnEscape: true }">
-    Create New Person</a>
+                            <button>
+                                Create New Person</button>
+                        </a>
                     </td>
                 </tr>
             </table>
@@ -588,14 +608,16 @@
                 <tr>
                     <td style="width: 150px">Location</td>
                     <td style="width: 400px">
-                        <input type="text" class="autoLocation" name="name" />
+                        <input type="text" class="autoLocation" name="selectedLocation" />
                     </td>
                 </tr>
                 <tr>
                     <td style="width: 150px"></td>
                     <td>
-                        <a href="forms/locationForm.html" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }">
-    Create New Location</a>
+                        <a href="forms/locationForm.html" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }"><button>
+                            Create New Location
+                            </button>
+                        </a>
                     </td>
                 </tr>
             </table>
@@ -611,19 +633,20 @@
                 <tr>
                     <td style="width: 150px">Series Title</td>
                     <td style="width: 400px">
-                        <input type="text" class="autoSeries" name="name" />
+                        <input type="text" class="autoSeries" name="selectedSeries" />
                     </td>
                 </tr>
                 <tr>
                     <td style="width: 150px">Issue</td>
                     <td style="width: 400px">
-                        <input type="text" class="autoIssue" name="name" />
+                        <input type="text" class="autoIssue" name="selectedSource" />
                     </td>
                     <tr style="background-color: white">
                         <td style="width: 150px"></td>
                         <td>
                             <a href="forms/sourceForm.html" class="form" title="Create New Source" data-modal="{ width: 500, closeOnEscape: true }">
-    Create New Source</a>
+                                <button>Create New Source</button>
+                            </a>
                         </td>
                     </tr>
 
@@ -638,7 +661,7 @@
                     <td style="width: 150px">Physical Location</td>
                     <td style="width: 400px">
 
-                        <input type="text" class="autoPhysLoc" name="name" />
+                        <input type="text" class="autoPhysLoc" name="selectedPhysLoc" />
 
                     </td>
 
@@ -646,7 +669,8 @@
                         <td style="width: 150px"></td>
                         <td>
                             <a href="forms/physLocForm.html" class="form" title="Create New Physical Location" data-modal="{ width: 500, closeOnEscape: true }">
-    Create New Physical Location</a>
+                                <button>Create New Physical Location</button>
+                            </a>
                         </td>
                     </tr>
 
@@ -704,14 +728,16 @@
                 <tr>
                     <td style="width: 150px">Name</td>
                     <td style="width: 400px">
-                        <input type="text" class="autoName" name="name" />
+                        <input type="text" class="autoName" name="selectedPerson" />
                     </td>
                 </tr>
                 <tr>
                     <td style="width: 150px"></td>
                     <td>
                         <a href="forms/personForm.html" class="form" title="Create New Person" data-modal="{ width: 500, closeOnEscape: true }">
-    Create New Person</a>
+                            <button>
+                                Create New Person</button>
+                        </a>
                     </td>
                 </tr>
             </table>
@@ -728,14 +754,16 @@
                 <tr>
                     <td style="width: 150px">Location</td>
                     <td style="width: 400px">
-                        <input type="text" class="autoLocation" name="name" />
+                        <input type="text" class="autoLocation" name="selectedLocation" />
                     </td>
                 </tr>
                 <tr>
                     <td style="width: 150px"></td>
                     <td>
-                        <a href="forms/locationForm.html" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }">
-    Create New Location</a>
+                        <a href="forms/locationForm.html" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }"><button>
+                            Create New Location
+                            </button>
+                        </a>
                     </td>
                 </tr>
             </table>
@@ -751,19 +779,20 @@
                 <tr>
                     <td style="width: 150px">Series Title</td>
                     <td style="width: 400px">
-                        <input type="text" class="autoSeries" name="name" />
+                        <input type="text" class="autoSeries" name="selectedSeries" />
                     </td>
                 </tr>
                 <tr>
                     <td style="width: 150px">Issue</td>
                     <td style="width: 400px">
-                        <input type="text" class="autoIssue" name="name" />
+                        <input type="text" class="autoIssue" name="selectedSource" />
                     </td>
                     <tr style="background-color: white">
                         <td style="width: 150px"></td>
                         <td>
                             <a href="forms/sourceForm.html" class="form" title="Create New Source" data-modal="{ width: 500, closeOnEscape: true }">
-    Create New Source</a>
+                                <button>Create New Source</button>
+                            </a>
                         </td>
                     </tr>
 
@@ -778,7 +807,7 @@
                     <td style="width: 150px">Physical Location</td>
                     <td style="width: 400px">
 
-                        <input type="text" class="autoPhysLoc" name="name" />
+                        <input type="text" class="autoPhysLoc" name="selectedPhysLoc" />
 
                     </td>
 
@@ -786,7 +815,8 @@
                         <td style="width: 150px"></td>
                         <td>
                             <a href="forms/physLocForm.html" class="form" title="Create New Physical Location" data-modal="{ width: 500, closeOnEscape: true }">
-    Create New Physical Location</a>
+                                <button>Create New Physical Location</button>
+                            </a>
                         </td>
                     </tr>
 
@@ -843,14 +873,16 @@
                 <tr>
                     <td style="width: 150px">Name</td>
                     <td style="width: 400px">
-                        <input type="text" class="autoName" name="name" />
+                        <input type="text" class="autoName" name="selectedPerson" />
                     </td>
                 </tr>
                 <tr>
                     <td style="width: 150px"></td>
                     <td>
                         <a href="forms/personForm.html" class="form" title="Create New Person" data-modal="{ width: 500, closeOnEscape: true }">
-    Create New Person</a>
+                            <button>
+                                Create New Person</button>
+                        </a>
                     </td>
                 </tr>
             </table>
@@ -867,14 +899,16 @@
                 <tr>
                     <td style="width: 150px">Location</td>
                     <td style="width: 400px">
-                        <input type="text" class="autoLocation" name="name" />
+                        <input type="text" class="autoLocation" name="selectedLocation" />
                     </td>
                 </tr>
                 <tr>
                     <td style="width: 150px"></td>
                     <td>
-                        <a href="forms/locationForm.html" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }">
-    Create New Location</a>
+                        <a href="forms/locationForm.html" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }"><button>
+                            Create New Location
+                            </button>
+                        </a>
                     </td>
                 </tr>
             </table>
@@ -890,19 +924,20 @@
                 <tr>
                     <td style="width: 150px">Series Title</td>
                     <td style="width: 400px">
-                        <input type="text" class="autoSeries" name="name" />
+                        <input type="text" class="autoSeries" name="selectedSeries" />
                     </td>
                 </tr>
                 <tr>
                     <td style="width: 150px">Issue</td>
                     <td style="width: 400px">
-                        <input type="text" class="autoIssue" name="name" />
+                        <input type="text" class="autoIssue" name="selectedSource" />
                     </td>
                     <tr style="background-color: white">
                         <td style="width: 150px"></td>
                         <td>
                             <a href="forms/sourceForm.html" class="form" title="Create New Source" data-modal="{ width: 500, closeOnEscape: true }">
-    Create New Source</a>
+                                <button>Create New Source</button>
+                            </a>
                         </td>
                     </tr>
 
@@ -917,7 +952,7 @@
                     <td style="width: 150px">Physical Location</td>
                     <td style="width: 400px">
 
-                        <input type="text" class="autoPhysLoc" name="name" />
+                        <input type="text" class="autoPhysLoc" name="selectedPhysLoc" />
 
                     </td>
 
@@ -925,7 +960,8 @@
                         <td style="width: 150px"></td>
                         <td>
                             <a href="forms/physLocForm.html" class="form" title="Create New Physical Location" data-modal="{ width: 500, closeOnEscape: true }">
-    Create New Physical Location</a>
+                                <button>Create New Physical Location</button>
+                            </a>
                         </td>
                     </tr>
 
@@ -984,14 +1020,16 @@
                 <tr>
                     <td style="width: 150px">Name</td>
                     <td style="width: 400px">
-                        <input type="text" class="autoName" name="name" />
+                        <input type="text" class="autoName" name="selectedPerson" />
                     </td>
                 </tr>
                 <tr>
                     <td style="width: 150px"></td>
                     <td>
                         <a href="forms/personForm.html" class="form" title="Create New Person" data-modal="{ width: 500, closeOnEscape: true }">
-    Create New Person</a>
+                            <button>
+                                Create New Person</button>
+                        </a>
                     </td>
                 </tr>
             </table>
@@ -1008,14 +1046,16 @@
                 <tr>
                     <td style="width: 150px">Location</td>
                     <td style="width: 400px">
-                        <input type="text" class="autoLocation" name="name" />
+                        <input type="text" class="autoLocation" name="selectedLocation" />
                     </td>
                 </tr>
                 <tr>
                     <td style="width: 150px"></td>
                     <td>
-                        <a href="forms/locationForm.html" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }">
-    Create New Location</a>
+                        <a href="forms/locationForm.html" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }"><button>
+                            Create New Location
+                            </button>
+                        </a>
                     </td>
                 </tr>
             </table>
@@ -1031,19 +1071,20 @@
                 <tr>
                     <td style="width: 150px">Series Title</td>
                     <td style="width: 400px">
-                        <input type="text" class="autoSeries" name="name" />
+                        <input type="text" class="autoSeries" name="selectedSeries" />
                     </td>
                 </tr>
                 <tr>
                     <td style="width: 150px">Issue</td>
                     <td style="width: 400px">
-                        <input type="text" class="autoIssue" name="name" />
+                        <input type="text" class="autoIssue" name="selectedSource" />
                     </td>
                     <tr style="background-color: white">
                         <td style="width: 150px"></td>
                         <td>
                             <a href="forms/sourceForm.html" class="form" title="Create New Source" data-modal="{ width: 500, closeOnEscape: true }">
-    Create New Source</a>
+                                <button>Create New Source</button>
+                            </a>
                         </td>
                     </tr>
 
@@ -1058,7 +1099,7 @@
                     <td style="width: 150px">Physical Location</td>
                     <td style="width: 400px">
 
-                        <input type="text" class="autoPhysLoc" name="name" />
+                        <input type="text" class="autoPhysLoc" name="selectedPhysLoc" />
 
                     </td>
 
@@ -1066,7 +1107,8 @@
                         <td style="width: 150px"></td>
                         <td>
                             <a href="forms/physLocForm.html" class="form" title="Create New Physical Location" data-modal="{ width: 500, closeOnEscape: true }">
-    Create New Physical Location</a>
+                                <button>Create New Physical Location</button>
+                            </a>
                         </td>
                     </tr>
 
@@ -1116,14 +1158,16 @@
                 <tr>
                     <td style="width: 150px">Name</td>
                     <td style="width: 400px">
-                        <input type="text" class="autoName" name="name" />
+                        <input type="text" class="autoName" name="selectedPerson" />
                     </td>
                 </tr>
                 <tr>
                     <td style="width: 150px"></td>
                     <td>
                         <a href="forms/personForm.html" class="form" title="Create New Person" data-modal="{ width: 500, closeOnEscape: true }">
-    Create New Person</a>
+                            <button>
+                                Create New Person</button>
+                        </a>
                     </td>
                 </tr>
             </table>
@@ -1140,14 +1184,16 @@
                 <tr>
                     <td style="width: 150px">Location</td>
                     <td style="width: 400px">
-                        <input type="text" class="autoLocation" name="name" />
+                        <input type="text" class="autoLocation" name="selectedLocation" />
                     </td>
                 </tr>
                 <tr>
                     <td style="width: 150px"></td>
                     <td>
-                        <a href="forms/locationForm.html" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }">
-    Create New Location</a>
+                        <a href="forms/locationForm.html" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }"><button>
+                            Create New Location
+                            </button>
+                        </a>
                     </td>
                 </tr>
             </table>
@@ -1163,19 +1209,20 @@
                 <tr>
                     <td style="width: 150px">Series Title</td>
                     <td style="width: 400px">
-                        <input type="text" class="autoSeries" name="name" />
+                        <input type="text" class="autoSeries" name="selectedSeries" />
                     </td>
                 </tr>
                 <tr>
                     <td style="width: 150px">Issue</td>
                     <td style="width: 400px">
-                        <input type="text" class="autoIssue" name="name" />
+                        <input type="text" class="autoIssue" name="selectedSource" />
                     </td>
                     <tr style="background-color: white">
                         <td style="width: 150px"></td>
                         <td>
                             <a href="forms/sourceForm.html" class="form" title="Create New Source" data-modal="{ width: 500, closeOnEscape: true }">
-    Create New Source</a>
+                                <button>Create New Source</button>
+                            </a>
                         </td>
                     </tr>
 
@@ -1190,7 +1237,7 @@
                     <td style="width: 150px">Physical Location</td>
                     <td style="width: 400px">
 
-                        <input type="text" class="autoPhysLoc" name="name" />
+                        <input type="text" class="autoPhysLoc" name="selectedPhysLoc" />
 
                     </td>
 
@@ -1198,7 +1245,8 @@
                         <td style="width: 150px"></td>
                         <td>
                             <a href="forms/physLocForm.html" class="form" title="Create New Physical Location" data-modal="{ width: 500, closeOnEscape: true }">
-    Create New Physical Location</a>
+                                <button>Create New Physical Location</button>
+                            </a>
                         </td>
                     </tr>
 
@@ -1243,14 +1291,16 @@
                 <tr>
                     <td style="width: 150px">Name</td>
                     <td style="width: 400px">
-                        <input type="text" class="autoName" name="name" />
+                        <input type="text" class="autoName" name="selectedPerson" />
                     </td>
                 </tr>
                 <tr>
                     <td style="width: 150px"></td>
                     <td>
                         <a href="forms/personForm.html" class="form" title="Create New Person" data-modal="{ width: 500, closeOnEscape: true }">
-    Create New Person</a>
+                            <button>
+                                Create New Person</button>
+                        </a>
                     </td>
                 </tr>
             </table>
@@ -1267,14 +1317,16 @@
                 <tr>
                     <td style="width: 150px">Location</td>
                     <td style="width: 400px">
-                        <input type="text" class="autoLocation" name="name" />
+                        <input type="text" class="autoLocation" name="selectedLocation" />
                     </td>
                 </tr>
                 <tr>
                     <td style="width: 150px"></td>
                     <td>
-                        <a href="forms/locationForm.html" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }">
-    Create New Location</a>
+                        <a href="forms/locationForm.html" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }"><button>
+                            Create New Location
+                            </button>
+                        </a>
                     </td>
                 </tr>
             </table>
@@ -1290,19 +1342,20 @@
                 <tr>
                     <td style="width: 150px">Series Title</td>
                     <td style="width: 400px">
-                        <input type="text" class="autoSeries" name="name" />
+                        <input type="text" class="autoSeries" name="selectedSeries" />
                     </td>
                 </tr>
                 <tr>
                     <td style="width: 150px">Issue</td>
                     <td style="width: 400px">
-                        <input type="text" class="autoIssue" name="name" />
+                        <input type="text" class="autoIssue" name="selectedSource" />
                     </td>
                     <tr style="background-color: white">
                         <td style="width: 150px"></td>
                         <td>
                             <a href="forms/sourceForm.html" class="form" title="Create New Source" data-modal="{ width: 500, closeOnEscape: true }">
-    Create New Source</a>
+                                <button>Create New Source</button>
+                            </a>
                         </td>
                     </tr>
 
@@ -1317,7 +1370,7 @@
                     <td style="width: 150px">Physical Location</td>
                     <td style="width: 400px">
 
-                        <input type="text" class="autoPhysLoc" name="name" />
+                        <input type="text" class="autoPhysLoc" name="selectedPhysLoc" />
 
                     </td>
 
@@ -1325,14 +1378,14 @@
                         <td style="width: 150px"></td>
                         <td>
                             <a href="forms/physLocForm.html" class="form" title="Create New Physical Location" data-modal="{ width: 500, closeOnEscape: true }">
-    Create New Physical Location</a>
+                                <button>Create New Physical Location</button>
+                            </a>
                         </td>
                     </tr>
 
                 </tr>
             </table>
         </div>
-
         <table>
             <tr>
                 <td>

@@ -68,12 +68,8 @@ if($stmtMention = mysqli_prepare( $mysqliConnection, $sqlMention)){
 
 //Output the id of person just added
 
-if($mentionId){
-    echo $mentionId;   
-}
-    
 if($activityId){
-    echo $activityId;   
+echo "Success! <a href='" . $link_address."'>Add another activity record</a>";
 }
 
     

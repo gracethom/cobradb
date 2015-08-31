@@ -66,12 +66,8 @@ if($stmtClassified = mysqli_prepare( $mysqliConnection, $sqlClassified)){
 
 //Output the id of person just added
 
-if($classifiedId){
-    echo $classifiedId;   
-}
-    
 if($activityId){
-    echo $activityId;   
+echo "Success! <a href='" . $link_address."'>Add another activity record</a>";
 }
 
     

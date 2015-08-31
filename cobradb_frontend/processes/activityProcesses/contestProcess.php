@@ -68,12 +68,8 @@ if($stmtContest = mysqli_prepare( $mysqliConnection, $sqlContest)){
 
 //Output the id of person just added
 
-if($contestId){
-    echo $contestId;   
-}
-    
 if($activityId){
-    echo $activityId;   
+echo "Success! <a href='" . $link_address."'>Add another activity record</a>";
 }
 
     

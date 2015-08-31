@@ -66,14 +66,9 @@ if($stmtReview = mysqli_prepare( $mysqliConnection, $sqlReview)){
 
 //Output the id of person just added
 
-if($reviewId){
-    echo $reviewId;   
-}
-    
 if($activityId){
-    echo $activityId;   
+echo "Success! <a href='" . $link_address."'>Add another activity record</a>";
 }
-
     
 }
 ?>

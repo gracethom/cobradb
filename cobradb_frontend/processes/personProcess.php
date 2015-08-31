@@ -13,7 +13,6 @@ if(isset($_POST['pers_auth'])
    && isset($_POST['grade'])
    && isset($_POST['race'])
    && isset($_POST['ethnicity'])
-   && isset($_POST['sex'])
    && isset($_POST['gender'])
        && isset($_POST['occupation'])){
 
@@ -44,18 +43,15 @@ $occupation = $_POST['occupation'];
 $occu_note = $_POST['occu_note'];
 $grade = $_POST['grade'];
 $grade_note = $_POST['grade_note'];
-$sex = $_POST['sex'];
-$sex_note = $_POST['sex_note'];
 $gender = $_POST['gender'];
 $gender_note = $_POST['gender_note'];
 
 
-    //sql statements to insert into person_dim, occu_dim, grade_dim, sex_dim, gender_dim
+    //sql statements to insert into person_dim, occu_dim, grade_dim, gender_dim
 $sqlPerson = "INSERT INTO person_dim (person_auth, surname, forename, person_title, person_role, alt_name, birth_year, byear_source, race, ethnicity) VALUES (?,?,?,?,?,?,?,?,?,?)";
     
 $sqlOccu = "INSERT INTO occu_dim (occupation) VALUES (?)";
 $sqlGrade = "INSERT INTO grade_dim (grade) VALUES (?)";
-$sqlSex = "INSERT INTO sex_dim (sex) VALUES (?)";
 $sqlGender = "INSERT INTO gender_dim (gender) VALUES (?)";
     
     
@@ -63,7 +59,6 @@ $sqlGender = "INSERT INTO gender_dim (gender) VALUES (?)";
     //sql statements to insert into person bridge tables
 $sqlOccuB = "INSERT INTO person_occu (id_person_dim, id_occu_dim, occu_note) VALUES (?,?,?)";
 $sqlGradeB = "INSERT INTO person_grade (id_person_dim, id_grade_dim, grade_note) VALUES (?,?,?)";
-$sqlSexB = "INSERT INTO person_sex (id_person_dim, id_sex_dim, sex_note) VALUES (?,?,?)";
 $sqlGenderB = "INSERT INTO person_gender (id_person_dim, id_gender_dim, gender_note) VALUES (?,?,?)";
 
 
@@ -71,18 +66,16 @@ $sqlGenderB = "INSERT INTO person_gender (id_person_dim, id_gender_dim, gender_n
 $persId = null;
 $occuId = null;
 $gradeId = null;
-$sexId = null;
 $gradeId = null;
     
     //ids for bridge tables
 $persBId = null;
 $occuBId = null;
 $gradeBId = null;
-$sexBId = null;
 $gradeBId = null;
 
     
- //insert values into person_dim, occu_dim, grade_dim, sex_dim, gender_dim   
+ //insert values into person_dim, occu_dim, grade_dim, gender_dim   
     
 if($stmtPerson = mysqli_prepare( $mysqliConnection, $sqlPerson)){
     $stmtPerson->bind_param("ssssssssss", $pers_auth, $surname, $forename, $pers_title, $role, $alt_name, $birth_year, $byear_source, $race, $ethnicity);
@@ -108,14 +101,6 @@ if($stmtPerson = mysqli_prepare( $mysqliConnection, $sqlPerson)){
  
 }
     
-    if($stmtSex = mysqli_prepare( $mysqliConnection, $sqlSex)){
-    $stmtSex->bind_param("s", $sex);
-    $stmtSex->execute();
-    $sexId = $mysqliConnection->insert_id;
-    mysqli_stmt_close($stmtSex);
- 
-}
-    
     if($stmtGender = mysqli_prepare( $mysqliConnection, $sqlGender)){
     $stmtGender->bind_param("s", $gender);
     $stmtGender->execute();
@@ -125,7 +110,7 @@ if($stmtPerson = mysqli_prepare( $mysqliConnection, $sqlPerson)){
 }
     
     
-    //insert values into the person bridge tables - person_occu, person_grade, person_sex, person_gender
+    //insert values into the person bridge tables - person_occu, person_grade, person_gender
     
     if($stmtOccuB = mysqli_prepare( $mysqliConnection, $sqlOccuB)){
     $stmtOccuB->bind_param("sss", $persId, $occuId, $occu_note);
@@ -140,14 +125,6 @@ if($stmtPerson = mysqli_prepare( $mysqliConnection, $sqlPerson)){
     $stmtGradeB->execute();
     $gradeBId = $mysqliConnection->insert_id;
     mysqli_stmt_close($stmtGradeB);
-
-}
-    
-    if($stmtSexB = mysqli_prepare( $mysqliConnection, $sqlSexB)){
-    $stmtSexB->bind_param("sss", $persId, $sexId, $sex_note);
-    $stmtSexB->execute();
-    $sexBId = $mysqliConnection->insert_id;
-    mysqli_stmt_close($stmtSexB);
 
 }
     
