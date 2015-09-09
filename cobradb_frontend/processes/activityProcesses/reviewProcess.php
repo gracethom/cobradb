@@ -4,6 +4,7 @@ require_once('config.php');
 
 if(isset($_POST['review_title'])
    && isset($_POST['review_text'])
+   && isset($_POST['review_note'])
    && isset($_POST['selectedPerson'])
    && isset($_POST['selectedLocation'])
    && isset($_POST['selectedSource'])
@@ -22,6 +23,7 @@ $mysqliConnection = connectRW();
 
 $review_title = $_POST['review_title']; 
 $review_text = $_POST['review_text'];
+$review_note = $_POST['review_note'];
     
 $selectedPerson = $_POST['selectedPerson'];
 $selectedLocation = $_POST['selectedLocation'];
@@ -30,7 +32,7 @@ $selectedPhysLoc = $_POST['selectedPhysLoc'];
 
 
     //sql statements
-$sqlReview = "INSERT INTO review_dim (review_title, review_text) VALUES (?,?)";
+$sqlReview = "INSERT INTO review_dim (review_title, review_text, review_note) VALUES (?,?,?)";
     
 $sqlActivity = "INSERT INTO activity_fact (fact_person, fact_location, fact_source, fact_phys_loc, fact_review) VALUES (?,?,?,?,?)";
 
@@ -45,7 +47,7 @@ $activityId = null;
  //insert values 
     
 if($stmtReview = mysqli_prepare( $mysqliConnection, $sqlReview)){
-    $stmtReview->bind_param("ss", $review_title, $review_text);
+    $stmtReview->bind_param("sss", $review_title, $review_text, $review_note);
     $stmtReview->execute();
     $reviewId = $mysqliConnection->insert_id;
     mysqli_stmt_close($stmtReview);

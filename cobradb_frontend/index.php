@@ -184,7 +184,7 @@
             <table>
                 <tr>
                     <td>
-                        <h3>Select a location</h3>
+                        <h3>Person's location</h3>
                     </td>
                 </tr>
                 <tr>
@@ -196,8 +196,9 @@
                 <tr>
                     <td style="width: 150px"></td>
                     <td>
-                        <a href="forms/locationForm.html" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }"><button>
-                            Create New Location
+                        <a href="forms/locationForm.html" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }">
+                            <button>
+                                Create New Location
                             </button>
                         </a>
                     </td>
@@ -209,7 +210,7 @@
             <table>
                 <tr>
                     <td>
-                        <h3>Select a source</h3>
+                        <h3>Source</h3>
                     </td>
                 </tr>
                 <tr>
@@ -239,14 +240,15 @@
         <div class="physLocPrompt">
             <table>
                 <tr>
-
-                    <td style="width: 150px">Physical Location</td>
-                    <td style="width: 400px">
-
-                        <input type="text" class="autoPhysLoc" name="selectedPhysLoc" />
-
+                    <td>
+                        <h3>Physical Location</h3>
                     </td>
-
+                </tr>
+                <tr>
+                    <td style="width: 150px">Location</td>
+                    <td style="width: 400px">
+                        <input type="text" class="autoPhysLoc" name="selectedPhysLoc" />
+                    </td>
                     <tr style="background-color: white">
                         <td style="width: 150px"></td>
                         <td>
@@ -276,6 +278,12 @@
                 <td style="width:150px;vertical-align:top">Text</td>
                 <td style="width: 400px">
                     <textarea type="text" style="height: 125px; width: 400px" name="letter_text"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td style="width:150px;vertical-align:top">Note</td>
+                <td style="width: 400px">
+                    <textarea type="text" style="height: 125px; width: 400px" name="letter_note"></textarea>
                 </td>
             </tr>
 
@@ -324,7 +332,7 @@
             <table>
                 <tr>
                     <td>
-                        <h3>Select a location</h3>
+                        <h3>Person's location</h3>
                     </td>
                 </tr>
                 <tr>
@@ -336,8 +344,9 @@
                 <tr>
                     <td style="width: 150px"></td>
                     <td>
-                        <a href="forms/locationForm.html" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }"><button>
-                            Create New Location
+                        <a href="forms/locationForm.html" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }">
+                            <button>
+                                Create New Location
                             </button>
                         </a>
                     </td>
@@ -349,7 +358,7 @@
             <table>
                 <tr>
                     <td>
-                        <h3>Select a source</h3>
+                        <h3>Source</h3>
                     </td>
                 </tr>
                 <tr>
@@ -379,14 +388,15 @@
         <div class="physLocPrompt">
             <table>
                 <tr>
-
-                    <td style="width: 150px">Physical Location</td>
-                    <td style="width: 400px">
-
-                        <input type="text" class="autoPhysLoc" name="selectedPhysLoc" />
-
+                    <td>
+                        <h3>Physical Location</h3>
                     </td>
-
+                </tr>
+                <tr>
+                    <td style="width: 150px">Location</td>
+                    <td style="width: 400px">
+                        <input type="text" class="autoPhysLoc" name="selectedPhysLoc" />
+                    </td>
                     <tr style="background-color: white">
                         <td style="width: 150px"></td>
                         <td>
@@ -411,17 +421,19 @@
                     <input type="text" name="review_title" />
                 </td>
             </tr>
-
             <tr>
-                <td style="width:150px;vertical-align:top">Text</td>
+                <td style="width: 150px">Text</td>
                 <td style="width: 400px">
-                    <textarea type="text" style="height: 125px; width: 400px" name="review_text"></textarea>
+                    <textarea type="text" style="height: 50px; width: 400px" name="review_text"></textarea>
                 </td>
-
+            </tr>
+            <tr>
+                <td style="width:150px;vertical-align:top">Note</td>
+                <td style="width: 400px">
+                    <textarea type="text" style="height: 50px; width: 400px" name="review_note"></textarea>
+                </td>
             </tr>
         </table>
-        <input id="submit" type="submit" value="Submit" />
-        </form>
     </div>
 
 
@@ -463,7 +475,7 @@
             <table>
                 <tr>
                     <td>
-                        <h3>Select a location</h3>
+                        <h3>Person's location</h3>
                     </td>
                 </tr>
                 <tr>
@@ -475,8 +487,9 @@
                 <tr>
                     <td style="width: 150px"></td>
                     <td>
-                        <a href="forms/locationForm.html" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }"><button>
-                            Create New Location
+                        <a href="forms/locationForm.html" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }">
+                            <button>
+                                Create New Location
                             </button>
                         </a>
                     </td>
@@ -488,7 +501,7 @@
             <table>
                 <tr>
                     <td>
-                        <h3>Select a source</h3>
+                        <h3>Source</h3>
                     </td>
                 </tr>
                 <tr>
@@ -518,14 +531,15 @@
         <div class="physLocPrompt">
             <table>
                 <tr>
-
-                    <td style="width: 150px">Physical Location</td>
-                    <td style="width: 400px">
-
-                        <input type="text" class="autoPhysLoc" name="selectedPhysLoc" />
-
+                    <td>
+                        <h3>Physical Location</h3>
                     </td>
-
+                </tr>
+                <tr>
+                    <td style="width: 150px">Location</td>
+                    <td style="width: 400px">
+                        <input type="text" class="autoPhysLoc" name="selectedPhysLoc" />
+                    </td>
                     <tr style="background-color: white">
                         <td style="width: 150px"></td>
                         <td>
@@ -602,7 +616,7 @@
             <table>
                 <tr>
                     <td>
-                        <h3>Select a location</h3>
+                        <h3>Person's location</h3>
                     </td>
                 </tr>
                 <tr>
@@ -614,8 +628,9 @@
                 <tr>
                     <td style="width: 150px"></td>
                     <td>
-                        <a href="forms/locationForm.html" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }"><button>
-                            Create New Location
+                        <a href="forms/locationForm.html" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }">
+                            <button>
+                                Create New Location
                             </button>
                         </a>
                     </td>
@@ -627,7 +642,7 @@
             <table>
                 <tr>
                     <td>
-                        <h3>Select a source</h3>
+                        <h3>Source</h3>
                     </td>
                 </tr>
                 <tr>
@@ -657,14 +672,15 @@
         <div class="physLocPrompt">
             <table>
                 <tr>
-
-                    <td style="width: 150px">Physical Location</td>
-                    <td style="width: 400px">
-
-                        <input type="text" class="autoPhysLoc" name="selectedPhysLoc" />
-
+                    <td>
+                        <h3>Physical Location</h3>
                     </td>
-
+                </tr>
+                <tr>
+                    <td style="width: 150px">Location</td>
+                    <td style="width: 400px">
+                        <input type="text" class="autoPhysLoc" name="selectedPhysLoc" />
+                    </td>
                     <tr style="background-color: white">
                         <td style="width: 150px"></td>
                         <td>
@@ -704,7 +720,7 @@
             <tr>
                 <td style="width: 150px">Notes</td>
                 <td style="width: 400px">
-                    <input type="text" name="fan_club_notes" />
+                   <textarea type="text" style="height: 50px; width: 400px" name="fan_club_notes"></textarea>
                 </td>
             </tr>
         </table>
@@ -748,7 +764,7 @@
             <table>
                 <tr>
                     <td>
-                        <h3>Select a location</h3>
+                        <h3>Person's location</h3>
                     </td>
                 </tr>
                 <tr>
@@ -760,8 +776,9 @@
                 <tr>
                     <td style="width: 150px"></td>
                     <td>
-                        <a href="forms/locationForm.html" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }"><button>
-                            Create New Location
+                        <a href="forms/locationForm.html" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }">
+                            <button>
+                                Create New Location
                             </button>
                         </a>
                     </td>
@@ -773,7 +790,7 @@
             <table>
                 <tr>
                     <td>
-                        <h3>Select a source</h3>
+                        <h3>Source</h3>
                     </td>
                 </tr>
                 <tr>
@@ -803,14 +820,15 @@
         <div class="physLocPrompt">
             <table>
                 <tr>
-
-                    <td style="width: 150px">Physical Location</td>
-                    <td style="width: 400px">
-
-                        <input type="text" class="autoPhysLoc" name="selectedPhysLoc" />
-
+                    <td>
+                        <h3>Physical Location</h3>
                     </td>
-
+                </tr>
+                <tr>
+                    <td style="width: 150px">Location</td>
+                    <td style="width: 400px">
+                        <input type="text" class="autoPhysLoc" name="selectedPhysLoc" />
+                    </td>
                     <tr style="background-color: white">
                         <td style="width: 150px"></td>
                         <td>
@@ -850,7 +868,7 @@
             <tr>
                 <td style="width: 150px">Meeting Notes</td>
                 <td style="width: 400px">
-                    <input type="text" name="mtg_notes" />
+                    <textarea type="text" style="height: 50px; width: 400px" name="mtg_notes"></textarea>
                 </td>
             </tr>
         </table>
@@ -893,7 +911,7 @@
             <table>
                 <tr>
                     <td>
-                        <h3>Select a location</h3>
+                        <h3>Person's location</h3>
                     </td>
                 </tr>
                 <tr>
@@ -905,8 +923,9 @@
                 <tr>
                     <td style="width: 150px"></td>
                     <td>
-                        <a href="forms/locationForm.html" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }"><button>
-                            Create New Location
+                        <a href="forms/locationForm.html" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }">
+                            <button>
+                                Create New Location
                             </button>
                         </a>
                     </td>
@@ -918,7 +937,7 @@
             <table>
                 <tr>
                     <td>
-                        <h3>Select a source</h3>
+                        <h3>Source</h3>
                     </td>
                 </tr>
                 <tr>
@@ -948,14 +967,15 @@
         <div class="physLocPrompt">
             <table>
                 <tr>
-
-                    <td style="width: 150px">Physical Location</td>
-                    <td style="width: 400px">
-
-                        <input type="text" class="autoPhysLoc" name="selectedPhysLoc" />
-
+                    <td>
+                        <h3>Physical Location</h3>
                     </td>
-
+                </tr>
+                <tr>
+                    <td style="width: 150px">Location</td>
+                    <td style="width: 400px">
+                        <input type="text" class="autoPhysLoc" name="selectedPhysLoc" />
+                    </td>
                     <tr style="background-color: white">
                         <td style="width: 150px"></td>
                         <td>
@@ -1040,7 +1060,7 @@
             <table>
                 <tr>
                     <td>
-                        <h3>Select a location</h3>
+                        <h3>Person's location</h3>
                     </td>
                 </tr>
                 <tr>
@@ -1052,8 +1072,9 @@
                 <tr>
                     <td style="width: 150px"></td>
                     <td>
-                        <a href="forms/locationForm.html" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }"><button>
-                            Create New Location
+                        <a href="forms/locationForm.html" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }">
+                            <button>
+                                Create New Location
                             </button>
                         </a>
                     </td>
@@ -1065,7 +1086,7 @@
             <table>
                 <tr>
                     <td>
-                        <h3>Select a source</h3>
+                        <h3>Source</h3>
                     </td>
                 </tr>
                 <tr>
@@ -1095,14 +1116,15 @@
         <div class="physLocPrompt">
             <table>
                 <tr>
-
-                    <td style="width: 150px">Physical Location</td>
-                    <td style="width: 400px">
-
-                        <input type="text" class="autoPhysLoc" name="selectedPhysLoc" />
-
+                    <td>
+                        <h3>Physical Location</h3>
                     </td>
-
+                </tr>
+                <tr>
+                    <td style="width: 150px">Location</td>
+                    <td style="width: 400px">
+                        <input type="text" class="autoPhysLoc" name="selectedPhysLoc" />
+                    </td>
                     <tr style="background-color: white">
                         <td style="width: 150px"></td>
                         <td>
@@ -1178,7 +1200,7 @@
             <table>
                 <tr>
                     <td>
-                        <h3>Select a location</h3>
+                        <h3>Person's location</h3>
                     </td>
                 </tr>
                 <tr>
@@ -1190,8 +1212,9 @@
                 <tr>
                     <td style="width: 150px"></td>
                     <td>
-                        <a href="forms/locationForm.html" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }"><button>
-                            Create New Location
+                        <a href="forms/locationForm.html" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }">
+                            <button>
+                                Create New Location
                             </button>
                         </a>
                     </td>
@@ -1203,7 +1226,7 @@
             <table>
                 <tr>
                     <td>
-                        <h3>Select a source</h3>
+                        <h3>Source</h3>
                     </td>
                 </tr>
                 <tr>
@@ -1233,14 +1256,15 @@
         <div class="physLocPrompt">
             <table>
                 <tr>
-
-                    <td style="width: 150px">Physical Location</td>
-                    <td style="width: 400px">
-
-                        <input type="text" class="autoPhysLoc" name="selectedPhysLoc" />
-
+                    <td>
+                        <h3>Physical Location</h3>
                     </td>
-
+                </tr>
+                <tr>
+                    <td style="width: 150px">Location</td>
+                    <td style="width: 400px">
+                        <input type="text" class="autoPhysLoc" name="selectedPhysLoc" />
+                    </td>
                     <tr style="background-color: white">
                         <td style="width: 150px"></td>
                         <td>
@@ -1311,7 +1335,7 @@
             <table>
                 <tr>
                     <td>
-                        <h3>Select a location</h3>
+                        <h3>Person's location</h3>
                     </td>
                 </tr>
                 <tr>
@@ -1323,8 +1347,9 @@
                 <tr>
                     <td style="width: 150px"></td>
                     <td>
-                        <a href="forms/locationForm.html" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }"><button>
-                            Create New Location
+                        <a href="forms/locationForm.html" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }">
+                            <button>
+                                Create New Location
                             </button>
                         </a>
                     </td>
@@ -1336,7 +1361,7 @@
             <table>
                 <tr>
                     <td>
-                        <h3>Select a source</h3>
+                        <h3>Source</h3>
                     </td>
                 </tr>
                 <tr>
@@ -1366,14 +1391,15 @@
         <div class="physLocPrompt">
             <table>
                 <tr>
-
-                    <td style="width: 150px">Physical Location</td>
-                    <td style="width: 400px">
-
-                        <input type="text" class="autoPhysLoc" name="selectedPhysLoc" />
-
+                    <td>
+                        <h3>Physical Location</h3>
                     </td>
-
+                </tr>
+                <tr>
+                    <td style="width: 150px">Location</td>
+                    <td style="width: 400px">
+                        <input type="text" class="autoPhysLoc" name="selectedPhysLoc" />
+                    </td>
                     <tr style="background-color: white">
                         <td style="width: 150px"></td>
                         <td>

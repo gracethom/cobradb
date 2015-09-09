@@ -39,9 +39,14 @@ table {
     padding: 10px;
 }
 
+.login {
+    background-color: white;
+}
+
 tr:nth-child(even) {
     background-color: #FaFaFa;
 }
+
 
 textarea {
     -webkit-appearance: textfield;

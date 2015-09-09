@@ -10,11 +10,15 @@ if(isset($_POST['pers_auth'])
    && isset($_POST['alt_name'])
    && isset($_POST['birth_year'])
    && isset($_POST['byear_source'])
-   && isset($_POST['grade'])
+   && isset($_POST['gender_note'])
    && isset($_POST['race'])
+   && isset($_POST['race_note'])
    && isset($_POST['ethnicity'])
-   && isset($_POST['gender'])
-       && isset($_POST['occupation'])){
+   && isset($_POST['ethnicity_note'])
+   && isset($_POST['occupation'])
+   && isset($_POST['occu_note'])
+   && isset($_POST['grade'])
+   && isset($_POST['grade_note'])){
 
 
 function connectRW(){
@@ -27,7 +31,7 @@ $mysqli = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
 
 $mysqliConnection = connectRW();
 
-$selected_name = $_POST['selectedName'];
+    
 $pers_auth = $_POST['pers_auth'];
 $surname = $_POST['surname'];
 $forename = $_POST['forename'];
@@ -36,49 +40,49 @@ $pers_role = $_POST['pers_role'];
 $alt_name = $_POST['alt_name'];
 $birth_year = $_POST['birth_year'];
 $byear_source = $_POST['byear_source'];
+$gender_note = $_POST['gender_note'];
 $race = $_POST['race'];
+$race_note = $_POST['race_note'];
 $ethnicity = $_POST['ethnicity'];
-    
+$ethnicity_note = $_POST['ethnicity_note'];
 $occupation = $_POST['occupation'];
 $occu_note = $_POST['occu_note'];
 $grade = $_POST['grade'];
 $grade_note = $_POST['grade_note'];
-$gender = $_POST['gender'];
-$gender_note = $_POST['gender_note'];
+
+
 
 
     //sql statements to insert into person_dim, occu_dim, grade_dim, gender_dim
-$sqlPerson = "INSERT INTO person_dim (person_auth, surname, forename, person_title, person_role, alt_name, birth_year, byear_source, race, ethnicity) VALUES (?,?,?,?,?,?,?,?,?,?)";
+$sqlPerson = "INSERT INTO person_dim (person_auth, surname, forename, person_title, person_role, alt_name, birth_year, byear_source, gender_note, race, race_note, ethnicity, ethnicity_note) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
     
 $sqlOccu = "INSERT INTO occu_dim (occupation) VALUES (?)";
 $sqlGrade = "INSERT INTO grade_dim (grade) VALUES (?)";
-$sqlGender = "INSERT INTO gender_dim (gender) VALUES (?)";
     
     
     
     //sql statements to insert into person bridge tables
 $sqlOccuB = "INSERT INTO person_occu (id_person_dim, id_occu_dim, occu_note) VALUES (?,?,?)";
 $sqlGradeB = "INSERT INTO person_grade (id_person_dim, id_grade_dim, grade_note) VALUES (?,?,?)";
-$sqlGenderB = "INSERT INTO person_gender (id_person_dim, id_gender_dim, gender_note) VALUES (?,?,?)";
 
 
     // ids for dim tables
 $persId = null;
 $occuId = null;
 $gradeId = null;
-$gradeId = null;
+
     
     //ids for bridge tables
 $persBId = null;
 $occuBId = null;
 $gradeBId = null;
-$gradeBId = null;
+
 
     
  //insert values into person_dim, occu_dim, grade_dim, gender_dim   
     
 if($stmtPerson = mysqli_prepare( $mysqliConnection, $sqlPerson)){
-    $stmtPerson->bind_param("ssssssssss", $pers_auth, $surname, $forename, $pers_title, $role, $alt_name, $birth_year, $byear_source, $race, $ethnicity);
+    $stmtPerson->bind_param("sssssssssssss", $pers_auth, $surname, $forename, $pers_title, $role, $alt_name, $birth_year, $byear_source, $gender_note, $race, $race_note, $ethnicity, $ethnicity_note);
     $stmtPerson->execute();
     $persId = $mysqliConnection->insert_id;
     mysqli_stmt_close($stmtPerson);
@@ -100,14 +104,7 @@ if($stmtPerson = mysqli_prepare( $mysqliConnection, $sqlPerson)){
     mysqli_stmt_close($stmtGrade);
  
 }
-    
-    if($stmtGender = mysqli_prepare( $mysqliConnection, $sqlGender)){
-    $stmtGender->bind_param("s", $gender);
-    $stmtGender->execute();
-    $genderId = $mysqliConnection->insert_id;
-    mysqli_stmt_close($stmtGender);
-    
-}
+
     
     
     //insert values into the person bridge tables - person_occu, person_grade, person_gender
@@ -127,14 +124,7 @@ if($stmtPerson = mysqli_prepare( $mysqliConnection, $sqlPerson)){
     mysqli_stmt_close($stmtGradeB);
 
 }
-    
-    if($stmtGenderB = mysqli_prepare( $mysqliConnection, $sqlGenderB)){
-    $stmtGenderB->bind_param("sss", $persId, $genderId, $gender_note);
-    $stmtGenderB->execute();
-    $genderBId = $mysqliConnection->insert_id;
-    mysqli_stmt_close($stmtGenderB);
 
-}
     
     $mysqliConnection->close();
 

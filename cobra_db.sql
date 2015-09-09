@@ -35,18 +35,16 @@ CREATE TABLE IF NOT EXISTS `cobra`.`person_dim` (
   `alt_name` VARCHAR(45) NULL, -- if signed with a false name
   `birth_year` VARCHAR(45) NULL,
   `byear_source` VARCHAR(45) NULL,
+  `m_f` VARCHAR(45) NULL,
+  `gender_note` VARCHAR(255) NULL,
   `race` VARCHAR(45) NULL,
-  `race_note` VARCHAR(45) NULL,
+  `race_note` VARCHAR(255) NULL,
   `ethnicity` VARCHAR(45) NULL,
-  `ethnicity_note` VARCHAR(45) NULL,
-  `person_created` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  `person_updated` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `ethnicity_note` VARCHAR(255) NULL,
   PRIMARY KEY (`id_person_dim`))
 ENGINE = InnoDB;
 
 SHOW WARNINGS;
-
-
 
 
 -- -----------------------------------------------------
@@ -62,8 +60,6 @@ SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `cobra`.`occu_dim` (
   `id_occu_dim` INT NOT NULL AUTO_INCREMENT,
   `occupation` VARCHAR(45) NULL,
-  `occu_created` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  `occu_updated` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_occu_dim`))
 ENGINE = InnoDB;
 
@@ -106,8 +102,6 @@ SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `cobra`.`grade_dim` (
   `id_grade_dim` INT NOT NULL AUTO_INCREMENT,
   `grade` VARCHAR(45) NULL,
-  `grade_created` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  `grade_updated` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_grade_dim`))
 ENGINE = InnoDB;
 
@@ -139,49 +133,6 @@ ENGINE = InnoDB;
 
 SHOW WARNINGS;
 
-
--- -----------------------------------------------------
--- Table `cobra`.`gender_dim`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `cobra`.`gender_dim` ;
-
-SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `cobra`.`gender_dim` (
-  `id_gender_dim` INT NOT NULL AUTO_INCREMENT,
-  `gender` VARCHAR(45) NULL,
-  `gender_created` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  `gender_updated` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id_gender_dim`))
-ENGINE = InnoDB;
-
-SHOW WARNINGS;
-
--- -----------------------------------------------------
--- Table `cobra`.`person_gender`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `cobra`.`person_gender` ;
-
-SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `cobra`.`person_gender` (
-  `id_person_gender` INT NOT NULL AUTO_INCREMENT,
-  `id_person_dim` INT NOT NULL,
-  `id_gender_dim` INT NOT NULL,
-  `gender_note` VARCHAR(255) NULL,
-  PRIMARY KEY (`id_person_gender`),
-  CONSTRAINT `fk_gender_dim`
-    FOREIGN KEY (`id_gender_dim`)
-    REFERENCES `cobra`.`gender_dim` (`id_gender_dim`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_person_gender_dim`
-    FOREIGN KEY (`id_person_dim`)
-    REFERENCES `cobra`.`person_dim` (`id_person_dim`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-SHOW WARNINGS;
-
 -- -----------------------------------------------------
 -- END OF MUTABLE ATTRIBUTES
 -- -----------------------------------------------------
@@ -202,8 +153,6 @@ CREATE TABLE IF NOT EXISTS `cobra`.`location_dim` (
   `state` VARCHAR(45) NULL,
   `country` VARCHAR(45) NULL,
   `postal_code` VARCHAR(45) NULL,
-  `location_created` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  `location_updated` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_location_dim`))
 ENGINE = InnoDB;
 
@@ -224,8 +173,6 @@ CREATE TABLE IF NOT EXISTS `cobra`.`phys_loc_dim` (
   `coll_name` VARCHAR(45) NULL,
   `coll_num` VARCHAR(45) NULL,
   `id_location_dim`INT NOT NULL,
-  `phys_loc_created` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  `phys_loc_updated` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_phys_loc_dim`),
   CONSTRAINT `fk_phys_loc_dim`
     FOREIGN KEY (`id_location_dim`)
@@ -249,13 +196,11 @@ SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `cobra`.`source_dim` (
   `id_source_dim` INT NOT NULL AUTO_INCREMENT,
   `source_type` VARCHAR(45) NULL,
-  `GCD_link` VARCHAR(45) NULL,
+  `gcd_link` VARCHAR(45) NULL,
   `series_title` VARCHAR(45) NULL,
   `issue_number` VARCHAR(45) NULL,
   `pub_date` VARCHAR(45) NULL,
   `page_num` VARCHAR(45) NULL,
-  `source_created` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  `source_updated` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_source_dim`))
 ENGINE = InnoDB;
 
@@ -277,8 +222,6 @@ CREATE TABLE IF NOT EXISTS `cobra`.`letter_dim` (
   `letter_pg_title` VARCHAR(45) NULL,
   `letter_text` VARCHAR(255) NULL,
   `letter_note` VARCHAR(255) NULL,
-  `letter_created` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  `letter_updated` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_letter_dim`))
 ENGINE = InnoDB;
 
@@ -295,8 +238,6 @@ CREATE TABLE IF NOT EXISTS `cobra`.`review_dim` (
   `review_title` VARCHAR(45) NULL,
   `review_text` VARCHAR(255) NULL,
   `review_note` VARCHAR(255) NULL,
-  `review_created` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  `review_updated` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_review_dim`))
 ENGINE = InnoDB;
 
@@ -313,8 +254,6 @@ CREATE TABLE IF NOT EXISTS `cobra`.`contest_dim` (
   `contest_name` VARCHAR(45) NULL,
   `contest_assoc` VARCHAR(45) NULL,
   `contest_notes` VARCHAR(45) NULL,
-  `contest_created` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  `contest_updated` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_contest_dim`))
 ENGINE = InnoDB;
 
@@ -332,8 +271,6 @@ CREATE TABLE IF NOT EXISTS `cobra`.`club_dim` (
   `fan_club_abbr` VARCHAR(45) NULL,
   `fan_club_assoc` VARCHAR(45) NULL,
   `fan_club_notes` VARCHAR(255) NULL,
-  `fan_club_created` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  `fan_club_updated` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_club_dim`))
 ENGINE = InnoDB;
 
@@ -351,8 +288,6 @@ CREATE TABLE IF NOT EXISTS `cobra`.`meeting_dim` (
   `mtg_start` VARCHAR(45) NULL,
   `mtg_end` VARCHAR(45) NULL,
   `mtg_notes` VARCHAR(255) NULL,
-  `mtg_created` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  `mtg_updated` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_meeting_dim`))
 ENGINE = InnoDB;
 
@@ -369,8 +304,6 @@ CREATE TABLE IF NOT EXISTS `cobra`.`mention_dim` (
   `mention_col_title` VARCHAR(45) NULL,
   `mention_desc` VARCHAR(255) NULL,
   `mention_notes` VARCHAR(255) NULL,
-  `mention_created` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  `mention_updated` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_mention_dim`))
 ENGINE = InnoDB;
 
@@ -386,8 +319,6 @@ CREATE TABLE IF NOT EXISTS `cobra`.`classified_dim` (
   `id_classified_dim` INT NOT NULL AUTO_INCREMENT,
   `classified_title` VARCHAR(45) NULL,
   `classified_notes` VARCHAR(255) NULL,
-  `classified_created` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  `classified_updated` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_classified_dim`))
 ENGINE = InnoDB;
 
@@ -403,8 +334,6 @@ CREATE TABLE IF NOT EXISTS `cobra`.`pen_pals_dim` (
   `id_pen_pals_dim` INT NOT NULL AUTO_INCREMENT,
   `penpals_title` VARCHAR(45) NULL,
   `penpals_notes` VARCHAR(255) NULL,
-  `penpals_created` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  `penpals_updated` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_pen_pals_dim`))
 ENGINE = InnoDB;
 
@@ -420,8 +349,6 @@ CREATE TABLE IF NOT EXISTS `cobra`.`traces_dim` (
   `id_traces_dim` INT NOT NULL AUTO_INCREMENT,
   `traces_col_title` VARCHAR(45) NULL,
   `traces_notes` VARCHAR(255) NULL, 
-  `traces_created` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  `traces_updated` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_traces_dim`))
 ENGINE = InnoDB;
 
