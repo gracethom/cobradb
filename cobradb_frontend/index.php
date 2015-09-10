@@ -1,3 +1,11 @@
+<?php
+include_once 'includes/db_connect.php';
+include_once 'includes/functions.php';
+ 
+sec_session_start();
+?>
+
+
 <html>
 
 <head>
@@ -113,6 +121,20 @@
 </head>
 
 <body>
+    <?php if (login_check($mysqli) == true) : ?>
+            <p>Welcome <?php echo htmlentities($_SESSION['username']); ?>!</p>
+            <p>
+                This is an example protected page.  To access this page, users
+                must be logged in.  At some stage, we'll also check the role of
+                the user, so pages will be able to determine the type of user
+                authorised to access the page.
+            </p>
+            
+    
+    <p>Return to <a href="login.php">login page</a></p>
+        <p><a href="includes/logout.php">Log out</a>.</p>
+    
+    
     <div id="wrapperHeader">
         <div id="header">
             <img src="header.jpg" alt="header" />
@@ -1434,6 +1456,11 @@
         <input id="submit" type="submit" value="Submit" />
         </form>
     </div>
+<?php else : ?>
+            <p>
+                <span class="error">You are not authorized to access this page.</span> Please <a href="login.php">login</a>.
+            </p>
+        <?php endif; ?>
 
 </body>
 
