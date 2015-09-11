@@ -65,10 +65,12 @@ if($stmtLetter = mysqli_prepare( $mysqliConnection, $sqlLetter)){
     $mysqliConnection->close();
 
 $link_address = 'http://localhost/cobradb_copy/index.php';
+    $logout = 'http://localhost/cobradb_copy/includes/logout.php';
 
 //Output the id of person just added
 if($activityId){
 echo "Success! <a href='" . $link_address."'><button>Add another activity record</button></a>";
+    echo "or <a href='" . $logout."'><button>Log Out</button></a>";
 }
     
 }

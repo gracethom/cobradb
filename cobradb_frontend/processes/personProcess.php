@@ -128,7 +128,7 @@ if($stmtPerson = mysqli_prepare( $mysqliConnection, $sqlPerson)){
     
     $mysqliConnection->close();
 
-    
+
     
     
     
@@ -142,9 +142,7 @@ if($persId){
     if($occuId){
     echo $occuId;   
 }
-    if($occuBId){
-    echo $occuBId;   
-}
+
     
 }
 ?>
