@@ -19,6 +19,38 @@ CREATE SCHEMA IF NOT EXISTS `cobra` DEFAULT CHARACTER SET utf8 COLLATE utf8_gene
 SHOW WARNINGS;
 USE `cobra` ;
 
+
+
+-- -----------------------------------------------------
+-- Table login information for users `cobra`.`members` & login_attempts
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `cobra`.`members` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `cobra`.`members` (
+  `id_member` INT NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(30) NOT NULL,
+  `email` VARCHAR(50) NOT NULL,
+  `password` CHAR(128) NOT NULL,
+  `salt` CHAR(128) NOT NULL,
+  PRIMARY KEY (`id_member`))
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+DROP TABLE IF EXISTS `cobra`.`login_attempts` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `cobra`.`login_attempts` (
+  `id_user` INT(11) NOT NULL,
+  `time` VARCHAR(30) NOT NULL)
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+INSERT INTO `cobra`.`members` VALUES(1, 'grace_test', 'gracethomas.unl@gmail.com', '00807432eae173f652f2064bdca1b61b290b52d40e429a7d295d76a71084aa96c0233b82f1feac45529e0726559645acaed6f3ae58a286b9f075916ebf66cacc',
+'f9aab579fc1b41ed0c44fe4ecdbfcdb4cb99b9023abb241a6db833288f4eea3c02f76e0d35204a8695077dcf81932aa59006423976224be0390395bae152d4ef');
+
 -- -----------------------------------------------------
 -- Table `cobra`.`person_dim`
 -- -----------------------------------------------------
@@ -496,6 +528,27 @@ CREATE TABLE IF NOT EXISTS `cobra`.`activity_fact` (
     REFERENCES `cobra`.`source_dim` (`id_source_dim`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+
+
+-- -----------------------------------------------------
+-- Table `cobra`.`master_audit`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `cobra`.`master_audit` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `cobra`.`master_audit` (
+  `id_master_audit` INT NOT NULL AUTO_INCREMENT,
+  `table_name` VARCHAR(45) NOT NULL,
+  `record_id` INT NOT NULL, 
+  `created_by` VARCHAR(45) NOT NULL,
+  `created_on` DATETIME NOT NULL,
+  `modified_by` VARCHAR(45) NULL,
+  `modified_on` DATETIME NOT NULL,
+  PRIMARY KEY (`id_master_audit`))
 ENGINE = InnoDB;
 
 SHOW WARNINGS;
