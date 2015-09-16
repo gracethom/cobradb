@@ -13,7 +13,7 @@ if(isset($_GET['term'])){
     
     $mysqliConnection = connectRW();
  
-    $term=$_GET['term'];
+    $term='%' . $_GET['term'] . '%';
  
     $sqlAutoName = "SELECT id_location_dim, street, city, state, country 
  FROM location_dim

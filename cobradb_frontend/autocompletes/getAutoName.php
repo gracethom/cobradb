@@ -13,32 +13,36 @@ if(isset($_GET['term'])){
     
     $mysqliConnection = connectRW();
  
-    $term=$_GET['term'];
- 
+    $term='%' . $_GET['term'] . '%';
+    
+    
     $sqlAutoName = "SELECT 
-        id_person_dim, 
-        surname, 
-        forename, 
-        id_activity_fact, 
-        fact_person, 
-        fact_location, 
-        id_location_dim, 
-        city, 
-        state, 
-        country 
-    FROM person_dim, activity_fact, location_dim
-    WHERE ( surname LIKE ? 
-        OR forename LIKE ? )
-        AND id_person_dim=fact_person 
-        AND id_location_dim=fact_location
-    GROUP BY surname";
+        person_dim.id_person_dim, 
+        person_dim.surname, 
+        person_dim.forename, 
+        activity_fact.id_activity_fact, 
+        activity_fact.fact_person, 
+        activity_fact.fact_location, 
+        location_dim.id_location_dim, 
+        location_dim.city, 
+        location_dim.state, 
+        location_dim.country 
+    FROM person_dim
+    
+        LEFT JOIN activity_fact ON activity_fact.fact_person=person_dim.id_person_dim
+        LEFT JOIN location_dim ON activity_fact.fact_location=location_dim.id_location_dim WHERE ( person_dim.surname LIKE ? 
+        OR person_dim.forename LIKE ? 
+        OR CONCAT(person_dim.forename, ' ', person_dim.surname) LIKE ?)";
+       
+    
     
     $json = array();
 
     $mysqliConnection = connectRW(); 
 
+
     if($stmt = mysqli_prepare( $mysqliConnection, $sqlAutoName)){ 
-        $stmt->bind_param("ss", $term, $term); 
+        $stmt->bind_param("sss", $term, $term, $term); 
         $stmt->execute(); 
         $stmt->bind_result($id_person_dim, $surname, $forename, $id_activity_fact, $fact_person, $fact_location, $id_location_dim, $city, $state, $country); 
         while (mysqli_stmt_fetch($stmt)) { 

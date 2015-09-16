@@ -69,8 +69,13 @@ $link_address = 'http://localhost/cobradb_copy/index.php';
 
 //Output the id of person just added
 if($activityId){
-echo "Success! <a href='" . $link_address."'><button>Add another activity record</button></a>";
-    echo "or <a href='" . $logout."'><button>Log Out</button></a>";
+echo "
+
+<div>Success!</div> 
+
+<div><a href='" . $link_address."'><button>Add another activity record</button></a></div>
+    
+<div>Or <a href='" . $logout."'><button>Log Out</button></a><div>";
 }
     
 }

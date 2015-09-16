@@ -23,7 +23,7 @@
         currentIssueArray = [];
 
         getAutoCompleteForIssues = function () {
-            $series = $('#selectedSeries').val();
+            $series = $("[name='selectedSeries']").val();
             $term = $('.autoIssue').val();
             $data = {
                 series: $series,
@@ -71,7 +71,7 @@
                         dataType: "json",
                         data: {
                             term: request.term,
-                            series: $('.autoSeries').val()
+                            series: $("[name='selectedSeries']").val()
                         },
                         success: function (data) {
                             response(data);

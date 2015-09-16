@@ -13,7 +13,7 @@ if(isset($_GET['term'])){
     
     $mysqliConnection = connectRW();
  
-    $term=$_GET['term'];
+    $term='%' . $_GET['term'] . '%';
  
     $sqlAutoName = "SELECT series_title FROM source_dim WHERE series_title LIKE ? GROUP BY series_title";
     

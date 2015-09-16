@@ -111,25 +111,23 @@ h3 {
 }
 
 #loginInfo {
- display: block;
-background-color: #a1e9e6;
-    margin: 40px auto;
-padding: 10px;
-        margin: 0 3em 3em 3em;
+    display: block;
+    background-color: #a1e9e6;
+    padding: 10px;
+    margin: 0 6em 0 6em;
 }
 
 
 #loginInfo a {
-    align: right;
     text-decoration: none;
     width: 50%;
+    float: right;
+    text-align: right;
 }
 
 
 #loginInfo a:hover {
-       color: white;
-    
-    
+    color: white;
 }
 
 
