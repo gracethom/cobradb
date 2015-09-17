@@ -1,6 +1,10 @@
+<?php include_once '/Library/WebServer/Documents/cobradb_copy/includes/db_connect.php'; include_once '/Library/WebServer/Documents/cobradb_copy/includes/functions.php'; sec_session_start(); ?>
+
+<?php if (login_check($mysqli)==true) : ?>
+
 <?php
 
-require_once('config.php');
+require_once('/Library/WebServer/Documents/cobradb_copy/config.php');
 
 if(isset($_POST['pers_auth'])
    && isset($_POST['surname'])
@@ -49,6 +53,9 @@ $occupation = $_POST['occupation'];
 $occu_note = $_POST['occu_note'];
 $grade = $_POST['grade'];
 $grade_note = $_POST['grade_note'];
+    
+$username = $_SESSION['username'];
+$table_name = "person_dim";
 
 
 
@@ -58,6 +65,8 @@ $sqlPerson = "INSERT INTO person_dim (person_auth, surname, forename, person_tit
     
 $sqlOccu = "INSERT INTO occu_dim (occupation) VALUES (?)";
 $sqlGrade = "INSERT INTO grade_dim (grade) VALUES (?)";
+    
+$sqlAudit = "INSERT INTO master_audit (table_name, record_id, created_by, created_on) VALUES (?,?,?, NOW())";
     
     
     
@@ -70,6 +79,7 @@ $sqlGradeB = "INSERT INTO person_grade (id_person_dim, id_grade_dim, grade_note)
 $persId = null;
 $occuId = null;
 $gradeId = null;
+$auditId = null;
 
     
     //ids for bridge tables
@@ -81,7 +91,7 @@ $gradeBId = null;
     
  //insert values into person_dim, occu_dim, grade_dim, gender_dim   
     
-if($stmtPerson = mysqli_prepare( $mysqliConnection, $sqlPerson)){
+if($stmtPerson = mysqli_prepare($mysqliConnection, $sqlPerson)){
     $stmtPerson->bind_param("sssssssssssss", $pers_auth, $surname, $forename, $pers_title, $role, $alt_name, $birth_year, $byear_source, $gender_note, $race, $race_note, $ethnicity, $ethnicity_note);
     $stmtPerson->execute();
     $persId = $mysqliConnection->insert_id;
@@ -89,7 +99,7 @@ if($stmtPerson = mysqli_prepare( $mysqliConnection, $sqlPerson)){
 
 }
     
-    if($stmtOccu = mysqli_prepare( $mysqliConnection, $sqlOccu)){
+    if($stmtOccu = mysqli_prepare($mysqliConnection, $sqlOccu)){
     $stmtOccu->bind_param("s", $occupation);
     $stmtOccu->execute();
     $occuId = $mysqliConnection->insert_id;
@@ -97,11 +107,19 @@ if($stmtPerson = mysqli_prepare( $mysqliConnection, $sqlPerson)){
 
 }
     
-    if($stmtGrade = mysqli_prepare( $mysqliConnection, $sqlGrade)){
+    if($stmtGrade = mysqli_prepare($mysqliConnection, $sqlGrade)){
     $stmtGrade->bind_param("s", $grade);
     $stmtGrade->execute();
     $gradeId = $mysqliConnection->insert_id;
     mysqli_stmt_close($stmtGrade);
+ 
+}
+    
+    if($stmtAudit = mysqli_prepare($mysqliConnection, $sqlAudit)){
+    $stmtAudit->bind_param("sss", $table_name, $persId, $username);
+    $stmtAudit->execute();
+    $auditId = $mysqliConnection->insert_id;
+    mysqli_stmt_close($stmtAudit);
  
 }
 
@@ -135,14 +153,16 @@ if($stmtPerson = mysqli_prepare( $mysqliConnection, $sqlPerson)){
 
 //Output the id of person just added
 
-if($persId){
-    echo $persId;   
-}
-
-    if($occuId){
-    echo $occuId;   
+if($auditId){
+    echo $auditId;   
 }
 
     
 }
 ?>
+
+<?php else : ?>
+    <p>
+        <span class="error">You are not authorized to access this page.</span> Please <a href="login.php">login</a>.
+    </p>
+    <?php endif; ?>

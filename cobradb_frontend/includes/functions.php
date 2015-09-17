@@ -17,7 +17,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-include_once 'psl-config.php';
+include_once '/Library/WebServer/Documents/cobradb_copy/config.php';
 
 function sec_session_start() {
     $session_name = 'sec_session_id';   // Set a custom session name 

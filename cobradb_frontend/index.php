@@ -23,13 +23,13 @@
         currentIssueArray = [];
 
         getAutoCompleteForIssues = function () {
-            $series = $("[name='selectedSeries']").val();
-            $term = $('.autoIssue').val();
-            $data = {
-                series: $series,
-                term: $term
-            };
-            console.log($data);
+            $series = $("[name='selectedSeries']").val(); 
+            $term = $('.autoIssue').val(); 
+            $data = { 
+                series: $series, 
+                term: $term  
+            }; 
+            console.log($data); 
             $.get('autocompletes/getAutoIssue.php', $data, function ($result) {
                 console.log($result);
                 currentIssueArray = $result;
@@ -186,7 +186,7 @@
                 <tr>
                     <td style="width: 150px"></td>
                     <td>
-                        <a href="forms/personForm.html" class="form" title="Create New Person" data-modal="{ width: 500, closeOnEscape: true }">
+                        <a href="forms/personForm.php" class="form" title="Create New Person" data-modal="{ width: 500, closeOnEscape: true }">
                             <button>
                                 Create New Person</button>
                         </a>
@@ -212,7 +212,7 @@
                 <tr>
                     <td style="width: 150px"></td>
                     <td>
-                        <a href="forms/locationForm.html" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }">
+                        <a href="forms/locationForm.php" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }">
                             <button>
                                 Create New Location
                             </button>
@@ -243,7 +243,7 @@
                     <tr style="background-color: white">
                         <td style="width: 150px"></td>
                         <td>
-                            <a href="forms/sourceForm.html" class="form" title="Create New Source" data-modal="{ width: 500, closeOnEscape: true }">
+                            <a href="forms/sourceForm.php" class="form" title="Create New Source" data-modal="{ width: 500, closeOnEscape: true }">
                                 <button>Create New Source</button>
                             </a>
                         </td>
@@ -268,7 +268,7 @@
                     <tr style="background-color: white">
                         <td style="width: 150px"></td>
                         <td>
-                            <a href="forms/physLocForm.html" class="form" title="Create New Physical Location" data-modal="{ width: 500, closeOnEscape: true }">
+                            <a href="forms/physLocForm.php" class="form" title="Create New Physical Location" data-modal="{ width: 500, closeOnEscape: true }">
                                 <button>Create New Physical Location</button>
                             </a>
                         </td>
@@ -334,7 +334,7 @@
                 <tr>
                     <td style="width: 150px"></td>
                     <td>
-                        <a href="forms/personForm.html" class="form" title="Create New Person" data-modal="{ width: 500, closeOnEscape: true }">
+                        <a href="forms/personForm.php" class="form" title="Create New Person" data-modal="{ width: 500, closeOnEscape: true }">
                             <button>
                                 Create New Person</button>
                         </a>
@@ -360,7 +360,7 @@
                 <tr>
                     <td style="width: 150px"></td>
                     <td>
-                        <a href="forms/locationForm.html" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }">
+                        <a href="forms/locationForm.php" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }">
                             <button>
                                 Create New Location
                             </button>
@@ -391,7 +391,7 @@
                     <tr style="background-color: white">
                         <td style="width: 150px"></td>
                         <td>
-                            <a href="forms/sourceForm.html" class="form" title="Create New Source" data-modal="{ width: 500, closeOnEscape: true }">
+                            <a href="forms/sourceForm.php" class="form" title="Create New Source" data-modal="{ width: 500, closeOnEscape: true }">
                                 <button>Create New Source</button>
                             </a>
                         </td>
@@ -416,7 +416,7 @@
                     <tr style="background-color: white">
                         <td style="width: 150px"></td>
                         <td>
-                            <a href="forms/physLocForm.html" class="form" title="Create New Physical Location" data-modal="{ width: 500, closeOnEscape: true }">
+                            <a href="forms/physLocForm.php" class="form" title="Create New Physical Location" data-modal="{ width: 500, closeOnEscape: true }">
                                 <button>Create New Physical Location</button>
                             </a>
                         </td>
@@ -450,6 +450,8 @@
                 </td>
             </tr>
         </table>
+<input id="submit" type="submit" value="Submit" />
+</form>
     </div>
 
 
@@ -477,7 +479,7 @@
                 <tr>
                     <td style="width: 150px"></td>
                     <td>
-                        <a href="forms/personForm.html" class="form" title="Create New Person" data-modal="{ width: 500, closeOnEscape: true }">
+                        <a href="forms/personForm.php" class="form" title="Create New Person" data-modal="{ width: 500, closeOnEscape: true }">
                             <button>
                                 Create New Person</button>
                         </a>
@@ -503,7 +505,7 @@
                 <tr>
                     <td style="width: 150px"></td>
                     <td>
-                        <a href="forms/locationForm.html" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }">
+                        <a href="forms/locationForm.php" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }">
                             <button>
                                 Create New Location
                             </button>
@@ -534,7 +536,7 @@
                     <tr style="background-color: white">
                         <td style="width: 150px"></td>
                         <td>
-                            <a href="forms/sourceForm.html" class="form" title="Create New Source" data-modal="{ width: 500, closeOnEscape: true }">
+                            <a href="forms/sourceForm.php" class="form" title="Create New Source" data-modal="{ width: 500, closeOnEscape: true }">
                                 <button>Create New Source</button>
                             </a>
                         </td>
@@ -559,7 +561,7 @@
                     <tr style="background-color: white">
                         <td style="width: 150px"></td>
                         <td>
-                            <a href="forms/physLocForm.html" class="form" title="Create New Physical Location" data-modal="{ width: 500, closeOnEscape: true }">
+                            <a href="forms/physLocForm.php" class="form" title="Create New Physical Location" data-modal="{ width: 500, closeOnEscape: true }">
                                 <button>Create New Physical Location</button>
                             </a>
                         </td>
@@ -618,7 +620,7 @@
                 <tr>
                     <td style="width: 150px"></td>
                     <td>
-                        <a href="forms/personForm.html" class="form" title="Create New Person" data-modal="{ width: 500, closeOnEscape: true }">
+                        <a href="forms/personForm.php" class="form" title="Create New Person" data-modal="{ width: 500, closeOnEscape: true }">
                             <button>
                                 Create New Person</button>
                         </a>
@@ -644,7 +646,7 @@
                 <tr>
                     <td style="width: 150px"></td>
                     <td>
-                        <a href="forms/locationForm.html" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }">
+                        <a href="forms/locationForm.php" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }">
                             <button>
                                 Create New Location
                             </button>
@@ -675,7 +677,7 @@
                     <tr style="background-color: white">
                         <td style="width: 150px"></td>
                         <td>
-                            <a href="forms/sourceForm.html" class="form" title="Create New Source" data-modal="{ width: 500, closeOnEscape: true }">
+                            <a href="forms/sourceForm.php" class="form" title="Create New Source" data-modal="{ width: 500, closeOnEscape: true }">
                                 <button>Create New Source</button>
                             </a>
                         </td>
@@ -700,7 +702,7 @@
                     <tr style="background-color: white">
                         <td style="width: 150px"></td>
                         <td>
-                            <a href="forms/physLocForm.html" class="form" title="Create New Physical Location" data-modal="{ width: 500, closeOnEscape: true }">
+                            <a href="forms/physLocForm.php" class="form" title="Create New Physical Location" data-modal="{ width: 500, closeOnEscape: true }">
                                 <button>Create New Physical Location</button>
                             </a>
                         </td>
@@ -766,7 +768,7 @@
                 <tr>
                     <td style="width: 150px"></td>
                     <td>
-                        <a href="forms/personForm.html" class="form" title="Create New Person" data-modal="{ width: 500, closeOnEscape: true }">
+                        <a href="forms/personForm.php" class="form" title="Create New Person" data-modal="{ width: 500, closeOnEscape: true }">
                             <button>
                                 Create New Person</button>
                         </a>
@@ -792,7 +794,7 @@
                 <tr>
                     <td style="width: 150px"></td>
                     <td>
-                        <a href="forms/locationForm.html" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }">
+                        <a href="forms/locationForm.php" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }">
                             <button>
                                 Create New Location
                             </button>
@@ -823,7 +825,7 @@
                     <tr style="background-color: white">
                         <td style="width: 150px"></td>
                         <td>
-                            <a href="forms/sourceForm.html" class="form" title="Create New Source" data-modal="{ width: 500, closeOnEscape: true }">
+                            <a href="forms/sourceForm.php" class="form" title="Create New Source" data-modal="{ width: 500, closeOnEscape: true }">
                                 <button>Create New Source</button>
                             </a>
                         </td>
@@ -848,7 +850,7 @@
                     <tr style="background-color: white">
                         <td style="width: 150px"></td>
                         <td>
-                            <a href="forms/physLocForm.html" class="form" title="Create New Physical Location" data-modal="{ width: 500, closeOnEscape: true }">
+                            <a href="forms/physLocForm.php" class="form" title="Create New Physical Location" data-modal="{ width: 500, closeOnEscape: true }">
                                 <button>Create New Physical Location</button>
                             </a>
                         </td>
@@ -913,7 +915,7 @@
                 <tr>
                     <td style="width: 150px"></td>
                     <td>
-                        <a href="forms/personForm.html" class="form" title="Create New Person" data-modal="{ width: 500, closeOnEscape: true }">
+                        <a href="forms/personForm.php" class="form" title="Create New Person" data-modal="{ width: 500, closeOnEscape: true }">
                             <button>
                                 Create New Person</button>
                         </a>
@@ -939,7 +941,7 @@
                 <tr>
                     <td style="width: 150px"></td>
                     <td>
-                        <a href="forms/locationForm.html" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }">
+                        <a href="forms/locationForm.php" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }">
                             <button>
                                 Create New Location
                             </button>
@@ -970,7 +972,7 @@
                     <tr style="background-color: white">
                         <td style="width: 150px"></td>
                         <td>
-                            <a href="forms/sourceForm.html" class="form" title="Create New Source" data-modal="{ width: 500, closeOnEscape: true }">
+                            <a href="forms/sourceForm.php" class="form" title="Create New Source" data-modal="{ width: 500, closeOnEscape: true }">
                                 <button>Create New Source</button>
                             </a>
                         </td>
@@ -995,7 +997,7 @@
                     <tr style="background-color: white">
                         <td style="width: 150px"></td>
                         <td>
-                            <a href="forms/physLocForm.html" class="form" title="Create New Physical Location" data-modal="{ width: 500, closeOnEscape: true }">
+                            <a href="forms/physLocForm.php" class="form" title="Create New Physical Location" data-modal="{ width: 500, closeOnEscape: true }">
                                 <button>Create New Physical Location</button>
                             </a>
                         </td>
@@ -1030,8 +1032,9 @@
                 </td>
             </tr>
         </table>
-        </form>
+        
         <input id="submit" type="submit" value="Submit" />
+</form>
     </div>
 
 
@@ -1062,7 +1065,7 @@
                 <tr>
                     <td style="width: 150px"></td>
                     <td>
-                        <a href="forms/personForm.html" class="form" title="Create New Person" data-modal="{ width: 500, closeOnEscape: true }">
+                        <a href="forms/personForm.php" class="form" title="Create New Person" data-modal="{ width: 500, closeOnEscape: true }">
                             <button>
                                 Create New Person</button>
                         </a>
@@ -1088,7 +1091,7 @@
                 <tr>
                     <td style="width: 150px"></td>
                     <td>
-                        <a href="forms/locationForm.html" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }">
+                        <a href="forms/locationForm.php" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }">
                             <button>
                                 Create New Location
                             </button>
@@ -1119,7 +1122,7 @@
                     <tr style="background-color: white">
                         <td style="width: 150px"></td>
                         <td>
-                            <a href="forms/sourceForm.html" class="form" title="Create New Source" data-modal="{ width: 500, closeOnEscape: true }">
+                            <a href="forms/sourceForm.php" class="form" title="Create New Source" data-modal="{ width: 500, closeOnEscape: true }">
                                 <button>Create New Source</button>
                             </a>
                         </td>
@@ -1144,7 +1147,7 @@
                     <tr style="background-color: white">
                         <td style="width: 150px"></td>
                         <td>
-                            <a href="forms/physLocForm.html" class="form" title="Create New Physical Location" data-modal="{ width: 500, closeOnEscape: true }">
+                            <a href="forms/physLocForm.php" class="form" title="Create New Physical Location" data-modal="{ width: 500, closeOnEscape: true }">
                                 <button>Create New Physical Location</button>
                             </a>
                         </td>
@@ -1202,7 +1205,7 @@
                 <tr>
                     <td style="width: 150px"></td>
                     <td>
-                        <a href="forms/personForm.html" class="form" title="Create New Person" data-modal="{ width: 500, closeOnEscape: true }">
+                        <a href="forms/personForm.php" class="form" title="Create New Person" data-modal="{ width: 500, closeOnEscape: true }">
                             <button>
                                 Create New Person</button>
                         </a>
@@ -1228,7 +1231,7 @@
                 <tr>
                     <td style="width: 150px"></td>
                     <td>
-                        <a href="forms/locationForm.html" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }">
+                        <a href="forms/locationForm.php" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }">
                             <button>
                                 Create New Location
                             </button>
@@ -1259,7 +1262,7 @@
                     <tr style="background-color: white">
                         <td style="width: 150px"></td>
                         <td>
-                            <a href="forms/sourceForm.html" class="form" title="Create New Source" data-modal="{ width: 500, closeOnEscape: true }">
+                            <a href="forms/sourceForm.php" class="form" title="Create New Source" data-modal="{ width: 500, closeOnEscape: true }">
                                 <button>Create New Source</button>
                             </a>
                         </td>
@@ -1284,7 +1287,7 @@
                     <tr style="background-color: white">
                         <td style="width: 150px"></td>
                         <td>
-                            <a href="forms/physLocForm.html" class="form" title="Create New Physical Location" data-modal="{ width: 500, closeOnEscape: true }">
+                            <a href="forms/physLocForm.php" class="form" title="Create New Physical Location" data-modal="{ width: 500, closeOnEscape: true }">
                                 <button>Create New Physical Location</button>
                             </a>
                         </td>
@@ -1337,7 +1340,7 @@
                 <tr>
                     <td style="width: 150px"></td>
                     <td>
-                        <a href="forms/personForm.html" class="form" title="Create New Person" data-modal="{ width: 500, closeOnEscape: true }">
+                        <a href="forms/personForm.php" class="form" title="Create New Person" data-modal="{ width: 500, closeOnEscape: true }">
                             <button>
                                 Create New Person</button>
                         </a>
@@ -1363,7 +1366,7 @@
                 <tr>
                     <td style="width: 150px"></td>
                     <td>
-                        <a href="forms/locationForm.html" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }">
+                        <a href="forms/locationForm.php" class="form" title="Create New Location" data-modal="{ width: 500, closeOnEscape: true }">
                             <button>
                                 Create New Location
                             </button>
@@ -1394,7 +1397,7 @@
                     <tr style="background-color: white">
                         <td style="width: 150px"></td>
                         <td>
-                            <a href="forms/sourceForm.html" class="form" title="Create New Source" data-modal="{ width: 500, closeOnEscape: true }">
+                            <a href="forms/sourceForm.php" class="form" title="Create New Source" data-modal="{ width: 500, closeOnEscape: true }">
                                 <button>Create New Source</button>
                             </a>
                         </td>
@@ -1419,7 +1422,7 @@
                     <tr style="background-color: white">
                         <td style="width: 150px"></td>
                         <td>
-                            <a href="forms/physLocForm.html" class="form" title="Create New Physical Location" data-modal="{ width: 500, closeOnEscape: true }">
+                            <a href="forms/physLocForm.php" class="form" title="Create New Physical Location" data-modal="{ width: 500, closeOnEscape: true }">
                                 <button>Create New Physical Location</button>
                             </a>
                         </td>

@@ -1,3 +1,7 @@
+<?php include_once '/Library/WebServer/Documents/cobradb_copy/includes/db_connect.php'; include_once '/Library/WebServer/Documents/cobradb_copy/includes/functions.php'; sec_session_start(); ?>
+
+<?php if (login_check($mysqli)==true) : ?>
+
 <section class="form" data-action="processes/personProcess.php">
     <table>
         <tr>
@@ -108,3 +112,9 @@
     </table>
     <button class="submitForm">Submit</button>
 </section>
+
+<?php else : ?>
+    <p>
+        <span class="error">You are not authorized to access this page.</span> Please <a href="/cobradb_copy/login.php">login</a>.
+    </p>
+    <?php endif; ?>

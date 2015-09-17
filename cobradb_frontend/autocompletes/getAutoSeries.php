@@ -1,5 +1,5 @@
 <?php
-require_once('config.php');
+require_once('/Library/WebServer/Documents/cobradb_copy/config.php');
 
 function connectRW(){
     $mysqli = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);

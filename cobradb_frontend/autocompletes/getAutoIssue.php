@@ -1,5 +1,5 @@
 <?php
-require_once('config.php');
+require_once('/Library/WebServer/Documents/cobradb_copy/config.php');
 
 function connectRW(){
     $mysqli = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
@@ -15,10 +15,11 @@ if(isset($_GET['term'])
     
     $mysqliConnection = connectRW();
  
-    $term=$_GET['term'];
     $series=$_GET['series'];
+    $term=$_GET['term'];
+    
  
-    $sqlAutoName = "SELECT id_source_dim, pub_date, issue_number, series_title FROM source_dim WHERE series_title= ? AND (issue_number= ? OR pub_date= ?)";
+    $sqlAutoName = "SELECT id_source_dim, pub_date, issue_number, series_title FROM source_dim WHERE (series_title= ? AND (issue_number = ? OR pub_date= ?))";
     
     $json = array();
 
