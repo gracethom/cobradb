@@ -48,8 +48,7 @@ ENGINE = InnoDB;
 
 SHOW WARNINGS;
 
-INSERT INTO `cobra`.`members` VALUES(1, 'grace_test', 'gracethomas.unl@gmail.com', '00807432eae173f652f2064bdca1b61b290b52d40e429a7d295d76a71084aa96c0233b82f1feac45529e0726559645acaed6f3ae58a286b9f075916ebf66cacc',
-'f9aab579fc1b41ed0c44fe4ecdbfcdb4cb99b9023abb241a6db833288f4eea3c02f76e0d35204a8695077dcf81932aa59006423976224be0390395bae152d4ef');
+
 
 -- -----------------------------------------------------
 -- Table `cobra`.`person_dim`
@@ -558,104 +557,8 @@ SHOW WARNINGS;
 -- Insert statements
 -- -----------------------------------------------------
 
-
-INSERT INTO source_dim (source_type, pub_date, issue_number, series_title) VALUES ('issue', 'July 1962', '5', 'Fantastic Four');
-INSERT INTO source_dim (source_type, pub_date, issue_number, series_title) VALUES ('issue', 'March 1970', '7', 'Spiderman');
-INSERT INTO person_dim (surname, forename) VALUES ('Weiss', 'Alan');
-INSERT INTO location_dim (street, city, state, country) VALUES ('Pardee Place', 'Las Vegas', 'Nevada', 'United States of America');
-INSERT INTO letter_dim (letter_text, letter_pg_title) VALUES ('hello! this is a letter from Alan Weiss', 'Fantastic Four Fan Page');
-
-INSERT INTO activity_fact (fact_person, fact_location, fact_letter, fact_source) SELECT person_dim.id_person_dim, location_dim.id_location_dim, letter_dim.id_letter_dim, source_dim.id_source_dim FROM person_dim, location_dim, letter_dim, source_dim WHERE person_dim.surname = 'Weiss' AND person_dim.forename = 'Alan' AND location_dim.street = 'Pardee Place' AND letter_dim.letter_text = 'hello! this is a letter from Alan Weiss' AND source_dim.pub_date = 'July 1962';
-
-
-INSERT INTO person_dim (surname, forename) VALUES ('Wood', 'Rick');
-INSERT INTO activity_fact (fact_person, fact_location, fact_letter, fact_source) SELECT person_dim.id_person_dim, location_dim.id_location_dim, letter_dim.id_letter_dim, source_dim.id_source_dim FROM person_dim, location_dim, letter_dim, source_dim WHERE person_dim.surname = 'Wood' AND person_dim.forename = 'Rick' AND location_dim.street = 'Pardee Place' AND letter_dim.letter_text = 'hello! this is a letter from Alan Weiss' AND source_dim.pub_date = 'July 1962';
-
--- unsigned
-INSERT INTO person_dim (surname, forename) VALUES ('Paul', 'George');
-INSERT INTO person_dim (surname, forename) VALUES ('Sarill', 'Bill');
-INSERT INTO person_dim (surname, forename) VALUES ('Brodsky', 'S');
-INSERT INTO person_dim (surname, forename) VALUES ('Blake', 'Len');
-INSERT INTO person_dim (surname, forename) VALUES ('Gonzales', 'Anthony');
-INSERT INTO person_dim (surname, forename) VALUES ('Goldberg', 'S');
-INSERT INTO person_dim (surname, forename) VALUES ('Howard', 'Shirley');
-INSERT INTO person_dim (surname, forename) VALUES ('Fogel', 'Bruce');
-INSERT INTO person_dim (surname, forename) VALUES ('Moony', 'Jim');
-
--- unsigned
-INSERT INTO person_dim (surname, forename) VALUES ('Thomas', 'Roy');
-INSERT INTO person_dim (surname, forename) VALUES ('Randall', 'Mike');
-INSERT INTO person_dim (surname, forename) VALUES ('McGuire', 'Rick');
-INSERT INTO person_dim (surname, forename) VALUES ('Smith', 'Scotty');
-INSERT INTO person_dim (surname, forename) VALUES ('Marcolongo', 'William J');
-INSERT INTO person_dim (surname, forename) VALUES ('Mann', 'Roger');
-INSERT INTO person_dim (surname, forename) VALUES ('McIntosh', 'Harold');
-INSERT INTO person_dim (surname, forename) VALUES ('Jiminez', 'Cruz');
-INSERT INTO person_dim (surname, forename) VALUES ('Frazier', 'William');
-INSERT INTO person_dim (surname, forename) VALUES ('Test', 'Testy');
-
-
-
-INSERT INTO location_dim (street, city, state, country) VALUES ('Ames St.', 'Cambridge', 'Massachusetts', 'United States of America');
-INSERT INTO location_dim (city, state, country) VALUES ('Dallas', 'Texas', 'United States of America');
-INSERT INTO location_dim (street, city, state, country) VALUES ('Park Ave', 'Hoboken', 'New Jersey', 'United States of America');
-INSERT INTO location_dim (street, city, state, country) VALUES ('Colorado Street', 'Boston', 'Massachusetts', 'United States of America');
-INSERT INTO location_dim (city, state, country) VALUES ('Brooklyn', 'New York', 'United States of America');
-INSERT INTO location_dim (city, state, country) VALUES ('Los Angeles', 'California', 'United States of America');
-INSERT INTO location_dim (city, country) VALUES ('Mexico City', 'Mexico');
-INSERT INTO location_dim (city, state, country) VALUES ('Forest Hills', 'New York', 'United States of America');
-INSERT INTO location_dim (city, state, country) VALUES ('Chicago', 'Illinois', 'United States of America');
-INSERT INTO location_dim (city, state, country) VALUES ('Oak Park', 'Michigan', 'United States of America');
-INSERT INTO location_dim (city, state, country) VALUES ('Hollywood', 'California', 'United States of America');
-INSERT INTO location_dim (city, state, country) VALUES ('Fall River', 'Massachusetts', 'United States of America');
-INSERT INTO location_dim (city, state, country) VALUES ('Sullivan', 'Missouri', 'United States of America');
-INSERT INTO location_dim (city, state, country) VALUES ('Atchison', 'Kansas', 'United States of America');
-INSERT INTO location_dim (city, state, country) VALUES ('Parsons', 'Kansas', 'United States of America');
-INSERT INTO location_dim (city, state, country) VALUES ('Anchorage', 'Alaska', 'United States of America');
-INSERT INTO location_dim (city, state, country) VALUES ('Philadelphia', 'Pennsylvania', 'United States of America');
-INSERT INTO location_dim (city, state, country) VALUES ('Minneapolis', 'Minnesota', 'United States of America');
-INSERT INTO location_dim (city, state, country) VALUES ('Marblehead', 'Massachusetts', 'United States of America');
-INSERT INTO location_dim (city, state, country) VALUES ('Ft. Riley', 'Kansas', 'United States of America');
-INSERT INTO location_dim (city, state, country) VALUES ('Mt. Sterling', 'Kentucky', 'United States of America');
-
-INSERT INTO location_dim (city, state, country) VALUES ('East Lansing', 'Michigan', 'United States of America');
-INSERT INTO phys_loc_dim (phys_loc_name, repository, coll_name, id_location_dim) VALUES ('Michigan State University', 'Michigan State University Libraries', 'Comics Collection', (SELECT id_location_dim FROM location_dim WHERE city = 'East Lansing'));
-
-
-
-INSERT INTO activity_fact (fact_person, fact_location, fact_letter, fact_source) SELECT person_dim.id_person_dim, location_dim.id_location_dim, letter_dim.id_letter_dim, source_dim.id_source_dim FROM person_dim, location_dim, letter_dim, source_dim WHERE person_dim.surname = 'Paul' AND person_dim.forename = 'George' AND location_dim.street = 'Park Ave.' AND letter_dim.letter_text = 'hello! this is a letter from Alan Weiss' AND source_dim.pub_date = 'July 1962';
-
-
-
-
-
-
-
-
-
-
-INSERT INTO activity_fact (fact_person, fact_location, fact_letter, fact_source) SELECT person_dim.id_person_dim, location_dim.id_location_dim, letter_dim.id_letter_dim, source_dim.id_source_dim FROM person_dim, location_dim, letter_dim, source_dim WHERE person_dim.surname = 'Sarill' AND person_dim.forename = 'Bill' AND location_dim.street = 'Colorado Street' AND letter_dim.letter_text = 'hello! this is a letter from Alan Weiss' AND source_dim.pub_date = 'July 1962';
-INSERT INTO activity_fact (fact_person, fact_location, fact_letter, fact_source) SELECT person_dim.id_person_dim, location_dim.id_location_dim, letter_dim.id_letter_dim, source_dim.id_source_dim FROM person_dim, location_dim, letter_dim, source_dim WHERE person_dim.surname = 'Brodsky' AND person_dim.forename = 'S' AND location_dim.city = 'Brooklyn' AND letter_dim.letter_text = 'hello! this is a letter from Alan Weiss' AND source_dim.pub_date = 'July 1962';
-INSERT INTO activity_fact (fact_person, fact_location, fact_letter, fact_source) SELECT person_dim.id_person_dim, location_dim.id_location_dim, letter_dim.id_letter_dim, source_dim.id_source_dim FROM person_dim, location_dim, letter_dim, source_dim WHERE person_dim.surname = 'Blake' AND person_dim.forename = 'Len' AND location_dim.city = 'Los Angeles' AND letter_dim.letter_text = 'hello! this is a letter from Alan Weiss' AND source_dim.pub_date = 'July 1962';
-INSERT INTO activity_fact (fact_person, fact_location, fact_letter, fact_source) SELECT person_dim.id_person_dim, location_dim.id_location_dim, letter_dim.id_letter_dim, source_dim.id_source_dim FROM person_dim, location_dim, letter_dim, source_dim WHERE person_dim.surname = 'Gonzales' AND person_dim.forename = 'Anthony' AND location_dim.city = 'Mexico City' AND letter_dim.letter_text = 'hello! this is a letter from Alan Weiss' AND source_dim.pub_date = 'July 1962';
-INSERT INTO activity_fact (fact_person, fact_location, fact_letter, fact_source) SELECT person_dim.id_person_dim, location_dim.id_location_dim, letter_dim.id_letter_dim, source_dim.id_source_dim FROM person_dim, location_dim, letter_dim, source_dim WHERE person_dim.surname = 'Goldberg' AND person_dim.forename = 'S' AND location_dim.city = 'Forest Hills' AND letter_dim.letter_text = 'hello! this is a letter from Alan Weiss' AND source_dim.pub_date = 'July 1962';
-INSERT INTO activity_fact (fact_person, fact_location, fact_letter, fact_source) SELECT person_dim.id_person_dim, location_dim.id_location_dim, letter_dim.id_letter_dim, source_dim.id_source_dim FROM person_dim, location_dim, letter_dim, source_dim WHERE person_dim.surname = 'Howard' AND person_dim.forename = 'Shirley' AND location_dim.city = 'Chicago' AND letter_dim.letter_text = 'hello! this is a letter from Alan Weiss' AND source_dim.pub_date = 'July 1962';
-INSERT INTO activity_fact (fact_person, fact_location, fact_letter, fact_source) SELECT person_dim.id_person_dim, location_dim.id_location_dim, letter_dim.id_letter_dim, source_dim.id_source_dim FROM person_dim, location_dim, letter_dim, source_dim WHERE person_dim.surname = 'Fogel' AND person_dim.forename = 'Bruce' AND location_dim.city = 'Oak Park' AND letter_dim.letter_text = 'hello! this is a letter from Alan Weiss' AND source_dim.pub_date = 'July 1962';
-INSERT INTO activity_fact (fact_person, fact_location, fact_letter, fact_source) SELECT person_dim.id_person_dim, location_dim.id_location_dim, letter_dim.id_letter_dim, source_dim.id_source_dim FROM person_dim, location_dim, letter_dim, source_dim WHERE person_dim.surname = 'Moony' AND person_dim.forename = 'Jim' AND location_dim.city = 'Hollywood' AND letter_dim.letter_text = 'hello! this is a letter from Alan Weiss' AND source_dim.pub_date = 'July 1962'; INSERT INTO activity_fact (fact_person, fact_location, fact_letter, fact_source) SELECT person_dim.id_person_dim, location_dim.id_location_dim, letter_dim.id_letter_dim, source_dim.id_source_dim FROM person_dim, location_dim, letter_dim, source_dim WHERE person_dim.surname = 'Thomas' AND person_dim.forename = 'Roy' AND location_dim.city = 'Sullivan' AND letter_dim.letter_text = 'hello! this is a letter from Alan Weiss' AND source_dim.pub_date = 'July 1962';
-INSERT INTO activity_fact (fact_person, fact_location, fact_letter, fact_source) SELECT person_dim.id_person_dim, location_dim.id_location_dim, letter_dim.id_letter_dim, source_dim.id_source_dim FROM person_dim, location_dim, letter_dim, source_dim WHERE person_dim.surname = 'Randall' AND person_dim.forename = 'Mike' AND location_dim.city = 'Atchison' AND letter_dim.letter_text = 'hello! this is a letter from Alan Weiss' AND source_dim.pub_date = 'July 1962';
-INSERT INTO activity_fact (fact_person, fact_location, fact_letter, fact_source) SELECT person_dim.id_person_dim, location_dim.id_location_dim, letter_dim.id_letter_dim, source_dim.id_source_dim FROM person_dim, location_dim, letter_dim, source_dim WHERE person_dim.surname = 'McGuire' AND person_dim.forename = 'Rick' AND location_dim.city = 'Parsons' AND letter_dim.letter_text = 'hello! this is a letter from Alan Weiss' AND source_dim.pub_date = 'July 1962';
-INSERT INTO activity_fact (fact_person, fact_location, fact_letter, fact_source) SELECT person_dim.id_person_dim, location_dim.id_location_dim, letter_dim.id_letter_dim, source_dim.id_source_dim FROM person_dim, location_dim, letter_dim, source_dim WHERE person_dim.surname = 'Smith' AND person_dim.forename = 'Scotty' AND location_dim.city = 'Anchorage' AND letter_dim.letter_text = 'hello! this is a letter from Alan Weiss' AND source_dim.pub_date = 'July 1962';
-INSERT INTO activity_fact (fact_person, fact_location, fact_letter, fact_source) SELECT person_dim.id_person_dim, location_dim.id_location_dim, letter_dim.id_letter_dim, source_dim.id_source_dim FROM person_dim, location_dim, letter_dim, source_dim WHERE person_dim.surname = 'Marcolongo' AND person_dim.forename = 'William' AND location_dim.city = 'Philadelphia' AND letter_dim.letter_text = 'hello! this is a letter from Alan Weiss' AND source_dim.pub_date = 'July 1962';
-INSERT INTO activity_fact (fact_person, fact_location, fact_letter, fact_source) SELECT person_dim.id_person_dim, location_dim.id_location_dim, letter_dim.id_letter_dim, source_dim.id_source_dim FROM person_dim, location_dim, letter_dim, source_dim WHERE person_dim.surname = 'Mann' AND person_dim.forename = 'Roger' AND location_dim.city = 'Minneapolis' AND letter_dim.letter_text = 'hello! this is a letter from Alan Weiss' AND source_dim.pub_date = 'July 1962';
-INSERT INTO activity_fact (fact_person, fact_location, fact_letter, fact_source) SELECT person_dim.id_person_dim, location_dim.id_location_dim, letter_dim.id_letter_dim, source_dim.id_source_dim FROM person_dim, location_dim, letter_dim, source_dim WHERE person_dim.surname = 'McIntosh' AND person_dim.forename = 'Harold' AND location_dim.city = 'Marblehead' AND letter_dim.letter_text = 'hello! this is a letter from Alan Weiss' AND source_dim.pub_date = 'July 1962';
-INSERT INTO activity_fact (fact_person, fact_location, fact_letter, fact_source) SELECT person_dim.id_person_dim, location_dim.id_location_dim, letter_dim.id_letter_dim, source_dim.id_source_dim FROM person_dim, location_dim, letter_dim, source_dim WHERE person_dim.surname = 'Jiminez' AND person_dim.forename = 'Cruz' AND location_dim.city = 'Ft. Riley' AND letter_dim.letter_text = 'hello! this is a letter from Alan Weiss' AND source_dim.pub_date = 'July 1962';
-INSERT INTO activity_fact (fact_person, fact_location, fact_letter, fact_source) SELECT person_dim.id_person_dim, location_dim.id_location_dim, letter_dim.id_letter_dim, source_dim.id_source_dim FROM person_dim, location_dim, letter_dim, source_dim WHERE person_dim.surname = 'Frazier' AND person_dim.forename = 'William' AND location_dim.city = 'Mt. Sterling' AND letter_dim.letter_text = 'hello! this is a letter from Alan Weiss' AND source_dim.pub_date = 'July 1962';
-
-
-
-INSERT INTO activity_fact (fact_person, fact_location, fact_letter, fact_source) SELECT person_dim.id_person_dim, location_dim.id_location_dim, letter_dim.id_letter_dim, source_dim.id_source_dim FROM person_dim, location_dim, letter_dim, source_dim WHERE person_dim.surname = 'Thomas' AND person_dim.forename = 'Roy' AND location_dim.city = 'Minneapolis' AND letter_dim.letter_text = 'hello! this is a letter from Alan Weiss' AND source_dim.pub_date = 'July 1962';
-
-
+INSERT INTO `cobra`.`members` VALUES(1, 'Grace', 'ghthomas@indiana.edu', '3cbcc875ebe5dcf02dcce451b8c3808317e15a42e032d7fa4916f245210d3f46e7c39e5302e98837a680b9019fab90ffef28de5de995d9e3e05e5ab9691f6ea6',
+'a96c59e115dd75725263bd13cad26827a3efa2a09f86914956088d949a3f0450b4c9c3a904be4f021e84ec925bfb1262bbc343b028491ec17baa01aff3b1a430');
 
 
 
