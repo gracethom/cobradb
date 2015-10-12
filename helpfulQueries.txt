@@ -1,0 +1,3 @@
+Counts of how many letters Sarah has added so far.
+
+SELECT COUNT(created_by) FROM `master_audit` WHERE table_name="activity_fact" AND created_by="Sarah";
