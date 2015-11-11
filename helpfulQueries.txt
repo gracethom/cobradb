@@ -3,6 +3,19 @@ Counts of how many letters Sarah has added so far.
 SELECT COUNT(created_by) FROM `master_audit` WHERE table_name=“person_dim” AND created_by="Sarah";
 
 
+Select gcd series titles that have been entered into the database so far
+
+SELECT DISTINCT name from gcd_series JOIN gcd_issue ON gcd_issue.series_id=gcd_series.id JOIN activity_fact ON activity_fact.fact_source_gcd=gcd_issue.id;
+
+
+
+
+
+
+
+
+
+
 
 GCD Queries
 
