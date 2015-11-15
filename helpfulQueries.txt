@@ -3,6 +3,9 @@ Counts of how many letters Sarah has added so far.
 SELECT COUNT(created_by) FROM `master_audit` WHERE table_name="person_dim" AND created_by="Sarah";
 
 
+
+
+
 Select gcd series titles that have been entered into the database so far
 
 SELECT DISTINCT name from gcd_series JOIN gcd_issue ON gcd_issue.series_id=gcd_series.id JOIN activity_fact ON activity_fact.fact_source_gcd=gcd_issue.id;
@@ -12,12 +15,50 @@ SELECT DISTINCT name from gcd_series JOIN gcd_issue ON gcd_issue.series_id=gcd_s
 
 
 
+Select the CoBRA employee who created the person record; the letter writer (person)’s first name, last name, and title (if applicable); the person’s address; and the series name, issue number, and publication date from the gcd tables
+** here is where the GCD series name contains “Spider” and the issue number is “4” and the person record was created by “Sarah”, ordered by the letter writer’s first name
+
+
+SELECT master_audit.created_by, person_dim.id_person_dim, person_dim.forename, person_dim.surname, person_dim.person_title, location_dim.street, location_dim.city, location_dim.state, location_dim.country, location_dim.postal_code, gcd_series.name, gcd_issue.number, gcd_issue.publication_date
+FROM gcd_series 
+INNER JOIN gcd_issue ON gcd_issue.series_id=gcd_series.id 
+INNER JOIN activity_fact ON activity_fact.fact_source_gcd=gcd_issue.id
+INNER JOIN location_dim ON activity_fact.fact_location=location_dim.id_location_dim
+INNER JOIN person_dim ON activity_fact.fact_person=person_dim.id_person_dim
+INNER JOIN master_audit ON master_audit.record_id=person_dim.id_person_dim
+WHERE gcd_series.name LIKE '%Spider%' AND gcd_issue.number=164 AND master_audit.created_by="Sarah"
+ORDER BY person_dim.forename;
+
+
+
+Interim query to use if needing to query the old source_dim table before GCD was integrated:
+
+SELECT master_audit.created_by, person_dim.id_person_dim, person_dim.forename, person_dim.surname, person_dim.person_title, location_dim.street, location_dim.city, location_dim.state, location_dim.country, location_dim.postal_code, source_dim.id_source_dim, source_dim.series_title, source_dim.issue_number, source_dim.pub_date
+FROM source_dim
+INNER JOIN activity_fact ON source_dim.id_source_dim=activity_fact.fact_source
+INNER JOIN location_dim ON activity_fact.fact_location=location_dim.id_location_dim
+INNER JOIN person_dim ON activity_fact.fact_person=person_dim.id_person_dim
+INNER JOIN master_audit ON master_audit.record_id=person_dim.id_person_dim
+WHERE source_dim.series_title LIKE '%Spider%' AND source_dim.issue_number=4 AND master_audit.created_by="Sarah"
+ORDER BY person_dim.forename;
 
 
 
 
 
-GCD Queries
+
+
+
+
+
+
+
+
+
+
+
+
+GCD Queries (ONLY used for querying the GCD data dump, not to be used with the CoBRA database tables)
 
 GCD Query for limited data published by Marvel in the United States starting before 1974
 
