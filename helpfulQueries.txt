@@ -12,6 +12,19 @@ SELECT DISTINCT name from gcd_series JOIN gcd_issue ON gcd_issue.series_id=gcd_s
 
 
 
+Select all people with their locations
+
+SELECT person_dim.id_person_dim, person_dim.surname, person_dim.forename, activity_fact.id_activity_fact, activity_fact.fact_person, activity_fact.fact_letter, activity_fact.fact_location, location_dim.id_location_dim, location_dim.street, location_dim.city, location_dim.state, location_dim.country
+FROM person_dim
+LEFT JOIN activity_fact ON activity_fact.fact_person = person_dim.id_person_dim
+LEFT JOIN location_dim ON activity_fact.fact_location = location_dim.id_location_dim
+ORDER BY  `person_dim`.`surname`;
+
+
+
+
+
+
 
 
 
