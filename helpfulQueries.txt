@@ -1,18 +1,16 @@
-Counts of how many letters Sarah has added so far.
+- - Counts of the number of letters Sarah has added so far.
 
 SELECT COUNT(created_by) FROM `master_audit` WHERE table_name="person_dim" AND created_by="Sarah";
 
 
 
-
-
-Select gcd series titles that have been entered into the database so far
+- - Select the gcd series titles that have been entered into the database so far
 
 SELECT DISTINCT name from gcd_series JOIN gcd_issue ON gcd_issue.series_id=gcd_series.id JOIN activity_fact ON activity_fact.fact_source_gcd=gcd_issue.id;
 
 
 
-Select all people with their locations
+- - Select all people with their locations
 
 SELECT person_dim.id_person_dim, person_dim.surname, person_dim.forename, activity_fact.id_activity_fact, activity_fact.fact_person, activity_fact.fact_letter, activity_fact.fact_location, location_dim.id_location_dim, location_dim.street, location_dim.city, location_dim.state, location_dim.country
 FROM person_dim
@@ -22,13 +20,7 @@ ORDER BY  `person_dim`.`surname`;
 
 
 
-
-
-
-
-
-
-Select the CoBRA employee who created the person record; the letter writer (person)’s first name, last name, and title (if applicable); the person’s address; and the series name, issue number, and publication date from the gcd tables
+- - Select the CoBRA employee who created the person record; the letter writer (person)’s first name, last name, and title (if applicable); the person’s address; and the series name, issue number, and publication date from the gcd tables
 ** here is where the GCD series name contains “Spider” and the issue number is “4” and the person record was created by “Sarah”, ordered by the letter writer’s first name
 
 
@@ -44,16 +36,12 @@ ORDER BY person_dim.forename;
 
 
 
-Interim query to use if needing to query the old source_dim table before GCD was integrated:
+- - Select the number of Avengers entries so far
 
-SELECT master_audit.created_by, person_dim.id_person_dim, person_dim.forename, person_dim.surname, person_dim.person_title, location_dim.street, location_dim.city, location_dim.state, location_dim.country, location_dim.postal_code, source_dim.id_source_dim, source_dim.series_title, source_dim.issue_number, source_dim.pub_date
-FROM source_dim
-INNER JOIN activity_fact ON source_dim.id_source_dim=activity_fact.fact_source
-INNER JOIN location_dim ON activity_fact.fact_location=location_dim.id_location_dim
-INNER JOIN person_dim ON activity_fact.fact_person=person_dim.id_person_dim
-INNER JOIN master_audit ON master_audit.record_id=person_dim.id_person_dim
-WHERE source_dim.series_title LIKE '%Spider%' AND source_dim.issue_number=4 AND master_audit.created_by="Sarah"
-ORDER BY person_dim.forename;
+SELECT COUNT(id_activity_fact) FROM activity_fact 
+JOIN gcd_issue ON activity_fact.fact_source_gcd=gcd_issue.id
+JOIN gcd_series ON gcd_series.id=gcd_issue.series_id
+WHERE gcd_series.name LIKE '%Avengers%’;
 
 
 
@@ -64,79 +52,4 @@ ORDER BY person_dim.forename;
 
 
 
-
-
-
-
-
-
-
-GCD Queries (ONLY used for querying the GCD data dump, not to be used with the CoBRA database tables)
-
-GCD Query for limited data published by Marvel in the United States starting before 1974
-
-SELECT gcd_series.id AS 'series id', gcd_issue.id AS 'issue id', gcd_series.name AS 'series name', gcd_series.year_began AS 'series year began', gcd_issue.number AS 'issue num', gcd_issue.volume AS 'issue vol', gcd_issue.publication_date AS 'issue pub date', gcd_country.name AS 'country', gcd_publisher.name AS 'publisher'
-FROM gcd.gcd_issue 
-LEFT JOIN gcd.gcd_series ON gcd_series.id=gcd_issue.series_id 
-LEFT JOIN gcd.gcd_publisher ON gcd_publisher.id=gcd_series.publisher_id 
-LEFT JOIN gcd.gcd_country ON gcd_country.id=gcd_publisher.country_id 
-WHERE (gcd_country.name="United States" AND gcd_publisher.name="Marvel" AND gcd_series.year_began<1974)
-ORDER BY gcd_series.name;
-
-
-
-GCD Query for United States
-
-SELECT gcd_country.*
-FROM gcd.gcd_country
-WHERE (gcd_country.name="United States");
-
-GCD Query for Marvel published in the United States
-
-SELECT gcd_publisher.*
-FROM gcd.gcd_publisher 
-LEFT JOIN gcd.gcd_country ON gcd_country.id=gcd_publisher.country_id 
-WHERE (gcd_country.name="United States" AND gcd_publisher.name="Marvel");
-
-GCD Query for all Marvel series published in the United States starting before 1974
-
-SELECT gcd_series.id, gcd_series.name, gcd_series.sort_name, gcd_series.format, gcd_series.year_began, gcd_series.year_began_uncertain, gcd_series.year_ended, gcd_series.year_ended_uncertain, gcd_series.publication_dates, gcd_series.is_current, gcd_series.publisher_id, gcd_series.country_id, gcd_series.tracking_notes, gcd_series.notes, gcd_series.publication_notes, gcd_series.has_gallery, gcd_series.open_reserve, gcd_series.issue_count, gcd_series.created, gcd_series.modified, gcd_series.reserved, gcd_series.deleted, gcd_series.has_indicia_frequency, gcd_series.has_isbn, gcd_series.has_barcode, gcd_series.has_issue_title, gcd_series.has_volume, gcd_series.is_comics_publication, gcd_series.color,dimensions, gcd_series.paper_stock, gcd_series.binding, gcd_series.publishing_format, gcd_series.has_rating, gcd_series.is_singleton
-FROM gcd.gcd_series  
-LEFT JOIN gcd.gcd_publisher ON gcd_publisher.id=gcd_series.publisher_id 
-LEFT JOIN gcd.gcd_country ON gcd_country.id=gcd_publisher.country_id 
-WHERE (gcd_country.name="United States" AND gcd_publisher.name="Marvel" AND gcd_series.year_began<1974)
-ORDER BY gcd_series.name;
-
-
-GCD Query for all issues of Marvel series published in the United States starting before 1974
-
-SELECT gcd_issue.id, gcd_issue.number, gcd_issue.volume, gcd_issue.no_volume, gcd_issue.display_volume_with_number, gcd_issue.series_id, gcd_issue.indicia_pub_not_printed, gcd_issue.no_brand, gcd_issue.publication_date, gcd_issue.key_date, gcd_issue.sort_code, gcd_issue.price, gcd_issue.page_count, gcd_issue.page_count_uncertain, gcd_issue.indicia_frequency, gcd_issue.no_indicia_frequency, gcd_issue.editing, gcd_issue.no_editing, gcd_issue.notes, gcd_issue.created, gcd_issue.modified, gcd_issue.reserved, gcd_issue.deleted, gcd_issue.is_indexed, gcd_issue.isbn, gcd_issue.valid_isbn, gcd_issue.no_isbn, gcd_issue.variant_of_id, gcd_issue.variant_name, gcd_issue.barcode, gcd_issue.no_barcode, gcd_issue.title, gcd_issue.no_title, gcd_issue.on_sale_date, gcd_issue.on_sale_date_uncertain, gcd_issue.rating, gcd_issue.no_rating
-FROM gcd.gcd_issue 
-LEFT JOIN gcd.gcd_series ON gcd_series.id=gcd_issue.series_id 
-LEFT JOIN gcd.gcd_publisher ON gcd_publisher.id=gcd_series.publisher_id 
-LEFT JOIN gcd.gcd_country ON gcd_country.id=gcd_publisher.country_id 
-WHERE (gcd_country.name="United States" AND gcd_publisher.name="Marvel" AND gcd_series.year_began<1974)
-ORDER BY gcd_series.name;
-
-
-
-Finding the issue ids for Incredible Hulk to change in activity_fact table
-
-SELECT gcd_series.id AS 'series id', gcd_issue.id AS 'issue id', gcd_series.name AS 'series name', gcd_series.year_began AS 'series year began', gcd_issue.number AS 'issue num', gcd_issue.volume AS 'issue vol', gcd_issue.publication_date AS 'issue pub date', gcd_country.name AS 'country', gcd_publisher.name AS 'publisher'
-FROM gcd.gcd_issue 
-LEFT JOIN gcd.gcd_series ON gcd_series.id=gcd_issue.series_id 
-LEFT JOIN gcd.gcd_publisher ON gcd_publisher.id=gcd_series.publisher_id 
-LEFT JOIN gcd.gcd_country ON gcd_country.id=gcd_publisher.country_id 
-WHERE (gcd_country.name="United States" AND gcd_publisher.name="Marvel" AND gcd_series.name LIKE '%The Incredible Hulk%' AND gcd_issue.publication_date="March 1963")
-ORDER BY gcd_series.name;
-
-Finding the issue ids for Amazing Spider-Man to change in activity_fact table
-
-SELECT gcd_series.id AS 'series id', gcd_issue.id AS 'issue id', gcd_series.name AS 'series name', gcd_series.year_began AS 'series year began', gcd_issue.number AS 'issue num', gcd_issue.volume AS 'issue vol', gcd_issue.publication_date AS 'issue pub date', gcd_country.name AS 'country', gcd_publisher.name AS 'publisher'
-FROM gcd.gcd_issue 
-LEFT JOIN gcd.gcd_series ON gcd_series.id=gcd_issue.series_id 
-LEFT JOIN gcd.gcd_publisher ON gcd_publisher.id=gcd_series.publisher_id 
-LEFT JOIN gcd.gcd_country ON gcd_country.id=gcd_publisher.country_id 
-WHERE (gcd_country.name="United States" AND gcd_publisher.name="Marvel" AND gcd_series.name LIKE '%Amazing Spider-Man%' AND gcd_series.year_began<1974)
-ORDER BY gcd_series.name;
 
