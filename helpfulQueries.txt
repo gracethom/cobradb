@@ -57,11 +57,16 @@ ORDER BY gcd_issue.number;
 
 
 
+- - Query to extract data for IVMOOC 2016 application - select everything from the joined tables (then exported as a CSV)
 
-
-
-
-
-
-
+SELECT * 
+FROM gcd_country
+INNER JOIN gcd_publisher ON gcd_publisher.country_id = gcd_country.id
+INNER JOIN gcd_series ON gcd_series.publisher_id = gcd_publisher.id
+INNER JOIN gcd_issue ON gcd_issue.series_id = gcd_series.id
+INNER JOIN activity_fact ON activity_fact.fact_source_gcd = gcd_issue.id
+INNER JOIN person_dim ON activity_fact.fact_person = person_dim.id_person_dim
+INNER JOIN location_dim ON activity_fact.fact_location = location_dim.id_location_dim
+INNER JOIN phys_loc_dim ON activity_fact.fact_phys_loc = phys_loc_dim.id_phys_loc_dim
+INNER JOIN letter_dim ON activity_fact.fact_letter = letter_dim.id_letter_dim
 
