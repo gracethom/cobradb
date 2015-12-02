@@ -44,6 +44,18 @@ JOIN gcd_series ON gcd_series.id=gcd_issue.series_id
 WHERE gcd_series.name LIKE '%Avengers%’;
 
 
+- - Select the person’s surname, forename, and title and their letter record from all Conan letter pages, ordered by issue number
+
+SELECT person_dim.surname, person_dim.forename, person_dim.person_title, letter_dim.id_letter_dim, letter_dim.letter_pg_title, gcd_issue.number, gcd_series.name 
+FROM person_dim
+JOIN activity_fact ON person_dim.id_person_dim=activity_fact.fact_person
+JOIN letter_dim ON letter_dim.id_letter_dim=activity_fact.fact_letter
+JOIN gcd_issue ON gcd_issue.id=activity_fact.fact_source_gcd
+JOIN gcd_series ON gcd_series.id=gcd_issue.series_id
+WHERE gcd_series.name LIKE '%Conan%'
+ORDER BY gcd_issue.number;
+
+
 
 
 
