@@ -70,3 +70,21 @@ INNER JOIN location_dim ON activity_fact.fact_location = location_dim.id_locatio
 INNER JOIN phys_loc_dim ON activity_fact.fact_phys_loc = phys_loc_dim.id_phys_loc_dim
 INNER JOIN letter_dim ON activity_fact.fact_letter = letter_dim.id_letter_dim
 
+
+
+
+
+- - QC to see who to hire back 
+
+- - SARAH
+SELECT gcd_series.name, gcd_issue.number, gcd_issue.publication_date, letter_dim.letter_pg_title, person_dim.id_person_dim, person_dim.forename, person_dim.surname, person_dim.person_title, location_dim.street, location_dim.city, location_dim.state, location_dim.country, location_dim.postal_code, master_audit.created_by  
+FROM gcd_series 
+INNER JOIN gcd_issue ON gcd_issue.series_id=gcd_series.id 
+INNER JOIN activity_fact ON activity_fact.fact_source_gcd=gcd_issue.id
+RIGHT JOIN location_dim ON activity_fact.fact_location=location_dim.id_location_dim
+RIGHT JOIN person_dim ON activity_fact.fact_person=person_dim.id_person_dim
+RIGHT JOIN letter_dim ON activity_fact.fact_letter=letter_dim.id_letter_dim
+INNER JOIN master_audit ON master_audit.record_id=person_dim.id_person_dim
+WHERE master_audit.created_by="Sarah" AND master_audit.table_name="person_dim"
+ORDER BY gcd_series.name, gcd_issue.number;
+
