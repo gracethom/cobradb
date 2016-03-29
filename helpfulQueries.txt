@@ -85,6 +85,6 @@ RIGHT JOIN location_dim ON activity_fact.fact_location=location_dim.id_location_
 RIGHT JOIN person_dim ON activity_fact.fact_person=person_dim.id_person_dim
 RIGHT JOIN letter_dim ON activity_fact.fact_letter=letter_dim.id_letter_dim
 INNER JOIN master_audit ON master_audit.record_id=person_dim.id_person_dim
-WHERE master_audit.created_by="Sarah" AND master_audit.table_name="person_dim"
+WHERE master_audit.created_by="Sarah" AND master_audit.table_name="activity_fact"
 ORDER BY gcd_series.name, gcd_issue.number;
 
