@@ -43,6 +43,15 @@ JOIN gcd_issue ON activity_fact.fact_source_gcd=gcd_issue.id
 JOIN gcd_series ON gcd_series.id=gcd_issue.series_id
 WHERE gcd_series.name LIKE '%Avengers%’;
 
+- - Select the distinct number of issues from Avengers entered so far
+
+SELECT COUNT( DISTINCT fact_source_gcd ) 
+FROM activity_fact
+JOIN gcd_issue ON activity_fact.fact_source_gcd = gcd_issue.id
+JOIN gcd_series ON gcd_series.id = gcd_issue.series_id
+WHERE gcd_series.name LIKE  '%Avengers%';
+
+
 
 - - Select the person’s surname, forename, and title and their letter record from all Conan letter pages, ordered by issue number
 
